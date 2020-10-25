@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Head from 'next/head'
 
 import Header from 'components/layout/Header'
+import Footer from 'components/layout/Footer'
 
 const LayoutContext = createContext(undefined)
 const useLayout = () => {
@@ -49,8 +50,9 @@ const Layout = ({ siteTitle, children }) => {
 			</Head>
 			<LayoutContext.Provider value={{ pageTitle, setPageTitle }}>
 				<StyledLayout>
-					<Header></Header>
+					<Header />
 					<Main>{children}</Main>
+					<Footer />
 				</StyledLayout>
 			</LayoutContext.Provider>
 		</>
