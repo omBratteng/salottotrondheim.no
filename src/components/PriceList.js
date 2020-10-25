@@ -32,10 +32,9 @@ const Wrapper = styled.section`
 		background-color: #fff;
 		color: #000;
 		display: inline-block;
-		font-size: 18px;
+		font-size: 1.5rem;
 		line-height: 1.6;
 		padding: 0 5px;
-		font-size: 1.5rem;
 
 		&.hidden {
 			visibility: hidden;
