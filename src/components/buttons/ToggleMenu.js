@@ -1,6 +1,8 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
+import { useApp } from 'contexts/app'
 
 const Button = styled.button`
 	align-items: center;
@@ -87,6 +89,7 @@ const Bars = styled.div`
 
 const ToggleMenu = ({ defaultOpen, onClick, ...props }) => {
 	const [open, setOpen] = useState(defaultOpen)
+	const { setMenuOpen } = useApp()
 	const handleClick = useCallback(
 		(event) => {
 			setOpen((state) => !state)
@@ -96,6 +99,10 @@ const ToggleMenu = ({ defaultOpen, onClick, ...props }) => {
 		},
 		[onClick],
 	)
+
+	useEffect(() => {
+		setMenuOpen(open)
+	}, [open, setMenuOpen])
 
 	return (
 		<Button {...props} onClick={handleClick}>

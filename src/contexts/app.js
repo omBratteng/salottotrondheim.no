@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
@@ -17,8 +17,10 @@ const useApp = () => {
 }
 
 const AppProvider = ({ children }) => {
+	const [menuOpen, setMenuOpen] = useState(false)
+
 	return (
-		<AppContext.Provider value={{}}>
+		<AppContext.Provider value={{ menuOpen, setMenuOpen }}>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
 				{children}
