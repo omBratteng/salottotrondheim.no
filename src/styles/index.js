@@ -5,8 +5,7 @@ import { createGlobalStyle } from 'styled-components'
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
 
-import { lightTheme } from 'styles/lightTheme'
-import { darkTheme } from 'styles/darkTheme'
+import { theme } from 'styles/theme'
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -79,4 +78,4 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 ${'' /* ${dom.css()} */}
 `
 
-export { GlobalStyle, lightTheme, darkTheme }
+export { GlobalStyle, theme }

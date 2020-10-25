@@ -1,6 +1,6 @@
 import { colors } from 'styles/colors'
 
-export const lightTheme = {
+export const theme = {
 	background: '#fff',
 	font: '#000',
 

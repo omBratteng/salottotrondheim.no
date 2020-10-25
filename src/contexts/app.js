@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
-import { GlobalStyle, lightTheme, darkTheme } from 'styles'
+import { GlobalStyle, theme } from 'styles'
 
 const AppContext = createContext(undefined)
 
@@ -17,19 +17,9 @@ const useApp = () => {
 }
 
 const AppProvider = ({ children }) => {
-	const [themeState, setThemeState] = useState({
-		mode: 'light',
-	})
-
-	const toggleTheme = () => {
-		setThemeState({ mode: themeState.mode === 'light' ? 'dark' : 'light' })
-	}
-
 	return (
-		<AppContext.Provider value={{ themeState, toggleTheme }}>
-			<ThemeProvider
-				theme={themeState.mode === 'light' ? lightTheme : darkTheme}
-			>
+		<AppContext.Provider value={{}}>
+			<ThemeProvider theme={theme}>
 				<GlobalStyle />
 				{children}
 			</ThemeProvider>
