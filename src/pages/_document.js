@@ -13,6 +13,9 @@ const devLinks = [
 			'Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900',
 		),
 	},
+	{
+		href: googleFonts('Rozha+One'),
+	},
 ]
 
 const prodLinks = [
@@ -21,6 +24,9 @@ const prodLinks = [
 	},
 	{
 		href: googleFonts('Roboto:wght@400;700'),
+	},
+	{
+		href: googleFonts('Rozha+One'),
 	},
 ]
 const globalLinks = []
