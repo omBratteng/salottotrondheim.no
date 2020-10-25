@@ -7,6 +7,9 @@ import Head from 'next/head'
 
 import Header from 'components/layout/Header'
 import Footer from 'components/layout/Footer'
+import BookingFrame from 'components/BookingFrame'
+
+import { useApp } from 'contexts/app'
 
 const LayoutContext = createContext(undefined)
 const useLayout = () => {
@@ -36,6 +39,8 @@ const Layout = ({ siteTitle, children }) => {
 	const [pageTitle, setPageTitle] = useState(undefined)
 	const [title, setTitle] = useState(siteTitle)
 
+	const { modalOpen } = useApp()
+
 	useEffect(() => {
 		setTitle(pageTitle ? `${siteTitle} – ${pageTitle}` : siteTitle)
 	}, [pageTitle, siteTitle])
@@ -50,6 +55,7 @@ const Layout = ({ siteTitle, children }) => {
 					<Header />
 					<Main>{children}</Main>
 					<Footer />
+					{modalOpen && <BookingFrame />}
 				</StyledLayout>
 			</LayoutContext.Provider>
 		</>

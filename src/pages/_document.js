@@ -72,6 +72,7 @@ class Doc extends Document {
 				</Head>
 				<body>
 					<Main />
+					<div id="booking" />
 					<NextScript />
 				</body>
 			</Html>

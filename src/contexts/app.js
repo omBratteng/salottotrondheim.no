@@ -18,9 +18,12 @@ const useApp = () => {
 
 const AppProvider = ({ children }) => {
 	const [menuOpen, setMenuOpen] = useState(false)
+	const [modalOpen, setModalOpen] = useState(false)
 
 	return (
-		<AppContext.Provider value={{ menuOpen, setMenuOpen }}>
+		<AppContext.Provider
+			value={{ menuOpen, setMenuOpen, modalOpen, setModalOpen }}
+		>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
 				{children}

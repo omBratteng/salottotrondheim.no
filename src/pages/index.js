@@ -5,6 +5,7 @@ import Slider from 'components/layout/Slider'
 import PriceList from 'components/PriceList'
 
 import { useLayout } from 'components/layout/Layout'
+import Book from 'components/buttons/Book'
 
 const Wrapper = styled.section`
 	grid-column: 2;
@@ -40,6 +41,9 @@ const Index = () => {
 				<h3>Alle behandlinger kommer med et hygienetillegg på 72kr</h3>
 			</Wrapper>
 			<PriceList />
+			<Wrapper>
+				<Book />
+			</Wrapper>
 		</>
 	)
 }

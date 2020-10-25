@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.section`
 	grid-column: 2;
+	padding-bottom: 4rem;
 
 	@media (min-width: 768px) {
 		column-count: 2;
