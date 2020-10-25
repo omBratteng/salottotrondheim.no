@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyle, theme } from 'styles'
+import BookingFrame from 'components/BookingFrame'
 
 const AppContext = createContext(undefined)
 
@@ -27,6 +28,7 @@ const AppProvider = ({ children }) => {
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
 				{children}
+				{modalOpen && <BookingFrame />}
 			</ThemeProvider>
 		</AppContext.Provider>
 	)
