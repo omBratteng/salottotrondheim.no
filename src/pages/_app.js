@@ -30,9 +30,22 @@ const App = ({ Component, pageProps }) => {
 				/>
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
+				<link rel="icon" type="image/png" href="/favicon.png" />
+
+				<meta property="og:title" content="Salotto" />
+				<meta
+					property="og:description"
+					content="GI HODET EN AVKOBLING."
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:url"
+					content="https://salottotrondheim.no/"
+				/>
+				<meta property="og:image" content="/assets/img/og.jpg" />
 			</Head>
 			<AppProvider>
-				<Layout siteTitle="Borettslag.app">
+				<Layout siteTitle="Salotto">
 					<Component {...pageProps} />
 				</Layout>
 			</AppProvider>
