@@ -10,7 +10,7 @@ import { theme } from 'styles/theme'
 const GlobalStyle = createGlobalStyle`
 :root {
 	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
+	font-family: sans-serif;
 	font-size: 1rem;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;

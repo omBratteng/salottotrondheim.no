@@ -7,29 +7,25 @@ import { parse as URLParse } from 'url'
 const googleFonts = (fonts) =>
 	`https://fonts.googleapis.com/css2?family=${fonts}&display=swap`
 
-const devLinks = [
-	{
-		href: googleFonts(
-			'Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900',
-		),
-	},
-	{
-		href: googleFonts('Rozha+One'),
-	},
-]
+const devLinks = []
 
 const prodLinks = [
 	{
 		href: 'https://cdn.bratteng.sh',
 	},
+]
+const globalLinks = [
 	{
-		href: googleFonts('Roboto:wght@400;700'),
+		href: 'https://use.typekit.net/qyu1pry.js',
+		as: 'script',
+		type: 'script',
 	},
 	{
 		href: googleFonts('Rozha+One'),
+		as: 'style',
+		type: 'stylesheet',
 	},
 ]
-const globalLinks = []
 
 const isDev = process.env.NODE_ENV === 'development'
 const links = [...(isDev ? devLinks : prodLinks), ...globalLinks]
@@ -70,6 +66,11 @@ class Doc extends Document {
 			<Html lang="no">
 				<Head>
 					<PreloadStyles links={links} />
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `try{Typekit.load({ async: true });}catch(e){console.log(e)}`,
+						}}
+					/>
 				</Head>
 				<body>
 					<Main />
@@ -89,27 +90,37 @@ const PreloadStyles = ({ links }) => {
 	let preconnect = new Set()
 	let preload = new Set()
 	let stylesheet = new Set()
+	let scripts = new Set()
 	links.map((linkProps) => {
 		let url = new URLParse(linkProps.href)
+		let as = linkProps?.as
+		let rel = linkProps?.rel
+
 		preconnect.add(`${url.protocol}//${url.host}`)
 
 		if (url.pathname !== '/') {
 			preload.add(
 				<link
 					rel="preload"
-					as="style"
-					{...linkProps}
+					as={as}
+					href={linkProps.href}
 					crossOrigin="anonymous"
 				/>,
 			)
-			stylesheet.add(
-				<link
-					rel="stylesheet"
-					{...linkProps}
-					crossOrigin="anonymous"
-					async
-				/>,
-			)
+
+			as === 'style'
+				? stylesheet.add(
+						<link
+							rel={rel}
+							{...linkProps}
+							crossOrigin="anonymous"
+							async
+						/>,
+				  )
+				: scripts.add(
+						// eslint-disable-next-line @next/next/no-sync-scripts
+						<script src={linkProps.href} crossOrigin="anonymous" />,
+				  )
 		}
 	})
 
@@ -117,6 +128,7 @@ const PreloadStyles = ({ links }) => {
 		<PreConnect hrefs={[...preconnect]} key="0" />,
 		...preload,
 		...stylesheet,
+		...scripts,
 	]
 }
 
