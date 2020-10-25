@@ -1,0 +1,49 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@next/eslint-plugin-next/recommended",
+		"plugin:prettier/recommended"
+    ],
+    "parser": "babel-eslint",
+    "globals": {
+		"global": true
+	},
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+		"prettier",
+		"react-hooks",
+		"@next/eslint-plugin-next"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+	},
+	"ignorePatterns": [
+		"build/",
+		"**/*.min.*"
+	],
+    "rules": {
+        "prettier/prettier": ["error", {
+            "semi": false,
+            "singleQuote": true,
+            "tabWidth": 4,
+            "trailingComma": "all",
+            "useTabs": true
+		}],
+		"react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
+    }
+}
