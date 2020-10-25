@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -15,6 +15,7 @@ const Button = styled.button`
 	justify-content: center;
 	padding: 0;
 	width: var(--header-height);
+	z-index: 100;
 `
 
 const Bars = styled.div`
@@ -30,6 +31,7 @@ const Bars = styled.div`
 		height: 4px;
 		position: absolute;
 		transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6),
+			background 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6),
 			width 0.2s ease 0.2s;
 	}
 
@@ -64,6 +66,10 @@ const Bars = styled.div`
 	}
 
 	&[aria-expanded='true'] {
+		> div {
+			background: ${(props) => props.theme.colors.white};
+		}
+
 		> div:nth-child(1),
 		> div:nth-child(2),
 		> div:nth-child(3) {
@@ -87,26 +93,21 @@ const Bars = styled.div`
 	}
 `
 
-const ToggleMenu = ({ defaultOpen, onClick, ...props }) => {
-	const [open, setOpen] = useState(defaultOpen)
-	const { setMenuOpen } = useApp()
+const ToggleMenu = ({ onClick, ...props }) => {
+	const { menuOpen, setMenuOpen } = useApp()
 	const handleClick = useCallback(
 		(event) => {
-			setOpen((state) => !state)
+			setMenuOpen((prevState) => !prevState)
 
 			event.persist()
 			onClick(event)
 		},
-		[onClick],
+		[onClick, setMenuOpen],
 	)
-
-	useEffect(() => {
-		setMenuOpen(open)
-	}, [open, setMenuOpen])
 
 	return (
 		<Button {...props} onClick={handleClick}>
-			<Bars aria-expanded={open}>
+			<Bars aria-expanded={menuOpen}>
 				<div />
 				<div />
 				<div />
@@ -116,12 +117,10 @@ const ToggleMenu = ({ defaultOpen, onClick, ...props }) => {
 }
 
 ToggleMenu.propTypes = {
-	defaultOpen: PropTypes.bool,
 	onClick: PropTypes.func,
 }
 
 ToggleMenu.defaultProps = {
-	defaultOpen: false,
 	onClick: () => {},
 }
 
