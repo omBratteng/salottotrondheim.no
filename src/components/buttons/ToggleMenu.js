@@ -66,6 +66,8 @@ const Bars = styled.div`
 	}
 
 	&[aria-expanded='true'] {
+		position: fixed;
+
 		> div {
 			background: ${(props) => props.theme.colors.white};
 		}

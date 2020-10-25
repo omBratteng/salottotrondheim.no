@@ -5,12 +5,13 @@ import { useApp } from 'contexts/app'
 import ClientOnlyPortal from './tools/ClientOnlyPortal'
 
 const Backdrop = styled.div`
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.97);
 	bottom: 0;
 	left: 0;
 	position: fixed;
 	right: 0;
 	top: 0;
+	z-index: 101;
 `
 
 const Modal = styled.div`
