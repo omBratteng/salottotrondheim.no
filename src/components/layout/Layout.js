@@ -26,13 +26,9 @@ const StyledLayout = styled.div`
 `
 
 const Main = styled.main`
-	display: flex;
+	display: grid;
 	flex: 1;
-	flex-direction: column;
-
-	@media (min-width: 900px) {
-		flex-direction: row;
-	}
+	grid-template-columns: 1fr min(920px, 100%) 1fr;
 `
 
 const Layout = ({ siteTitle, children }) => {

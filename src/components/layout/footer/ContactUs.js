@@ -5,7 +5,13 @@ import SoMeLink from 'components/buttons/SoMeLink'
 
 const Wrapper = styled.section`
 	display: flex;
+	flex-direction: column;
 	grid-column: 2;
+	margin-bottom: 3rem;
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+	}
 `
 
 const Section = styled.div`

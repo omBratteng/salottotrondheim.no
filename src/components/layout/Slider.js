@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.section`
 	background-color: ${(props) => props.theme.colors.blue};
+	grid-column: 1 / 4;
 	height: 35rem;
 	width: 100%;
 `
