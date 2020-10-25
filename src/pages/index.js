@@ -1,13 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const H1 = styled.h1`
-	color: red;
-	font-size: 1.5rem;
-`
+import Slider from 'components/layout/Slider'
 
 const Index = () => {
-	return <H1>Hello world!</H1>
+	return <Slider />
 }
 
 export default Index
