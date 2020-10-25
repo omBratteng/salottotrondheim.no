@@ -34,6 +34,7 @@
 		"@fortawesome/react-fontawesome": "^0.1.11",
 		"@svgr/webpack": "^5.4.0",
 		"core-js": "^3.6.5",
+		"google-map-react": "^2.1.8",
 		"next": "^9.5.6-canary.14",
 		"polished": "^4.0.3",
 		"prop-types": "^15.7.2",

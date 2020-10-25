@@ -5,6 +5,7 @@ import SoMeLink from 'components/buttons/SoMeLink'
 
 const Wrapper = styled.section`
 	display: flex;
+	grid-column: 2;
 `
 
 const Section = styled.div`
