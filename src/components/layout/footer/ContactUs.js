@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SoMeLink from 'components/buttons/SoMeLink'
+import SoMeLinks from 'components/SoMeLinks'
 import { scrollToBottom } from 'scrollTo'
 
 const Wrapper = styled.section`
@@ -26,10 +26,6 @@ const Section = styled.div`
 		text-transform: uppercase;
 		width: 100%;
 	}
-`
-
-const SoMeLinks = styled.div`
-	text-align: center;
 `
 
 const Table = styled.table`
@@ -99,19 +95,7 @@ const ContactUs = () => {
 			<Section>
 				<h3>Følg oss</h3>
 
-				<SoMeLinks>
-					<SoMeLink
-						href="https://www.facebook.com/salottotrondheim.no/"
-						alt="Salotto på Facebook"
-						icon="facebook-f"
-					/>
-
-					<SoMeLink
-						href="https://www.instagram.com/salottotrondheim/"
-						alt="Salotto på Instagram"
-						icon="instagram"
-					/>
-				</SoMeLinks>
+				<SoMeLinks />
 			</Section>
 		</Wrapper>
 	)
