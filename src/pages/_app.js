@@ -6,9 +6,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 // import { fad } from '@fortawesome/pro-duotone-svg-icons'
 // import { fal } from '@fortawesome/pro-light-svg-icons'
-// import { fas } from '@fortawesome/pro-solid-svg-icons'
-import { far } from '@fortawesome/pro-regular-svg-icons'
-library.add(far)
+import { faBars } from '@fortawesome/pro-solid-svg-icons'
+// import { far } from '@fortawesome/pro-regular-svg-icons'
+library.add(faBars)
 
 // Next.js
 import Head from 'next/head'

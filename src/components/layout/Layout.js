@@ -5,6 +5,8 @@ import styled from 'styled-components'
 // Next.js
 import Head from 'next/head'
 
+import Header from 'components/layout/Header'
+
 const LayoutContext = createContext(undefined)
 const useLayout = () => {
 	const context = useContext(LayoutContext)
@@ -47,6 +49,7 @@ const Layout = ({ siteTitle, children }) => {
 			</Head>
 			<LayoutContext.Provider value={{ pageTitle, setPageTitle }}>
 				<StyledLayout>
+					<Header></Header>
 					<Main>{children}</Main>
 				</StyledLayout>
 			</LayoutContext.Provider>
