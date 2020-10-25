@@ -37,7 +37,7 @@ const Layout = ({ siteTitle, children }) => {
 	const [title, setTitle] = useState(siteTitle)
 
 	useEffect(() => {
-		setTitle(pageTitle ? `${pageTitle} – ${siteTitle}` : siteTitle)
+		setTitle(pageTitle ? `${siteTitle} – ${pageTitle}` : siteTitle)
 	}, [pageTitle, siteTitle])
 
 	return (
