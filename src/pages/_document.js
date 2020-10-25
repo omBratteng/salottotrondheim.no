@@ -18,12 +18,10 @@ const globalLinks = [
 	{
 		href: 'https://use.typekit.net/qyu1pry.js',
 		as: 'script',
-		type: 'script',
 	},
 	{
 		href: googleFonts('Rozha+One'),
 		as: 'style',
-		type: 'stylesheet',
 	},
 ]
 
@@ -94,7 +92,6 @@ const PreloadStyles = ({ links }) => {
 	links.map((linkProps) => {
 		let url = new URLParse(linkProps.href)
 		let as = linkProps?.as
-		let rel = linkProps?.rel
 
 		preconnect.add(`${url.protocol}//${url.host}`)
 
@@ -111,10 +108,9 @@ const PreloadStyles = ({ links }) => {
 			as === 'style'
 				? stylesheet.add(
 						<link
-							rel={rel}
-							{...linkProps}
+							rel="stylesheet"
+							href={linkProps.href}
 							crossOrigin="anonymous"
-							async
 						/>,
 				  )
 				: scripts.add(
