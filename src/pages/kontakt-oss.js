@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import { scrollToBottom } from 'scrollTo'
+import { useLayout } from 'components/layout/Layout'
 
 const Wrapper = styled.section`
 	grid-column: 2;
@@ -32,6 +33,12 @@ const Wrapper = styled.section`
 `
 
 const Index = () => {
+	const { setPageTitle } = useLayout()
+
+	useEffect(() => {
+		setPageTitle('kontakt oss')
+	})
+
 	return (
 		<>
 			<Wrapper>
