@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import SoMeLink from 'components/buttons/SoMeLink'
+import { scrollToBottom } from 'scrollTo'
 
 const Wrapper = styled.section`
 	display: flex;
@@ -65,7 +66,7 @@ const ContactUs = () => {
 						<tr>
 							<td>besøk</td>
 							<td>
-								<a href="#map" className="js-scroll-to-bottom">
+								<a href="#" onClick={scrollToBottom}>
 									dronningens gt. 26, 7011 trondheim
 								</a>
 							</td>

@@ -46,6 +46,10 @@ body {
 	}
 }
 
+a {
+	color: ${(props) => props.theme.font};
+}
+
 svg:not(:root).svg-inline--fa{overflow:visible;}
 .svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-0.125em;}
 .svg-inline--fa.fa-lg{vertical-align:-0.225em;}

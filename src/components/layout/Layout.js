@@ -29,6 +29,7 @@ const Main = styled.main`
 	display: grid;
 	flex: 1;
 	grid-template-columns: 1fr min(920px, 100%) 1fr;
+	padding-bottom: 4rem;
 `
 
 const Layout = ({ siteTitle, children }) => {
