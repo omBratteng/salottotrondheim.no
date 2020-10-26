@@ -23,7 +23,7 @@ import Layout from 'components/layout/Layout'
 
 const PAGE_URL = 'https://salottotrondheim.no/'
 const PAGE_DESC = 'Gi hodet en avkobling.'
-const OG_IMAGE = PAGE_URL + '/assets/img/og.jpg'
+const OG_IMAGE = PAGE_URL + 'assets/img/og.jpg'
 
 const App = ({ Component, pageProps }) => {
 	return (
