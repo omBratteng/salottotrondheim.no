@@ -23,6 +23,7 @@ import Layout from 'components/layout/Layout'
 const PAGE_URL = 'https://salottotrondheim.no/'
 const PAGE_DESC = 'Gi hodet en avkobling.'
 const OG_IMAGE = PAGE_URL + 'assets/img/og.jpg'
+const OG_ALT = 'En mann iført dress og sløyfe som holder en iskrem'
 
 const App = ({ Component, pageProps }) => {
 	return (
@@ -70,12 +71,14 @@ const App = ({ Component, pageProps }) => {
 				<meta property="og:url" content={PAGE_URL} />
 				<meta property="og:description" content={PAGE_DESC} />
 				<meta property="og:image" content={OG_IMAGE} />
+				<meta property="og:image:alt" content={OG_ALT} />
 
 				{/* Twitter */}
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta property="twitter:url" content={PAGE_URL} />
 				<meta property="twitter:description" content={PAGE_DESC} />
 				<meta property="twitter:image" content={OG_IMAGE} />
+				<meta property="twitter:image:alt" content={OG_ALT} />
 			</Head>
 			<AppProvider>
 				<Layout siteTitle="Salotto">
