@@ -11,7 +11,7 @@ const devLinks = []
 
 const prodLinks = [
 	{
-		href: 'https://cdn.bratteng.sh',
+		href: 'https://cdn.salottotrondheim.no',
 	},
 ]
 const globalLinks = [
