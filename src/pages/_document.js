@@ -3,8 +3,20 @@ import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import process from 'process'
 import { parse as URLParse } from 'url'
 
-const googleFonts = (fonts) =>
-	`https://fonts.googleapis.com/css2?family=${fonts}&display=swap`
+const googleFonts = (fonts, text = false) => {
+	let url = `https://fonts.googleapis.com/css2?family=${fonts}&display=swap`
+	if (text) {
+		text = text
+			.split('')
+			.filter(function (item, pos, self) {
+				return self.indexOf(item) == pos
+			})
+			.join('')
+		url += `&text=${encodeURIComponent(text)}`
+	}
+
+	return url
+}
 
 const devLinks = []
 
@@ -19,7 +31,7 @@ const globalLinks = [
 		as: 'script',
 	},
 	{
-		href: googleFonts('Rozha+One'),
+		href: googleFonts('Rozha+One', 'bestill time'),
 		as: 'style',
 	},
 ]
