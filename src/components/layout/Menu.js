@@ -63,6 +63,7 @@ const Menu = () => {
 	return (
 		<Wrapper>
 			<Nav>
+				<NavLink href="/" title="forsiden" />
 				<NavLink href="/om-oss" title="om oss" />
 				<NavLink href="/kontakt-oss" title="kontakt oss" />
 			</Nav>
