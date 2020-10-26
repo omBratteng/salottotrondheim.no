@@ -11,7 +11,8 @@
     ],
     "parser": "babel-eslint",
     "globals": {
-		"global": true
+		"global": true,
+		"ga": true
 	},
     "parserOptions": {
         "ecmaFeatures": {

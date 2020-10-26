@@ -25,6 +25,17 @@ const PAGE_DESC = 'Gi hodet en avkobling.'
 const OG_IMAGE = PAGE_URL + 'assets/img/og.jpg'
 const OG_ALT = 'En mann iført dress og sløyfe som holder en iskrem'
 
+export const reportWebVitals = ({ id, name, label, value }) => {
+	ga('send', 'event', {
+		eventCategory:
+			label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+		eventAction: name,
+		eventValue: Math.round(name === 'CLS' ? value * 1000 : value),
+		eventLabel: id,
+		nonInteraction: true,
+	})
+}
+
 const App = ({ Component, pageProps }) => {
 	return (
 		<>
