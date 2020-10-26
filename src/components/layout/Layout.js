@@ -44,6 +44,9 @@ const Layout = ({ siteTitle, children }) => {
 		<>
 			<Head>
 				<title>{title}</title>
+				<meta name="title" content={siteTitle} />
+				<meta property="og:title" content={siteTitle} />
+				<meta property="twitter:title" content={siteTitle} />
 			</Head>
 			<LayoutContext.Provider value={{ pageTitle, setPageTitle }}>
 				<StyledLayout>

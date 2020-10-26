@@ -21,6 +21,10 @@ import AppProvider from 'contexts/app'
 // Components
 import Layout from 'components/layout/Layout'
 
+const PAGE_URL = 'https://salottotrondheim.no/'
+const PAGE_DESC = 'Gi hodet en avkobling.'
+const OG_IMAGE = PAGE_URL + '/assets/img/og.jpg'
+
 const App = ({ Component, pageProps }) => {
 	return (
 		<>
@@ -59,17 +63,20 @@ const App = ({ Component, pageProps }) => {
 				<meta name="msapplication-TileColor" content="#231f20" />
 				<meta name="theme-color" content="#231f20" />
 
-				<meta property="og:title" content="Salotto" />
-				<meta
-					property="og:description"
-					content="GI HODET EN AVKOBLING."
-				/>
+				{/* Primary Meta Tags */}
+				<meta name="description" content={PAGE_DESC} />
+
+				{/* Open Graph / Facebook */}
 				<meta property="og:type" content="website" />
-				<meta
-					property="og:url"
-					content="https://salottotrondheim.no/"
-				/>
-				<meta property="og:image" content="/assets/img/og.jpg" />
+				<meta property="og:url" content={PAGE_URL} />
+				<meta property="og:description" content={PAGE_DESC} />
+				<meta property="og:image" content={OG_IMAGE} />
+
+				{/* Twitter */}
+				<meta property="twitter:card" content="summary_large_image" />
+				<meta property="twitter:url" content={PAGE_URL} />
+				<meta property="twitter:description" content={PAGE_DESC} />
+				<meta property="twitter:image" content={OG_IMAGE} />
 			</Head>
 			<AppProvider>
 				<Layout siteTitle="Salotto">
