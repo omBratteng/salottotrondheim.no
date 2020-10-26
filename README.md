@@ -1,1 +1,1 @@
-# Default project
+# Salotto Trondheim's website

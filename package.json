@@ -1,11 +1,12 @@
 {
-	"name": "@bratteng/default-project",
+	"name": "@bratteng/salottotrondheim.no",
 	"version": "1.0.0",
-	"description": "My starting point for projects",
+	"description": "Salotto Trondheim's website",
 	"private": true,
+	"homepage": "https://salottotrondheim.no",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:bratteng/default-project.git"
+		"url": "git@github.com:bratteng/salottotrondheim.no.git"
 	},
 	"author": {
 		"name": "Ole-Martin Bratteng",
@@ -14,7 +15,7 @@
 	},
 	"license": "BSD-3-Clause",
 	"bugs": {
-		"url": "https://github.com/bratteng/default-project/issues"
+		"url": "https://github.com/bratteng/salottotrondheim.no/issues"
 	},
 	"scripts": {
 		"dev": "next dev",
