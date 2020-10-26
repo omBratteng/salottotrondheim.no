@@ -21,7 +21,7 @@ const Footer = () => {
 			<Copyright>
 				<p>
 					&copy; 2020 Salotto |{' '}
-					<Link href="/personvernerklaering">
+					<Link href="/personvernerklaering" prefetch={false}>
 						Personvernerklæring
 					</Link>
 				</p>
