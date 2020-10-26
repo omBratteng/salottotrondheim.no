@@ -41,7 +41,7 @@ const Index = () => {
 				<h3>Alle behandlinger kommer med et hygienetillegg på 72kr</h3>
 			</Wrapper>
 			<PriceList />
-			<Wrapper>
+			<Wrapper style={{ textAlign: 'center' }}>
 				<Book />
 			</Wrapper>
 		</>
