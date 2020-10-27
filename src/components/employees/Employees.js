@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import Image from 'next/image'
+
 import list from 'components/employees/list'
 
 const Name = styled.h1`
@@ -32,6 +34,7 @@ const Img = styled.img`
 const Employee = styled.div`
 	display: flex;
 	flex-direction: column;
+	overflow-x: auto;
 
 	&:nth-of-type(even) {
 		${Name} {
@@ -50,18 +53,18 @@ const Employee = styled.div`
 const Employees = () => {
 	return (
 		<Wrapper>
-			{list.map((employee, index) => {
-				return (
-					<Employee key={`employee-${index}`}>
-						<Name>{employee.name}</Name>
-						<Description>{employee.description}</Description>
-						<Img
-							src={`/assets/employees/${employee.image}`}
-							alt={employee.name}
-						/>
-					</Employee>
-				)
-			})}
+			{list.map(({ name, description, image }, index) => (
+				<Employee key={`employee-${index}`}>
+					<Name>{name}</Name>
+					<Description>{description}</Description>
+					<Image
+						src={`/assets/employees/${image}`}
+						alt={name}
+						width="444"
+						height="650"
+					/>
+				</Employee>
+			))}
 		</Wrapper>
 	)
 }
