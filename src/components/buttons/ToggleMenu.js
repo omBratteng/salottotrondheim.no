@@ -108,7 +108,11 @@ const ToggleMenu = ({ onClick, ...props }) => {
 	)
 
 	return (
-		<Button {...props} onClick={handleClick}>
+		<Button
+			{...props}
+			onClick={handleClick}
+			aria-label={`${!menuOpen ? 'åpne' : 'lukk'} sidenavigasjon`}
+		>
 			<Bars aria-expanded={menuOpen}>
 				<div />
 				<div />
