@@ -2,14 +2,13 @@ import { useEffect } from 'react'
 import styled from 'styled-components'
 
 import { useLayout } from 'components/layout/Layout'
+import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
 
 import { Evo, Ghd, Tigi, Gold, Olaplex } from 'assets/products'
 
-const Section = styled.section`
-	grid-column: 2;
+const Section = styled(SCSection)`
 	margin-bottom: 4rem;
-	padding: 0 1.5rem;
 
 	&:last-child {
 		margin-bottom: 0;
@@ -43,14 +42,6 @@ const Section = styled.section`
 	}
 `
 
-const Narrow = styled(Section)`
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 73ch;
-	padding-bottom: 2.5rem;
-`
-
 const Products = styled.div`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -69,7 +60,7 @@ const Page = () => {
 
 	return (
 		<>
-			<Narrow>
+			<Section type="narrow" border={true}>
 				<h1>om oss</h1>
 
 				<em>[salåttå] er italiensk for salong</em>
@@ -92,7 +83,7 @@ const Page = () => {
 					<br />
 					Stikk innom, slå av en prat og bestill din behandling!
 				</p>
-			</Narrow>
+			</Section>
 
 			<Employees />
 

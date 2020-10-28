@@ -10,9 +10,7 @@ import {
 import 'pure-react-carousel/dist/react-carousel.es.css'
 import Book from 'components/buttons/Book'
 
-const Wrapper = styled.section`
-	grid-column: 1 / 4;
-`
+import { Section } from 'components/layout/section'
 
 const Carousel = styled(CarouselProvider)`
 	position: relative;
@@ -127,7 +125,7 @@ const LayoutSlider = () => {
 		return dots
 	}
 	return (
-		<Wrapper>
+		<Section type="wide">
 			<Carousel
 				naturalSlideWidth={1600}
 				naturalSlideHeight={560}
@@ -161,7 +159,7 @@ const LayoutSlider = () => {
 				</Slider>
 				<DotGroup renderDots={renderDots} />
 			</Carousel>
-		</Wrapper>
+		</Section>
 	)
 }
 

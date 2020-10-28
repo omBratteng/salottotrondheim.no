@@ -3,24 +3,18 @@ import styled from 'styled-components'
 import Image from 'next/image'
 
 import list from 'components/employees/list'
+import { Section } from 'components/layout/section'
 
 const Name = styled.h1`
 	font-size: 2.25rem;
 	margin-bottom: 0.83em;
 `
 
-const Wrapper = styled.section`
+const Wrapper = styled(Section)`
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	display: grid;
-	grid-column: 2;
 	grid-column-gap: 2rem;
 	grid-template-columns: 1fr;
-	padding: 0 1.5rem 2.5rem;
-
-	@media (max-width: 767px) {
-		margin: 0 auto;
-		max-width: 70ch;
-	}
 
 	@media (min-width: 768px) {
 		grid-template-columns: 1fr 1fr;
@@ -46,6 +40,10 @@ const Employee = styled.div`
 	${Name},
 	${Description} {
 		width: 100%;
+	}
+
+	&:last-child {
+		border-bottom: 0;
 	}
 
 	@media (min-width: 768px) {

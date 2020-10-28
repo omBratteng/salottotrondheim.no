@@ -7,14 +7,14 @@ import SoMeLinks from 'components/SoMeLinks'
 import Book from 'components/buttons/Book'
 import { useApp } from 'contexts/app'
 
-const Wrapper = styled.div`
+import { Section } from 'components/layout/section'
+
+const Wrapper = styled(Section)`
 	color: ${(props) => props.theme.colors.white};
 	display: grid;
-	grid-column: 2;
 	grid-row-gap: 4rem;
 	grid-template-columns: 1fr;
-	margin: auto 0;
-	padding: 0 1.5rem;
+	margin: auto;
 
 	@media (min-width: 768px) {
 		grid-template-columns: 1fr 1fr;

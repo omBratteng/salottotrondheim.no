@@ -3,9 +3,10 @@ import styled from 'styled-components'
 
 import { scrollToBottom } from 'scrollTo'
 import { useLayout } from 'components/layout/Layout'
+import { Section as SCSection } from 'components/layout/section'
 
-const Wrapper = styled.section`
-	grid-column: 2;
+const Section = styled(SCSection)`
+	text-align: center;
 
 	h1 {
 		font-size: 2.5rem;
@@ -24,12 +25,6 @@ const Wrapper = styled.section`
 			margin-bottom: 0;
 		}
 	}
-
-	h1,
-	h4,
-	p {
-		text-align: center;
-	}
 `
 
 const Index = () => {
@@ -40,25 +35,23 @@ const Index = () => {
 	})
 
 	return (
-		<>
-			<Wrapper>
-				<h1>kontakt oss</h1>
-				<h4>
-					<a href="mailto:ciao@salottotrondheim.no">
-						ciao@salottotrondheim.no
-					</a>
-				</h4>
-				<p>
-					<a href="tel:+4773505051">+47 73 50 50 51</a>
-				</p>
+		<Section>
+			<h1>kontakt oss</h1>
+			<h4>
+				<a href="mailto:ciao@salottotrondheim.no">
+					ciao@salottotrondheim.no
+				</a>
+			</h4>
+			<p>
+				<a href="tel:+4773505051">+47 73 50 50 51</a>
+			</p>
 
-				<p>
-					<a href="#" onClick={scrollToBottom}>
-						Besøk oss ↓
-					</a>
-				</p>
-			</Wrapper>
-		</>
+			<p>
+				<a href="#" onClick={scrollToBottom}>
+					Besøk oss ↓
+				</a>
+			</p>
+		</Section>
 	)
 }
 

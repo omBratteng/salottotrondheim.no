@@ -5,11 +5,10 @@ import Slider from 'components/layout/Slider'
 import PriceList from 'components/PriceList'
 
 import { useLayout } from 'components/layout/Layout'
+import { Section } from 'components/layout/section'
 import Book from 'components/buttons/Book'
 
-const Wrapper = styled.section`
-	grid-column: 2;
-
+const Wrapper = styled(Section)`
 	h2 {
 		font-size: 2.25rem;
 		margin-top: 0.83em;
