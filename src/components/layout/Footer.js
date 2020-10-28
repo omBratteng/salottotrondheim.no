@@ -27,7 +27,7 @@ const Footer = () => {
 			<Maps />
 			<Copyright>
 				<p>
-					&copy; 2020 Salotto |{' '}
+					&copy; {new Date().getFullYear()} Salotto |{' '}
 					<Link href="/personvernerklaering" prefetch={false}>
 						Personvernerklæring
 					</Link>
