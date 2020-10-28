@@ -5,7 +5,7 @@ RUN CGO_ENABLED=0 go build -ldflags '-w -s -extldflags "-static"' -o /healthchec
 
 # -- BASE STAGE --------------------------------
 
-FROM node:14-alpine AS base
+FROM node:lts-slim AS base
 
 ARG NPM_TOKEN
 ARG FONTAWESOME_TOKEN
