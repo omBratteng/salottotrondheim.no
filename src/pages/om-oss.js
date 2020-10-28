@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { useLayout } from 'components/layout/Layout'
 import Employees from 'components/employees/Employees'
 
+import { Evo, Ghd, Tigi, Gold, Olaplex } from 'assets/products'
+
 const Section = styled.section`
 	grid-column: 2;
 	margin-bottom: 4rem;
@@ -63,8 +65,6 @@ const Products = styled.div`
 const Page = () => {
 	const { setPageTitle } = useLayout()
 
-	const PRODUCTS = ['tigi', 'evo', 'ghd', 'gold', 'olaplex']
-
 	useEffect(() => {
 		setPageTitle('om oss')
 	})
@@ -104,14 +104,11 @@ const Page = () => {
 				<h3>hos oss finner du disse produktene:</h3>
 
 				<Products>
-					{PRODUCTS.map((product, key) => {
-						return (
-							<img
-								src={`/assets/products/${product}.png`}
-								key={`product-${key}`}
-							/>
-						)
-					})}
+					<Tigi />
+					<Evo />
+					<Ghd />
+					<Gold />
+					<Olaplex />
 				</Products>
 			</Section>
 		</>
