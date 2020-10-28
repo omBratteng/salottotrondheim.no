@@ -5,7 +5,8 @@ const willBleed = (type) => type === 'wide' || type === 'pseudo'
 
 const Section = styled.section`
 	grid-column: ${({ type }) => (willBleed(type) ? '1 / -1' : '2')};
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	padding: ${({ type }) => (willBleed(type) ? '0' : '0 1.5rem')};
 	width: 100%;
 
