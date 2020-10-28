@@ -39,6 +39,12 @@ const Table = styled.table`
 		&:hover {
 			background-color: #111;
 		}
+
+		&.timeTable span {
+			@media (max-width: 374px) {
+				display: none;
+			}
+		}
 	}
 
 	td {
@@ -81,12 +87,19 @@ const ContactUs = () => {
 								</a>
 							</td>
 						</tr>
-						<tr>
+						<tr className="timeTable">
 							<td>åpent</td>
 							<td>
-								<p>mandag - fredag 10:00 - 18:00</p>
-								<p>torsdag 10:00 - 19:00</p>
-								<p>lørdag 10:00 - 16:00</p>
+								<p>
+									man<span>dag</span> - fre<span>dag</span>{' '}
+									10:00 - 18:00
+								</p>
+								<p>
+									tors<span>dag</span> 10:00 - 19:00
+								</p>
+								<p>
+									lør<span>dag</span> 10:00 - 16:00
+								</p>
 							</td>
 						</tr>
 					</tbody>
