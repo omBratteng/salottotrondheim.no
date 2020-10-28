@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
+import { Section } from 'components/layout/section'
 import SoMeLinks from 'components/SoMeLinks'
 import { scrollToBottom } from 'scrollTo'
 
-const Wrapper = styled.section`
+const Wrapper = styled(Section)`
 	display: flex;
 	flex-direction: column;
-	grid-column: 2;
 	margin-bottom: 3rem;
 
 	@media (min-width: 768px) {
@@ -14,7 +14,7 @@ const Wrapper = styled.section`
 	}
 `
 
-const Section = styled.div`
+const Div = styled.div`
 	flex: 1;
 
 	h3 {
@@ -54,7 +54,7 @@ const Table = styled.table`
 const ContactUs = () => {
 	return (
 		<Wrapper>
-			<Section>
+			<Div>
 				<h3>Kontakt</h3>
 
 				<Table>
@@ -68,7 +68,7 @@ const ContactUs = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>ring </td>
+							<td>ring</td>
 							<td>
 								<a href="tel:+4773505051">+47 73 50 50 51</a>
 							</td>
@@ -84,20 +84,20 @@ const ContactUs = () => {
 						<tr>
 							<td>åpent</td>
 							<td>
-								mandag - fredag 10:00 - 18:00 <br />
-								torsdag 10:00 - 19:00 <br />
-								lørdag 10:00 - 16:00
+								<p>mandag - fredag 10:00 - 18:00</p>
+								<p>torsdag 10:00 - 19:00</p>
+								<p>lørdag 10:00 - 16:00</p>
 							</td>
 						</tr>
 					</tbody>
 				</Table>
-			</Section>
+			</Div>
 
-			<Section>
+			<Div>
 				<h3>Følg oss</h3>
 
 				<SoMeLinks />
-			</Section>
+			</Div>
 		</Wrapper>
 	)
 }
