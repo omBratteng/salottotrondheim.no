@@ -14,8 +14,17 @@ const Wrapper = styled.section`
 	display: grid;
 	grid-column: 2;
 	grid-column-gap: 2rem;
-	grid-template-columns: 1fr 1fr;
-	padding-bottom: 2.5rem;
+	grid-template-columns: 1fr;
+	padding: 0 1.5rem 2.5rem;
+
+	@media (max-width: 767px) {
+		margin: 0 auto;
+		max-width: 70ch;
+	}
+
+	@media (min-width: 768px) {
+		grid-template-columns: 1fr 1fr;
+	}
 `
 
 const Description = styled.div`
@@ -26,26 +35,31 @@ const Description = styled.div`
 	}
 `
 
-const Img = styled.img`
-	max-width: 100%;
-	vertical-align: middle;
-`
-
 const Employee = styled.div`
+	align-items: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 2rem;
 	overflow-x: auto;
+	padding-bottom: 2rem;
 
-	&:nth-of-type(even) {
-		${Name} {
-			order: 2;
-		}
-		${Description} {
-			order: 3;
-		}
-		${Img} {
-			margin-bottom: 1rem;
-			order: 1;
+	${Name},
+	${Description} {
+		width: 100%;
+	}
+
+	@media (min-width: 768px) {
+		border-bottom: 0;
+
+		&:nth-of-type(even) {
+			${Name} {
+				margin-top: 1rem;
+				order: 1;
+			}
+			${Description} {
+				order: 2;
+			}
 		}
 	}
 `
