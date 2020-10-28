@@ -19,11 +19,11 @@ const Section = styled.section`
 
 	h2 {
 		font-size: 1.5rem;
-		font-weight: bold;
 		margin: 1em 0 1.5em;
 	}
 
-	p {
+	p,
+	h3 {
 		font-size: 1.125rem;
 		line-height: 1.5;
 		margin-bottom: 2em;
@@ -53,9 +53,7 @@ const Page = () => {
 				<h1>Personvernerklæring</h1>
 
 				<Narrow>
-					<h2>
-						<strong>Hva er personopplysninger?</strong>
-					</h2>
+					<h2>Hva er personopplysninger?</h2>
 					<p>
 						Personopplysninger er informasjon som kan knyttes til
 						deg, som navn, telefonnummer og e-post. Hvordan du
@@ -85,11 +83,7 @@ const Page = () => {
 						&nbsp;kan du lese om cookies og se hvordan du
 						administrerer dem i din egen nettleser.
 					</p>
-					<p>
-						<strong>
-							Informasjonskapsler (cookies) fra Google Analytics
-						</strong>
-					</p>
+					<h3>Informasjonskapsler (cookies) fra Google Analytics</h3>
 					<p>
 						Vi bruker analyseverktøyet Google Analytics for å få
 						statistikk om hvordan besøkende navigerer og bruker
@@ -105,9 +99,7 @@ const Page = () => {
 						identifisere deg, inkludert IP-adresse, blir
 						anonymisert.
 					</p>
-					<p>
-						<strong>Informasjonskapsler</strong>
-					</p>
+					<h3>Informasjonskapsler</h3>
 					<p>
 						Hvis du har en konto og logger deg inn på dette
 						nettstedet, vil vi opprette en midlertidig
@@ -134,9 +126,7 @@ const Page = () => {
 						ingen personopplysninger, men bare ID-en til artikkelen
 						du nettopp redigerte. Den utløper etter én dag.
 					</p>
-					<p>
-						<strong>Innebygd innhold fra andre nettsteder</strong>
-					</p>
+					<h3>Innebygd innhold fra andre nettsteder</h3>
 					<p>
 						Artikler på denne siden kan inkludere innebygd innhold
 						(f.eks. videoer, bilder, artikler osv.). Innebygd
@@ -152,9 +142,7 @@ const Page = () => {
 						sporing av handlingene dine via det innebygde innholdet
 						dersom du har en konto og er logget inn på nettstedet.
 					</p>
-					<h2>
-						<strong>Kontakt</strong>
-					</h2>
+					<h2>Kontakt</h2>
 					<p>
 						Om du har spørsmål knyttet til Grensesnitt og våre
 						rutiner for håndtering av personvern, ta kontakt

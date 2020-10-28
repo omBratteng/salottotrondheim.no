@@ -8,12 +8,12 @@ const Wrapper = styled.section`
 	grid-column: 2;
 
 	h1 {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		margin: 0.83em 0 1.5em;
 	}
 
 	h4 {
-		font-size: 1.3rem;
+		font-size: 1.125rem;
 		margin: 1.33em 0;
 	}
 

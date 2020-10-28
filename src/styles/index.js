@@ -10,12 +10,13 @@ import { theme } from 'styles/theme'
 const GlobalStyle = createGlobalStyle`
 :root {
 	box-sizing: border-box;
-	font-family: sans-serif;
+	font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen,
+		Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	font-size: 1rem;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: var(--global-line-height);
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 	text-rendering: optimizeLegibility;
@@ -44,6 +45,15 @@ body {
 	@supports not (font-variant-ligatures: common-ligatures) {
 		font-feature-settings: "liga";
 	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
 }
 
 a {

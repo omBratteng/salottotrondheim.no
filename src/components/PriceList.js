@@ -31,7 +31,7 @@ const Wrapper = styled.section`
 		background-color: #fff;
 		color: #000;
 		display: inline-block;
-		font-size: 1.5rem;
+		font-size: 1.375rem;
 		line-height: 1.6;
 		padding: 0 5px;
 
@@ -42,7 +42,7 @@ const Wrapper = styled.section`
 
 	small {
 		color: #555;
-		font-size: 80%;
+		font-size: 0.625rem;
 		font-style: italic;
 	}
 `

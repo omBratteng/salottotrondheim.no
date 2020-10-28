@@ -18,7 +18,7 @@ const Section = styled.div`
 	flex: 1;
 
 	h3 {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		letter-spacing: 1.5px;
 		padding: 1em;
 		text-align: center;
@@ -42,10 +42,11 @@ const Table = styled.table`
 	}
 
 	td {
+		line-height: 1.5em;
 		padding: 1em;
 
 		&:first-child {
-			font-weight: 900;
+			font-weight: 500;
 		}
 	}
 `
@@ -83,8 +84,9 @@ const ContactUs = () => {
 						<tr>
 							<td>åpent</td>
 							<td>
-								mandag - fredag 10:00 - 18:00 <br /> torsdag
-								10:00 - 19:00 <br /> lørdag 10:00 - 16:00
+								mandag - fredag 10:00 - 18:00 <br />
+								torsdag 10:00 - 19:00 <br />
+								lørdag 10:00 - 16:00
 							</td>
 						</tr>
 					</tbody>

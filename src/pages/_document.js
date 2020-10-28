@@ -18,7 +18,14 @@ const googleFonts = (fonts, text = false) => {
 	return url
 }
 
-const devLinks = []
+const devLinks = [
+	{
+		href: googleFonts(
+			'Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900',
+		),
+		as: 'style',
+	},
+]
 
 const prodLinks = [
 	{
@@ -27,12 +34,12 @@ const prodLinks = [
 	{
 		href: 'https://www.google-analytics.com',
 	},
+	{
+		href: googleFonts('Roboto:ital,wght@0,300;0,500;1,300;1,500'),
+		as: 'style',
+	},
 ]
 const globalLinks = [
-	{
-		href: 'https://use.typekit.net/qyu1pry.js',
-		as: 'script',
-	},
 	{
 		href: googleFonts('Rozha+One', 'bestill time'),
 		as: 'style',
@@ -78,11 +85,6 @@ class Doc extends Document {
 			<Html lang="no">
 				<Head>
 					<PreloadStyles links={links} />
-					<script
-						dangerouslySetInnerHTML={{
-							__html: `try{Typekit.load({ async: true });}catch(e){console.log(e)}`,
-						}}
-					/>
 				</Head>
 				<body>
 					<Main />

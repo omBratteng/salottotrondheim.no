@@ -16,27 +16,25 @@ const Section = styled.section`
 	}
 
 	h1 {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		margin: 0.83em 0 1.5em;
 		text-align: center;
 	}
 
 	h3 {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		margin: 1em 0 1.5em;
 		text-align: center;
 	}
 
 	em {
 		display: block;
-		font-size: 1.125rem;
 		margin-bottom: 2em;
 		text-align: center;
 	}
 
 	p {
-		font-size: 1.125rem;
-		line-height: 1.5;
+		line-height: 1.75em;
 		margin-bottom: 2em;
 
 		&:last-child {
@@ -49,7 +47,7 @@ const Narrow = styled(Section)`
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 75ch;
+	max-width: 73ch;
 	padding-bottom: 2.5rem;
 `
 

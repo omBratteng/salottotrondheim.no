@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 
-import { Copyright, ContactUs, Maps } from './footer/'
+import { ContactUs, Maps } from './footer/'
 
 const StyledFooter = styled.footer`
 	background-color: ${(props) => props.theme.colors.black};
@@ -13,6 +13,13 @@ const StyledFooter = styled.footer`
 		color: inherit;
 	}
 `
+
+const Copyright = styled.section`
+	grid-column: 1 / 4;
+	padding: 1.5rem 45px;
+	width: 100%;
+`
+
 const Footer = () => {
 	return (
 		<StyledFooter>

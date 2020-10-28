@@ -29,8 +29,7 @@ const Wrapper = styled.section`
 
 const Description = styled.div`
 	p {
-		font-size: 1.125rem;
-		line-height: 1.5;
+		line-height: 1.75em;
 		margin-bottom: 1.5em;
 	}
 `
