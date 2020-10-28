@@ -8,16 +8,15 @@ import Book from 'components/buttons/Book'
 import { useApp } from 'contexts/app'
 
 const Wrapper = styled.div`
-	align-items: center;
 	color: ${(props) => props.theme.colors.white};
 	display: grid;
 	grid-column: 2;
+	grid-row-gap: 4rem;
 	grid-template-columns: 1fr;
-	height: 50%;
 	margin: auto 0;
 	padding: 0 1.5rem;
 
-	@media (min-width: 900px) {
+	@media (min-width: 768px) {
 		grid-template-columns: 1fr 1fr;
 	}
 `
@@ -36,10 +35,15 @@ const Nav = styled.nav`
 
 const FollowUs = styled.div`
 	font-size: 1.5rem;
+	order: 2;
 	text-align: center;
 
 	p {
 		margin-bottom: 2rem;
+	}
+
+	@media (min-width: 768px) {
+		order: unset;
 	}
 `
 
