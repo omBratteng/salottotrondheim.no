@@ -14,7 +14,7 @@ const Button = styled.button`
 	font-size: 1.75rem;
 	font-weight: 400;
 	opacity: ${(props) => (props.dark ? '1' : '0.8')};
-	padding: 20px 100px 20px 30px;
+	padding: 15px 90px 15px 20px;
 	position: relative;
 	text-decoration: none;
 	transition: ease-in-out 0.1s;
@@ -31,6 +31,10 @@ const Button = styled.button`
 		svg {
 			transform: translate3d(15%, -50%, 0);
 		}
+	}
+
+	@media (min-width: 425px) {
+		padding: 20px 100px 20px 30px;
 	}
 
 	@media (min-width: 768px) {

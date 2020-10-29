@@ -32,12 +32,20 @@ const Wrapper = styled(Section)`
 		background-color: #fff;
 		color: #000;
 		display: inline-block;
-		font-size: 1.375rem;
+		font-size: 1rem;
 		line-height: 1.6;
 		padding: 0 5px;
 
 		&.hidden {
 			visibility: hidden;
+		}
+
+		@media (min-width: 375px) {
+			font-size: 1.25rem;
+		}
+
+		@media (min-width: 425px) {
+			font-size: 1.375rem;
 		}
 	}
 
