@@ -41,7 +41,7 @@
 		"next": "^10.0.0",
 		"polished": "^4.0.3",
 		"prop-types": "^15.7.2",
-		"pure-react-carousel": "^1.27.5",
+		"pure-react-carousel": "^1.27.6",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"styled-components": "^5.2.0"
