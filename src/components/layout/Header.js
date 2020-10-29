@@ -18,7 +18,7 @@ const StyledHeader = styled.header`
 	padding: 0 1.5rem;
 
 	@media (min-width: 768px) {
-		padding: 0 45px;
+		padding: 0 4rem;
 	}
 `
 
