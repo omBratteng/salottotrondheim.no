@@ -15,9 +15,9 @@ const Page = () => {
 	return (
 		<>
 			<Section type="narrow">
-				<H1>Personvernerklæring</H1>
+				<H1>person&shy;vern&shy;erklæring</H1>
 
-				<H2>Hva er personopplysninger?</H2>
+				<H2>Hva er person&shy;opplysninger?</H2>
 				<P>
 					Personopplysninger er informasjon som kan knyttes til deg,
 					som navn, telefonnummer og e-post. Hvordan du bruker et
@@ -32,7 +32,9 @@ const Page = () => {
 					samler inn, hvordan vi gjør det, og hva vi bruker
 					opplysningene til.
 				</P>
-				<H2>Hvilke personopplysninger vi samler inn og hvorfor?</H2>
+				<H2>
+					Hvilke person&shy;opplysninger vi samler inn og hvorfor?
+				</H2>
 				<P>
 					For å vite hvordan folk bruker nettsiden vår, henter vi
 					informasjon ved hjelp av søkefelt og informasjonskapsler
