@@ -149,8 +149,11 @@ const PreloadStyles = ({ links }) => {
 						/>,
 				  )
 				: scripts.add(
-						// eslint-disable-next-line @next/next/no-sync-scripts
-						<script src={linkProps.href} crossOrigin="anonymous" />,
+						<script
+							src={linkProps.href}
+							crossOrigin="anonymous"
+							async
+						/>,
 				  )
 		}
 	})
