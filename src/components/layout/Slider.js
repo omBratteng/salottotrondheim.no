@@ -11,6 +11,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css'
 import Book from 'components/buttons/Book'
 
 import { Section } from 'components/layout/section'
+import Image from 'next/image'
 
 const Carousel = styled(CarouselProvider)`
 	position: relative;
@@ -18,6 +19,7 @@ const Carousel = styled(CarouselProvider)`
 
 const Slider = styled(PureSlider)`
 	background-image: url('/assets/slides/bg.jpg');
+	background-image: url('/_next/image?url=%2Fassets%2Fslides%2Fbg.jpg&w=1400&q=75');
 	background-repeat: no-repeat;
 	background-size: 100%;
 	max-height: 35rem;
@@ -26,15 +28,18 @@ const Slider = styled(PureSlider)`
 `
 
 const Slide = styled(PureSlide)`
-	background-image: url('/assets/slides/slide-${(props) => props.index}.png');
-	background-position-x: ${(props) => props.bgalign}, right;
-	background-position-y: top, center;
-	background-repeat: no-repeat;
-	background-size: contain;
+	overflow: hidden;
 
 	.carousel__slide-focus-ring {
 		display: none;
 	}
+`
+
+const SlideBG = styled.div`
+	left: 50%;
+	position: absolute;
+	transform: translate3d(-50%, 0, 0);
+	z-index: -1;
 `
 
 const InnerSlide = styled.div`
@@ -42,14 +47,20 @@ const InnerSlide = styled.div`
 	flex-direction: column;
 	height: calc(100% - 5rem);
 	margin: 0 auto 0;
+	max-height: calc(560px - 5rem);
 	max-width: 960px;
 	padding-top: 5rem;
 	width: 90%;
 
 	p {
+		display: none;
 		font-size: 2rem;
 		text-transform: uppercase;
 		width: 100%;
+
+		@media (min-width: 920px) {
+			display: block;
+		}
 	}
 
 	&.slide-0 {
@@ -91,9 +102,14 @@ const Dot = styled(PureDot)`
 
 const DotGroup = styled(PureDotGroup)`
 	bottom: 1.5rem;
+	display: none;
 	left: 50%;
 	position: absolute;
 	transform: translateX(-50%);
+
+	@media (min-width: 920px) {
+		display: block;
+	}
 `
 
 const LayoutSlider = () => {
@@ -136,21 +152,29 @@ const LayoutSlider = () => {
 				dragEnabled={false}
 			>
 				<Slider>
-					<Slide
-						index={0}
-						innerClassName="Slider-InnerSlide"
-						bgalign="center"
-					>
+					<Slide index={0} innerClassName="Slider-InnerSlide">
+						<SlideBG>
+							<Image
+								src="/assets/slides/slide-0.png"
+								priority={true}
+								width={1600}
+								height={560}
+							/>
+						</SlideBG>
 						<InnerSlide className="slide-0">
 							<p>Gi hodet en avslapning</p>
 							<Book dark={false} />
 						</InnerSlide>
 					</Slide>
-					<Slide
-						index={1}
-						innerClassName="Slider-InnerSlide"
-						bgalign="right"
-					>
+					<Slide index={1} innerClassName="Slider-InnerSlide">
+						<SlideBG>
+							<Image
+								src="/assets/slides/slide-1.png"
+								priority={true}
+								width={1600}
+								height={560}
+							/>
+						</SlideBG>
 						<InnerSlide className="slide-1">
 							<Book dark={false} />
 							<p>Gi hodet en avslapning</p>

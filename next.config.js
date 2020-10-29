@@ -8,6 +8,9 @@ module.exports = {
 	poweredByHeader: false,
 	assetPrefix: isProd ? 'https://cdn.salottotrondheim.no' : '',
 	devIndicators: false,
+	images: {
+		deviceSizes: [320, 420, 768, 1024, 1200, 1400],
+	},
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/,
