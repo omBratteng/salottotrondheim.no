@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import { Map, Marker, TileLayer } from 'react-leaflet'
 import { Icon } from 'leaflet'
-
 import Head from 'next/head'
 
 const Component = ({ render, position, zoom }) => {
