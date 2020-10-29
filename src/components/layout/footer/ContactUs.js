@@ -5,6 +5,8 @@ import SoMeLinks from 'components/SoMeLinks'
 import { H4 } from 'components/text'
 import ScrollTo from 'components/ScrollTo'
 
+import { CONTACT_EMAIL, CONTACT_PHONE, ADDRESS } from 'structuredData'
+
 const Wrapper = styled(Section)`
 	display: flex;
 	flex-direction: column;
@@ -19,83 +21,87 @@ const Div = styled.div`
 	flex: 1;
 `
 
-const Table = styled.table`
-	border-bottom: 1px dashed #373636;
-	border-collapse: collapse;
-	width: 100%;
+const Open = styled.div`
+	display: grid;
+	grid-template-columns: 8ch 1fr;
+	padding: 1rem;
 
-	tr {
-		border: 1px #373636;
-		border-style: dashed none none none;
+	span {
+		line-height: 1.5;
+	}
+`
 
-		&:hover {
-			background-color: #111;
-		}
+const Information = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
 
-		&.timeTable span {
-			@media (max-width: 374px) {
-				display: none;
-			}
+	p {
+		border-bottom: 1px dashed #373636;
+		padding: 1rem;
+
+		&:nth-last-child(-n + 2) {
+			border-bottom: 0;
 		}
 	}
 
-	td {
-		line-height: 1.5em;
-		padding: 1em;
-
-		&:first-child {
-			font-weight: 500;
-		}
+	@media (min-width: 425px) {
+		grid-template-columns: max(96px) 1fr;
 	}
 `
 
 const ContactUs = () => {
+	const { streetAddress, postalCode, addressLocality } = ADDRESS
 	return (
 		<Wrapper>
 			<Div>
 				<H4>Kontakt</H4>
 
-				<Table>
-					<tbody>
-						<tr>
-							<td>besøk</td>
-							<td>
-								<ScrollTo bottom>
-									dronningens gt. 26, 7011 trondheim
-								</ScrollTo>
-							</td>
-						</tr>
-						<tr>
-							<td>ring</td>
-							<td>
-								<a href="tel:+4773505051">+47 73 50 50 51</a>
-							</td>
-						</tr>
-						<tr>
-							<td>skriv</td>
-							<td>
-								<a href="mailto:ciao@salottotrondheim.no">
-									ciao@salottotrondheim.no
-								</a>
-							</td>
-						</tr>
-						<tr className="timeTable">
-							<td>åpent</td>
-							<td>
-								<p>
-									man<span>dag</span> - fre<span>dag</span>{' '}
-									10:00 - 18:00
-								</p>
-								<p>
-									tors<span>dag</span> 10:00 - 19:00
-								</p>
-								<p>
-									lør<span>dag</span> 10:00 - 16:00
-								</p>
-							</td>
-						</tr>
-					</tbody>
-				</Table>
+				<Information>
+					<p>
+						<strong>besøk</strong>
+					</p>
+					<p>
+						<ScrollTo bottom itemProp="address">
+							{`${streetAddress}, ${postalCode} ${addressLocality}`.toLowerCase()}
+						</ScrollTo>
+					</p>
+					<p>
+						<strong>ring</strong>
+					</p>
+					<p>
+						<a href={`tel:${CONTACT_PHONE}`}>
+							{CONTACT_PHONE.replace(
+								/(\+\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/g,
+								'$1 $2 $3 $4 $5',
+							)}
+						</a>
+					</p>
+					<p>
+						<strong>skriv</strong>
+					</p>
+					<p>
+						<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+					</p>
+					<p>
+						<strong>åpent</strong>
+					</p>
+					<Open>
+						<span>mandag</span>
+						<span>10:00 - 18:00</span>
+						<span>tirsdag</span>
+						<span>10:00 - 18:00</span>
+						<span>onsdag</span>
+						<span>10:00 - 18:00</span>
+						<span>torsdag</span>
+						<span>10:00 - 19:00</span>
+						<span>fredag</span>
+						<span>10:00 - 18:00</span>
+						<span>lørdag</span>
+						<span>10:00 - 16:00</span>
+						<span>søndag</span>
+						<span>stengt</span>
+					</Open>
+				</Information>
 			</Div>
 
 			<Div>

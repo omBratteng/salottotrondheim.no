@@ -20,10 +20,12 @@ import AppProvider from 'contexts/app'
 // Components
 import Layout from 'components/layout/Layout'
 
-const PAGE_URL = 'https://salottotrondheim.no/'
-const PAGE_DESC = 'Gi hodet en avkobling.'
-const OG_IMAGE = PAGE_URL + 'assets/img/og.jpg'
-const OG_ALT = 'En mann iført dress og sløyfe som holder en iskrem'
+import structuredData, {
+	PAGE_URL,
+	PAGE_DESC,
+	OG_IMAGE,
+	OG_ALT,
+} from 'structuredData'
 
 export const reportWebVitals = ({ id, name, label, value }) => {
 	ga('send', 'event', {
@@ -90,6 +92,13 @@ const App = ({ Component, pageProps }) => {
 				<meta property="twitter:description" content={PAGE_DESC} />
 				<meta property="twitter:image" content={OG_IMAGE} />
 				<meta property="twitter:image:alt" content={OG_ALT} />
+
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify(structuredData),
+					}}
+				/>
 			</Head>
 			<AppProvider>
 				<Layout siteTitle="Salotto">

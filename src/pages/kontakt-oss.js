@@ -5,6 +5,7 @@ import { Section } from 'components/layout/section'
 
 import { H1, H3, P } from 'components/text'
 import ScrollTo from 'components/ScrollTo'
+import { CONTACT_EMAIL, CONTACT_PHONE } from 'structuredData'
 
 const Index = () => {
 	const { setPageTitle } = useLayout()
@@ -17,12 +18,15 @@ const Index = () => {
 		<Section style={{ textAlign: 'center' }}>
 			<H1>kontakt oss</H1>
 			<H3>
-				<a href="mailto:ciao@salottotrondheim.no">
-					ciao@salottotrondheim.no
-				</a>
+				<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
 			</H3>
 			<P>
-				<a href="tel:+4773505051">+47 73 50 50 51</a>
+				<a href={`tel:${CONTACT_PHONE}`}>
+					{CONTACT_PHONE.replace(
+						/(\+\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/g,
+						'$1 $2 $3 $4 $5',
+					)}
+				</a>
 			</P>
 
 			<P>
