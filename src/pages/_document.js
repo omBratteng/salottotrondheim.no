@@ -97,7 +97,6 @@ class Doc extends Document {
 					<div id="booking" />
 					<NextScript />
 					<script
-						async
 						dangerouslySetInnerHTML={
 							!isDev
 								? {
