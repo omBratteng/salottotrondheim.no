@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 import { Section } from 'components/layout/section'
 import SoMeLinks from 'components/SoMeLinks'
-import { scrollToBottom } from 'scrollTo'
 import { H4 } from 'components/text'
+import ScrollTo from 'components/ScrollTo'
 
 const Wrapper = styled(Section)`
 	display: flex;
@@ -60,9 +60,9 @@ const ContactUs = () => {
 						<tr>
 							<td>besøk</td>
 							<td>
-								<a href="#" onClick={scrollToBottom}>
+								<ScrollTo bottom>
 									dronningens gt. 26, 7011 trondheim
-								</a>
+								</ScrollTo>
 							</td>
 						</tr>
 						<tr>

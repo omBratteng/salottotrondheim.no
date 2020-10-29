@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 
-import { scrollToBottom } from 'scrollTo'
 import { useLayout } from 'components/layout/Layout'
 import { Section } from 'components/layout/section'
 
 import { H1, H3, P } from 'components/text'
+import ScrollTo from 'components/ScrollTo'
 
 const Index = () => {
 	const { setPageTitle } = useLayout()
@@ -26,9 +26,7 @@ const Index = () => {
 			</P>
 
 			<P>
-				<a href="#" onClick={scrollToBottom}>
-					Besøk oss ↓
-				</a>
+				<ScrollTo bottom>Besøk oss ↓</ScrollTo>
 			</P>
 		</Section>
 	)
