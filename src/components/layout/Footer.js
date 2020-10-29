@@ -1,11 +1,14 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import GoogleMapReact from 'google-map-react'
 
+import { useInView } from 'react-intersection-observer'
 import { Section } from 'components/layout/section'
 import { ContactUs } from './footer/'
+import dynamic from 'next/dynamic'
 
-import mapTheme from 'mapTheme.json'
+const Map = dynamic(() => import('components/Map'), {
+	ssr: false,
+})
 
 const Copyright = styled.p`
 	padding: 1.5rem 0;
@@ -23,33 +26,23 @@ const StyledFooter = styled.footer`
 `
 
 const Footer = () => {
+	const { ref, inView } = useInView({
+		rootMargin: '340px',
+		threshold: 0,
+		triggerOnce: true,
+	})
+
 	return (
 		<StyledFooter>
 			<ContactUs />
-			<Section type="wide" style={{ height: 600 }}>
-				<GoogleMapReact
-					bootstrapURLKeys={{
-						key: 'AIzaSyAeOzDaPTr-YPQALM9MRPXbIis10E9aj6M',
-					}}
-					defaultCenter={{
-						lat: 63.43210315034183,
-						lng: 10.39570885089437,
-					}}
-					defaultZoom={15}
-					yesIWantToUseGoogleMapApiInternals
-					options={{
-						styles: mapTheme,
-					}}
-					onGoogleApiLoaded={({ map, maps }) => {
-						new maps.Marker({
-							position: {
-								lat: 63.43210315034183,
-								lng: 10.39570885089437,
-							},
-							map,
-							title: 'Salotto Trondheim',
-						})
-					}}
+			<Section
+				type="wide"
+				style={{ height: 600, background: 'red' }}
+				ref={ref}
+			>
+				<Map
+					position={[63.43210315034183, 10.39570885089437]}
+					render={inView}
 				/>
 			</Section>
 			<Section>

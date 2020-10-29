@@ -35,6 +35,12 @@ const prodLinks = [
 		href: 'https://www.google-analytics.com',
 	},
 	{
+		href: 'https://cdn.jsdelivr.net',
+	},
+	{
+		href: 'https://stamen-tiles.freetls.fastly.net',
+	},
+	{
 		href: googleFonts('Roboto:ital,wght@0,300;0,500;1,300;1,500'),
 		as: 'style',
 	},
