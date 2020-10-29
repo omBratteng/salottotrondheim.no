@@ -1,31 +1,10 @@
 import { useEffect } from 'react'
-import styled from 'styled-components'
 
 import { scrollToBottom } from 'scrollTo'
 import { useLayout } from 'components/layout/Layout'
-import { Section as SCSection } from 'components/layout/section'
+import { Section } from 'components/layout/section'
 
-const Section = styled(SCSection)`
-	text-align: center;
-
-	h1 {
-		font-size: 2.5rem;
-		margin: 0.83em 0 1.5em;
-	}
-
-	h4 {
-		font-size: 1.125rem;
-		margin: 1.33em 0;
-	}
-
-	p {
-		margin-bottom: 2em;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-`
+import { H1, H3, P } from 'components/text'
 
 const Index = () => {
 	const { setPageTitle } = useLayout()
@@ -35,22 +14,22 @@ const Index = () => {
 	})
 
 	return (
-		<Section>
-			<h1>kontakt oss</h1>
-			<h4>
+		<Section style={{ textAlign: 'center' }}>
+			<H1>kontakt oss</H1>
+			<H3>
 				<a href="mailto:ciao@salottotrondheim.no">
 					ciao@salottotrondheim.no
 				</a>
-			</h4>
-			<p>
+			</H3>
+			<P>
 				<a href="tel:+4773505051">+47 73 50 50 51</a>
-			</p>
+			</P>
 
-			<p>
+			<P>
 				<a href="#" onClick={scrollToBottom}>
 					Besøk oss ↓
 				</a>
-			</p>
+			</P>
 		</Section>
 	)
 }

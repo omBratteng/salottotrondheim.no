@@ -19,6 +19,7 @@ const StyledFooter = styled.footer`
 	color: ${(props) => props.theme.colors.white};
 	display: grid;
 	grid-template-columns: 1fr min(920px, 100%) 1fr;
+	z-index: 0;
 
 	a {
 		color: inherit;

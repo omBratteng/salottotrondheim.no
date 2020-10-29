@@ -12,11 +12,12 @@ import { Section } from 'components/layout/section'
 const Wrapper = styled(Section)`
 	color: ${(props) => props.theme.colors.white};
 	display: grid;
-	grid-row-gap: 4rem;
+	grid-row-gap: 2rem;
 	grid-template-columns: 1fr;
 	margin: auto;
 
 	@media (min-width: 768px) {
+		grid-row-gap: 4rem;
 		grid-template-columns: 1fr 1fr;
 	}
 `

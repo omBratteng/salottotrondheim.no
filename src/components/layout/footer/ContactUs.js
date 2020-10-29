@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Section } from 'components/layout/section'
 import SoMeLinks from 'components/SoMeLinks'
 import { scrollToBottom } from 'scrollTo'
+import { H4 } from 'components/text'
 
 const Wrapper = styled(Section)`
 	display: flex;
@@ -16,15 +17,6 @@ const Wrapper = styled(Section)`
 
 const Div = styled.div`
 	flex: 1;
-
-	h3 {
-		font-size: 1.25rem;
-		letter-spacing: 1.5px;
-		padding: 1em;
-		text-align: center;
-		text-transform: uppercase;
-		width: 100%;
-	}
 `
 
 const Table = styled.table`
@@ -61,7 +53,7 @@ const ContactUs = () => {
 	return (
 		<Wrapper>
 			<Div>
-				<h3>Kontakt</h3>
+				<H4>Kontakt</H4>
 
 				<Table>
 					<tbody>
@@ -107,8 +99,7 @@ const ContactUs = () => {
 			</Div>
 
 			<Div>
-				<h3>Følg oss</h3>
-
+				<H4>Følg oss</H4>
 				<SoMeLinks />
 			</Div>
 		</Wrapper>

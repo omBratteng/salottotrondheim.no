@@ -6,6 +6,7 @@ import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
 
 import { Evo, Ghd, Tigi, Gold, Olaplex } from 'assets/products'
+import { H1, H3, P } from 'components/text'
 
 const Section = styled(SCSection)`
 	margin-bottom: 4rem;
@@ -14,31 +15,10 @@ const Section = styled(SCSection)`
 		margin-bottom: 0;
 	}
 
-	h1 {
-		font-size: 2.5rem;
-		margin: 0.83em 0 1.5em;
-		text-align: center;
-	}
-
-	h3 {
-		font-size: 1.25rem;
-		margin: 1em 0 1.5em;
-		text-align: center;
-	}
-
 	em {
 		display: block;
 		margin-bottom: 2em;
 		text-align: center;
-	}
-
-	p {
-		line-height: 1.75em;
-		margin-bottom: 2em;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 `
 
@@ -61,18 +41,18 @@ const Page = () => {
 	return (
 		<>
 			<Section type="narrow" border={true}>
-				<h1>om oss</h1>
+				<H1>om oss</H1>
 
 				<em>[salåttå] er italiensk for salong</em>
 
-				<p>
+				<P>
 					Salonger var et fenomen fra 1600-tallet til 1700-tallet, en
 					utvalgt del av byens overklasse samles for å «holde salong»,
 					det vil si konversere om litterære begivenheter eller hva
 					som helst.
-				</p>
+				</P>
 
-				<p>
+				<P>
 					Salotto er en videreutvikling av salongfenomenet.
 					<br />
 					Vi er et sted du kan føle deg hjemme med dyktige stylister
@@ -82,13 +62,13 @@ const Page = () => {
 					vaskestolen.
 					<br />
 					Stikk innom, slå av en prat og bestill din behandling!
-				</p>
+				</P>
 			</Section>
 
 			<Employees />
 
 			<Section>
-				<h3>hos oss finner du disse produktene:</h3>
+				<H3 center>hos oss finner du disse produktene:</H3>
 
 				<Products>
 					<Tigi />

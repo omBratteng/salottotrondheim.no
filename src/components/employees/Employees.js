@@ -5,8 +5,9 @@ import Image from 'next/image'
 import list from 'components/employees/list'
 import { Section } from 'components/layout/section'
 
-const Name = styled.h1`
+const Name = styled.p`
 	font-size: 2.25rem;
+	font-weight: 500;
 	margin-bottom: 0.83em;
 `
 
@@ -22,10 +23,7 @@ const Wrapper = styled(Section)`
 `
 
 const Description = styled.div`
-	p {
-		line-height: 1.75em;
-		margin-bottom: 1.5em;
-	}
+	margin-bottom: 1.5rem;
 `
 
 const Employee = styled.div`

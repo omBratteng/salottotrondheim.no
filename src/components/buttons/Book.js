@@ -11,7 +11,7 @@ const Button = styled.button`
 	cursor: pointer;
 	display: inline-block;
 	font-family: 'Rozha One', serif;
-	font-size: 36px;
+	font-size: 1.75rem;
 	font-weight: 400;
 	opacity: ${(props) => (props.dark ? '1' : '0.8')};
 	padding: 20px 100px 20px 30px;
@@ -31,6 +31,10 @@ const Button = styled.button`
 		svg {
 			transform: translate3d(15%, -50%, 0);
 		}
+	}
+
+	@media (min-width: 768px) {
+		font-size: 2.25rem;
 	}
 `
 
