@@ -5,14 +5,12 @@ import { useInView } from 'react-intersection-observer'
 import { Section } from 'components/layout/section'
 import { ContactUs } from './footer/'
 import dynamic from 'next/dynamic'
+import ScrollTo from 'components/ScrollTo'
+import { P } from 'components/text'
 
 const Map = dynamic(() => import('components/Map'), {
 	ssr: false,
 })
-
-const Copyright = styled.p`
-	padding: 1.5rem 0;
-`
 
 const StyledFooter = styled.footer`
 	background-color: ${(props) => props.theme.colors.black};
@@ -23,6 +21,17 @@ const StyledFooter = styled.footer`
 
 	a {
 		color: inherit;
+	}
+`
+
+const Bottom = styled(Section)`
+	align-items: center;
+	display: flex;
+	height: 4rem;
+	justify-content: space-between;
+
+	${P} {
+		margin-bottom: 0;
 	}
 `
 
@@ -42,14 +51,15 @@ const Footer = () => {
 					render={inView}
 				/>
 			</Section>
-			<Section>
-				<Copyright>
+			<Bottom>
+				<P>
 					&copy; {new Date().getFullYear()} Salotto |{' '}
 					<Link href="/personvernerklaering" prefetch={false}>
 						Personvernerklæring
 					</Link>
-				</Copyright>
-			</Section>
+				</P>
+				<ScrollTo>&uarr; til toppen</ScrollTo>
+			</Bottom>
 		</StyledFooter>
 	)
 }
