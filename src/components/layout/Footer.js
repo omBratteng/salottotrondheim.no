@@ -27,11 +27,16 @@ const StyledFooter = styled.footer`
 const Bottom = styled(Section)`
 	align-items: center;
 	display: flex;
-	height: 4rem;
+	height: 6rem;
 	justify-content: space-between;
 
 	${P} {
 		margin-bottom: 0;
+		margin-right: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		height: 4rem;
 	}
 `
 
@@ -53,7 +58,7 @@ const Footer = () => {
 			</Section>
 			<Bottom>
 				<P>
-					&copy; {new Date().getFullYear()} Salotto |{' '}
+					<span>&copy; {new Date().getFullYear()} Salotto | </span>
 					<Link href="/personvernerklaering" prefetch={false}>
 						Personvernerklæring
 					</Link>
