@@ -68,4 +68,5 @@ EXPOSE 3000
 # healthcheck to report the container status
 HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD [ "/healthcheck", "3000" ]
 
+VOLUME [ "/app/.next/cache" ]
 CMD ["/app/node_modules/.bin/next", "start", "-p", "3000"]
