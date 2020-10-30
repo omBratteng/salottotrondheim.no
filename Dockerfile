@@ -59,14 +59,13 @@ COPY --chown=nonroot --from=build /src/.next /app/.next
 COPY --chown=nonroot --from=build /src/public /app/public
 COPY --chown=nonroot --from=build /src/next.config.js /app/next.config.js
 
-# run as an unprivileged user
-USER nonroot
-
 # default next.js port
 EXPOSE 3000
+
+# define a volume for next cache images
+VOLUME [ "/app/.next/cache/images" ]
 
 # healthcheck to report the container status
 HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD [ "/healthcheck", "3000" ]
 
-VOLUME [ "/app/.next/cache" ]
 CMD ["/app/node_modules/.bin/next", "start", "-p", "3000"]
