@@ -1,3 +1,5 @@
+Sitemap: https://salottotrondheim.no/sitemap.xml
+
 User-agent: *
 Allow: /*
 Disallow: /api/*
