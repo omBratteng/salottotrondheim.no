@@ -26,6 +26,10 @@ const Products = styled.div`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 
+	> svg {
+		width: 100%;
+	}
+
 	@media (min-width: 768px) {
 		grid-template-columns: repeat(5, 1fr);
 	}
