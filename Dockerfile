@@ -18,6 +18,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 COPY . .
 RUN yarn install --frozen-lockfile
 RUN yarn build
+RUN yarn install --production
 RUN rm -rf .next/cache
 
 # -- RUNTIME STAGE --------------------------------

@@ -1,4 +1,13 @@
+.dockerignore
+.DS_Store
+.editorconfig
+.env.default
+.eslintrc.json
+.git
+.github
+.gitignore
+.next
+.stylelintrc
 Dockerfile
 node_modules
-.next
-.git
+README.md
