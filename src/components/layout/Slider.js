@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Book from 'components/buttons/Book'
 import { Section } from 'components/layout/section'
 import Image from 'next/image'
-import { useMediaLayout } from 'use-media'
+import { useWindowWidth } from 'hooks'
 
 const Wrapper = styled(Section)`
 	position: relative;
@@ -17,7 +17,7 @@ const Wrapper = styled(Section)`
 `
 
 const LayoutSlider = () => {
-	const isMobile = useMediaLayout({ maxWidth: '650px' })
+	const isMobile = useWindowWidth() <= 650
 	return (
 		<Wrapper type="pseudo">
 			<Image
