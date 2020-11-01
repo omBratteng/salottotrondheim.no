@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { Section } from 'components/layout/section'
 import SoMeLinks from 'components/SoMeLinks'
-import { H4 } from 'components/text'
 import ScrollTo from 'components/ScrollTo'
 
 import { CONTACT_EMAIL, CONTACT_PHONE, ADDRESS } from 'structuredData'
@@ -12,13 +11,23 @@ const Wrapper = styled(Section)`
 	flex-direction: column;
 	margin-bottom: 3rem;
 
+	> div {
+		flex: 1;
+	}
+
 	@media (min-width: 768px) {
 		flex-direction: row;
 	}
 `
 
-const Div = styled.div`
-	flex: 1;
+const Header = styled.p`
+	font-size: 1.25rem;
+	font-weight: 500;
+	letter-spacing: 1.5px;
+	padding: 1em;
+	text-align: center;
+	text-transform: uppercase;
+	width: 100%;
 `
 
 const Open = styled.div`
@@ -57,8 +66,8 @@ const ContactUs = () => {
 	const { streetAddress, postalCode, addressLocality } = ADDRESS
 	return (
 		<Wrapper>
-			<Div>
-				<H4>Kontakt</H4>
+			<div>
+				<Header>Kontakt</Header>
 
 				<Information>
 					<p>
@@ -106,12 +115,12 @@ const ContactUs = () => {
 						<span>stengt</span>
 					</Open>
 				</Information>
-			</Div>
+			</div>
 
-			<Div>
-				<H4>Følg oss</H4>
+			<div>
+				<Header>Følg oss</Header>
 				<SoMeLinks />
-			</Div>
+			</div>
 		</Wrapper>
 	)
 }
