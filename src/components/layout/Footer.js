@@ -52,10 +52,7 @@ const Footer = () => {
 		<StyledFooter>
 			<ContactUs />
 			<Section type="wide" ref={ref}>
-				<Map
-					position={[63.43210315034183, 10.39570885089437]}
-					render={inView}
-				/>
+				<Map position={[63.432057, 10.395827]} render={inView} />
 			</Section>
 			<Bottom>
 				<P>
