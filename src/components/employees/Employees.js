@@ -68,7 +68,7 @@ const Employees = () => {
 					<Description>{description}</Description>
 					<Image
 						src={`/assets/employees/${image}`}
-						alt={name}
+						alt={`portrett bilde av ${name}`}
 						width="444"
 						height="650"
 					/>

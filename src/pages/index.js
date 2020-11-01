@@ -52,6 +52,7 @@ const Index = () => {
 						src={`/assets/img/cover-mobile.jpg`}
 						width={650}
 						height={650}
+						alt="en kvinne med solhatt"
 					/>
 				</div>
 				<div className="desktop">
@@ -59,6 +60,7 @@ const Index = () => {
 						src={`/assets/img/cover-desktop.jpg`}
 						width={1600}
 						height={650}
+						alt="en kvinne med solhatt"
 					/>
 				</div>
 				<Book bg={true} />
