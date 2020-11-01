@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { useLayout } from 'components/layout/Layout'
+import { useApp } from 'contexts/app'
 import { Section } from 'components/layout/section'
 
 import { H1, H3, P } from 'components/text'
@@ -8,7 +8,7 @@ import ScrollTo from 'components/ScrollTo'
 import { CONTACT_EMAIL, CONTACT_PHONE } from 'structuredData'
 
 const Index = () => {
-	const { setPageTitle } = useLayout()
+	const { setPageTitle } = useApp()
 
 	useEffect(() => {
 		setPageTitle('kontakt oss')

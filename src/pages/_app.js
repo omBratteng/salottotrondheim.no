@@ -100,8 +100,8 @@ const App = ({ Component, pageProps }) => {
 					}}
 				/>
 			</Head>
-			<AppProvider>
-				<Layout siteTitle="Salotto">
+			<AppProvider siteTitle="Salotto">
+				<Layout>
 					<Component {...pageProps} />
 				</Layout>
 			</AppProvider>

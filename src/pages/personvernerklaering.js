@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 
-import { useLayout } from 'components/layout/Layout'
+import { useApp } from 'contexts/app'
 import { Section } from 'components/layout/section'
 
 import { H1, H2, H3, P } from 'components/text'
 
 const Page = () => {
-	const { setPageTitle } = useLayout()
+	const { setPageTitle } = useApp()
 
 	useEffect(() => {
 		setPageTitle('personvernerklæring')

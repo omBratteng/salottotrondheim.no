@@ -1,12 +1,14 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
+
+// Next.js
+import Head from 'next/head'
 
 import { GlobalStyle, theme } from 'styles'
 import BookingFrame from 'components/BookingFrame'
 
 const AppContext = createContext(undefined)
-
 const useApp = () => {
 	const context = useContext(AppContext)
 
@@ -17,25 +19,52 @@ const useApp = () => {
 	return context
 }
 
-const AppProvider = ({ children }) => {
+const AppProvider = ({ siteTitle, children }) => {
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [modalOpen, setModalOpen] = useState(false)
 
+	const [pageTitle, setPageTitle] = useState(undefined)
+	const [title, setTitle] = useState(siteTitle)
+
+	useEffect(() => {
+		setTitle(pageTitle ? `${siteTitle} – ${pageTitle}` : siteTitle)
+	}, [pageTitle, siteTitle])
+
 	return (
-		<AppContext.Provider
-			value={{ menuOpen, setMenuOpen, modalOpen, setModalOpen }}
-		>
-			<ThemeProvider theme={theme}>
-				<GlobalStyle />
-				{children}
-				{modalOpen && <BookingFrame />}
-			</ThemeProvider>
-		</AppContext.Provider>
+		<>
+			<Head>
+				<title>{title}</title>
+				<meta name="title" content={siteTitle} />
+				<meta property="og:title" content={siteTitle} />
+				<meta property="twitter:title" content={siteTitle} />
+			</Head>
+			<AppContext.Provider
+				value={{
+					menuOpen,
+					setMenuOpen,
+					modalOpen,
+					setModalOpen,
+					pageTitle,
+					setPageTitle,
+				}}
+			>
+				<ThemeProvider theme={theme}>
+					<GlobalStyle />
+					{children}
+					{modalOpen && <BookingFrame />}
+				</ThemeProvider>
+			</AppContext.Provider>
+		</>
 	)
 }
 
 AppProvider.propTypes = {
 	children: PropTypes.node,
+	siteTitle: PropTypes.string,
+}
+
+AppProvider.defaultProps = {
+	siteTitle: '',
 }
 
 export default AppProvider

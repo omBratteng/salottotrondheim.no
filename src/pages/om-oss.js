@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import styled from 'styled-components'
 
-import { useLayout } from 'components/layout/Layout'
+import { useApp } from 'contexts/app'
 import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
 
@@ -36,7 +36,7 @@ const Products = styled.div`
 `
 
 const Page = () => {
-	const { setPageTitle } = useLayout()
+	const { setPageTitle } = useApp()
 
 	useEffect(() => {
 		setPageTitle('om oss')
