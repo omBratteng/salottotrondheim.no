@@ -1,6 +1,5 @@
 <h1 align="center">Welcome to @bratteng/salottotrondheim.no 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.1.1-blue.svg?style=for-the-badge" />
   <a href="LCIENS" target="_blank">
     <img alt="License: BSD--3--Clause" src="https://img.shields.io/badge/License-BSD--3--Clause-yellow.svg?style=for-the-badge" />
   </a>
