@@ -90,7 +90,7 @@ const Header = () => {
 						</Logo>
 					</Link>
 
-					{!modalOpen && <ToggleMenu tabIndex="1" />}
+					{!modalOpen && <ToggleMenu />}
 				</div>
 			</StyledHeader>
 			<Portal menuOpen={menuOpen}>
