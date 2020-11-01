@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
 
+const withPlugins = require('next-compose-plugins')
 const isProd =
 	process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
 
-module.exports = {
+const nextConfig = {
 	reactStrictMode: false,
 	poweredByHeader: false,
 	assetPrefix: isProd ? 'https://cdn.salottotrondheim.no' : '',
@@ -23,3 +24,5 @@ module.exports = {
 		return config
 	},
 }
+
+module.exports = withPlugins([], nextConfig)

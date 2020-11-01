@@ -39,6 +39,7 @@
     "core-js": "^3.6.5",
     "leaflet": "^1.7.1",
     "next": "^10.0.0",
+    "next-compose-plugins": "^2.2.0",
     "polished": "^4.0.3",
     "prop-types": "^15.7.2",
     "pure-react-carousel": "^1.27.6",
