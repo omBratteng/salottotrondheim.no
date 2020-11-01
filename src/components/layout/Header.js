@@ -12,13 +12,19 @@ import Menu from 'components/layout/Menu'
 const StyledHeader = styled.header`
 	--header-height: 80px;
 
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr min(920px, 100%) 1fr;
 	height: var(--header-height);
-	justify-content: space-between;
-	padding: 0 1.5rem;
 
-	@media (min-width: 768px) {
-		padding: 0 4rem;
+	> div {
+		display: flex;
+		grid-column: 1 / -1;
+		justify-content: space-between;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1600px;
+		padding: 0 1.5rem;
+		width: 100%;
 	}
 `
 
@@ -76,18 +82,20 @@ const Header = () => {
 	return (
 		<>
 			<StyledHeader role="banner">
-				<Link href="/" passHref>
-					<Logo>
-						<span>Salotto</span>
-						<LogoSVG />
-					</Logo>
-				</Link>
+				<div>
+					<Link href="/" passHref>
+						<Logo>
+							<span>Salotto</span>
+							<LogoSVG />
+						</Logo>
+					</Link>
 
-				{!modalOpen && <ToggleMenu tabIndex="1" />}
-				<Portal menuOpen={menuOpen}>
-					<Menu />
-				</Portal>
+					{!modalOpen && <ToggleMenu tabIndex="1" />}
+				</div>
 			</StyledHeader>
+			<Portal menuOpen={menuOpen}>
+				<Menu />
+			</Portal>
 		</>
 	)
 }

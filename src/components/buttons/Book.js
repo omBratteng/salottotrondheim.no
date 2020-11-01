@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useApp } from 'contexts/app'
 
 const Button = styled.button`
-	background: transparent;
+	background: ${(props) => !props.bg && 'transparent'};
 	border: 4px solid ${(props) => (props.dark ? '#000' : '#f6f6f6')};
 	clear: both;
 	color: ${(props) => (props.dark ? '#000' : '#f6f6f6')};
@@ -42,12 +42,12 @@ const Button = styled.button`
 	}
 `
 
-const Book = ({ dark }) => {
+const Book = (props) => {
 	const { setModalOpen } = useApp(false)
 
 	return (
 		<Button
-			dark={dark}
+			{...props}
 			onClick={() => {
 				setModalOpen((prevState) => !prevState)
 			}}
@@ -70,10 +70,12 @@ const Book = ({ dark }) => {
 
 Book.defaultProps = {
 	dark: true,
+	bg: false,
 }
 
 Book.propTypes = {
 	dark: PropTypes.bool,
+	bg: PropTypes.bool,
 }
 
 export default Book
