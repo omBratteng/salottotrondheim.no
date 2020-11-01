@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { Map, Marker, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import Head from 'next/head'
 
@@ -29,7 +29,7 @@ const Component = ({ render, position, zoom }) => {
 					crossOrigin="anonymous"
 				/>
 			</Head>
-			<Map center={position} zoom={zoom} style={{ height: 600 }}>
+			<MapContainer center={position} zoom={zoom} style={{ height: 600 }}>
 				<TileLayer
 					url="https://stamen-tiles.freetls.fastly.net/toner/{z}/{x}/{y}.png"
 					attribution='Map tiles by <a href="https://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -45,7 +45,7 @@ const Component = ({ render, position, zoom }) => {
 						})
 					}
 				/>
-			</Map>
+			</MapContainer>
 		</>
 	) : null
 }
