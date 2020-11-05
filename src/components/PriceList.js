@@ -19,7 +19,7 @@ const Wrapper = styled(Section)`
 
 	li {
 		align-items: center;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3E%3Cpath fill='%23A7A69C' d='M4 4.26V3.18L4.08 3h1.71l.21.09v1.82L5.81 5h-1.6l-.13-.11z'/%3E%3C/svg%3E");
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 34'%3E%3Cpath fill='%23a7a69c' d='M17 13h8v8h-8z' /%3E%3C/svg%3E%0A");
 		background-position: left bottom 0.25em;
 		background-repeat: repeat-x;
 		background-size: 10px;
