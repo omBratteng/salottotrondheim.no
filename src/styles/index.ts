@@ -38,7 +38,6 @@ body {
 	color: ${(props) => props.theme.font};
 	font-feature-settings: "liga" 1, "lnum" 1, "tnum" 1;
 	font-variant-ligatures: common-ligatures;
-	line-height: ${(props) => props.theme.font.lineHeight};
 	margin: 0;
 	transition: background 0.5s ease, color 0.5s ease;
 
