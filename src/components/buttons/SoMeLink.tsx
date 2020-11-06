@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconName } from '@fortawesome/fontawesome-svg-core'
 import { hideVisually, size } from 'polished'
 
 const Link = styled.a`
@@ -33,20 +33,18 @@ const Link = styled.a`
 		color: ${(props) => props.theme.colors.black};
 	}
 `
-
-const SoMeLink = ({ href, alt, icon }) => {
+type Props = {
+	href: string
+	alt: string
+	icon: IconName
+}
+const SoMeLink: React.FC<Props> = ({ href, alt, icon }: Props) => {
 	return (
-		<Link href={href} alt={alt} className="no-bg">
+		<Link {...{ alt, href }} className="no-bg">
 			<FontAwesomeIcon icon={['fab', icon]} fixedWidth />
 			<span>{alt}</span>
 		</Link>
 	)
-}
-
-SoMeLink.propTypes = {
-	href: PropTypes.string,
-	alt: PropTypes.string,
-	icon: PropTypes.string,
 }
 
 export default SoMeLink
