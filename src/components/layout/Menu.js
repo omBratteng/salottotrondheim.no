@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 import SoMeLinks from 'components/SoMeLinks'
-import Book from 'components/buttons/Book'
+import { Book } from 'components/buttons/'
 import { useApp } from 'contexts/app'
 
 import { Section } from 'components/layout/section'

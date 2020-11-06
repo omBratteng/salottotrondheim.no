@@ -6,7 +6,7 @@ import PriceList from 'components/PriceList'
 
 import { useApp } from 'contexts/app'
 import { Section } from 'components/layout/section'
-import { Book } from 'components/buttons'
+import { Book } from 'components/buttons/'
 import { H1, H2 } from 'components/text'
 
 const ImageSection = styled(Section)`

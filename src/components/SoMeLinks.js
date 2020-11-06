@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { SoMeLink } from 'components/buttons'
+import { SoMeLink } from 'components/buttons/'
 
 const Div = styled.div`
 	text-align: center;

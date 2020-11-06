@@ -5,7 +5,7 @@ import { hideVisually } from 'polished'
 import Link from 'next/link'
 
 import LogoSVG from 'assets/logo.svg'
-import { ToggleMenu } from 'components/buttons'
+import { ToggleMenu } from 'components/buttons/'
 import { useApp } from 'contexts/app'
 import Menu from 'components/layout/Menu'
 

@@ -1,19 +1,18 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { useApp } from 'contexts/app'
 
 const Button = styled.button`
 	background: ${(props) => !props.bg && 'transparent'};
-	border: 4px solid ${(props) => (props.dark ? '#000' : '#f6f6f6')};
+	border: 4px solid ${(props: Props) => (props.dark ? '#000' : '#f6f6f6')};
 	clear: both;
-	color: ${(props) => (props.dark ? '#000' : '#f6f6f6')};
+	color: ${(props: Props) => (props.dark ? '#000' : '#f6f6f6')};
 	cursor: pointer;
 	display: inline-block;
 	font-family: 'Rozha One', serif;
 	font-size: 1.75rem;
 	font-weight: 400;
-	opacity: ${(props) => (props.dark ? '1' : '0.8')};
+	opacity: ${(props: Props) => (props.dark ? '1' : '0.8')};
 	padding: 15px 90px 15px 20px;
 	position: relative;
 	text-decoration: none;
@@ -42,12 +41,18 @@ const Button = styled.button`
 	}
 `
 
-const Book = (props) => {
-	const { setModalOpen } = useApp(false)
+type Props = {
+	bg?: boolean
+	dark?: boolean
+}
+
+const Book: React.FC<Props> = ({ bg = false, dark = true }: Props) => {
+	const { setModalOpen } = useApp()
 
 	return (
 		<Button
-			{...props}
+			bg={bg}
+			dark={dark}
 			onClick={() => {
 				setModalOpen((prevState) => !prevState)
 			}}
@@ -66,16 +71,6 @@ const Book = (props) => {
 			</svg>
 		</Button>
 	)
-}
-
-Book.defaultProps = {
-	dark: true,
-	bg: false,
-}
-
-Book.propTypes = {
-	dark: PropTypes.bool,
-	bg: PropTypes.bool,
 }
 
 export default Book
