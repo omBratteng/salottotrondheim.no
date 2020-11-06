@@ -5,7 +5,7 @@ import { hideVisually } from 'polished'
 import Link from 'next/link'
 
 import LogoSVG from 'assets/logo.svg'
-import ToggleMenu from 'components/buttons/ToggleMenu'
+import { ToggleMenu } from 'components/buttons'
 import { useApp } from 'contexts/app'
 import Menu from 'components/layout/Menu'
 
@@ -41,11 +41,14 @@ const Logo = styled.a`
 	}
 `
 
+type PortalProps = {
+	menuOpen: boolean
+}
 const Portal = styled.div`
 	background-color: rgba(0, 0, 0, 0.97);
 	display: grid;
 	grid-template-columns: 1fr min(920px, 100%) 1fr;
-	height: ${(props) => (props.menuOpen ? '100%' : '0%')};
+	height: ${(props: PortalProps) => (props.menuOpen ? '100%' : '0%')};
 	left: 0;
 	overflow-y: hidden;
 	position: fixed;
@@ -55,7 +58,7 @@ const Portal = styled.div`
 	z-index: 99;
 `
 
-const Header = () => {
+const Header: React.FC = () => {
 	const { menuOpen, setMenuOpen, modalOpen } = useApp()
 
 	const closeMenu = useCallback(

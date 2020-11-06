@@ -1,5 +1,4 @@
 import { useCallback } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { useApp } from 'contexts/app'
@@ -95,7 +94,11 @@ const Bars = styled.div`
 	}
 `
 
-const ToggleMenu = ({ onClick, ...props }) => {
+type Props = {
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+const ToggleMenu: React.FC<Props> = ({ onClick = () => {} }: Props) => {
 	const { menuOpen, setMenuOpen } = useApp()
 	const handleClick = useCallback(
 		(event) => {
@@ -109,7 +112,6 @@ const ToggleMenu = ({ onClick, ...props }) => {
 
 	return (
 		<Button
-			{...props}
 			onClick={handleClick}
 			aria-label={`${!menuOpen ? 'åpne' : 'lukk'} sidenavigasjon`}
 		>
@@ -120,14 +122,6 @@ const ToggleMenu = ({ onClick, ...props }) => {
 			</Bars>
 		</Button>
 	)
-}
-
-ToggleMenu.propTypes = {
-	onClick: PropTypes.func,
-}
-
-ToggleMenu.defaultProps = {
-	onClick: () => {},
 }
 
 export default ToggleMenu
