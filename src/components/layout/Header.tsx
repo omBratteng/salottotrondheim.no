@@ -44,11 +44,11 @@ const Logo = styled.a`
 type PortalProps = {
 	menuOpen: boolean
 }
-const Portal = styled.div`
+const Portal = styled.div<PortalProps>`
 	background-color: rgba(0, 0, 0, 0.97);
 	display: grid;
 	grid-template-columns: 1fr min(920px, 100%) 1fr;
-	height: ${(props: PortalProps) => (props.menuOpen ? '100%' : '0%')};
+	height: ${(props) => (props.menuOpen ? '100%' : '0%')};
 	left: 0;
 	overflow-y: hidden;
 	position: fixed;

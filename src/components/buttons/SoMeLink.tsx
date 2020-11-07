@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconName } from '@fortawesome/fontawesome-svg-core'
 import { hideVisually, size } from 'polished'
 
-const Link = styled.a`
+const Link = styled.a<Props>`
 	${size('2.5rem')}
 	align-items: center;
 	background: ${(props) => props.theme.colors.grey};
