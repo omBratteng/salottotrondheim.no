@@ -32,9 +32,6 @@ const prodLinks = [
 		href: 'https://cdn.salottotrondheim.no',
 	},
 	{
-		href: 'https://www.google-analytics.com',
-	},
-	{
 		href: 'https://cdn.jsdelivr.net',
 	},
 	{
@@ -49,6 +46,12 @@ const globalLinks = [
 	{
 		href: googleFonts('Rozha+One', 'bestill time'),
 		as: 'style',
+	},
+	{
+		href: 'https://cdn.bratteng.cloud/tracker.js',
+		as: 'script',
+		integrity: 'sha256-zNZ8/ZPN4v9RNgn4BPTh2RNqOahGf/VFdId/079bTJ0=',
+		autoload: false,
 	},
 ]
 
@@ -96,22 +99,17 @@ class Doc extends Document {
 					<Main />
 					<div id="booking" />
 					<NextScript />
+
 					<script
-						dangerouslySetInnerHTML={
-							!isDev
-								? {
-										__html: `(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga("create", "UA-6139247-10", "auto");
-ga("set", "anonymizeIp", true);
-ga("send", "pageview");`,
-								  }
-								: {
-										__html: `var ga = function () {}`,
-								  }
-						}
+						async
+						src="https://cdn.bratteng.cloud/tracker.js"
+						integrity="sha256-zNZ8/ZPN4v9RNgn4BPTh2RNqOahGf/VFdId/079bTJ0="
+						crossOrigin="anonymous"
+						data-ackee-server="https://analytics.bratteng.cloud"
+						data-ackee-domain-id="f374ffdb-fc4c-497c-9a28-50ae5c9b769e"
+						data-ackee-opts={JSON.stringify({
+							detailed: true,
+						})}
 					/>
 				</body>
 			</Html>
@@ -129,9 +127,11 @@ const PreloadStyles = ({ links }) => {
 	let preload = new Set()
 	let stylesheet = new Set()
 	let scripts = new Set()
+
 	links.map((linkProps) => {
 		let url = new URLParse(linkProps.href)
-		let as = linkProps?.as
+
+		const { as, integrity, autoload = true } = linkProps
 
 		preconnect.add(`${url.protocol}//${url.host}`)
 
@@ -142,8 +142,11 @@ const PreloadStyles = ({ links }) => {
 					as={as}
 					href={linkProps.href}
 					crossOrigin="anonymous"
+					integrity={integrity}
 				/>,
 			)
+
+			if (!autoload) return
 
 			as === 'style'
 				? stylesheet.add(
