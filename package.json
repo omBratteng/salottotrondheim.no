@@ -71,6 +71,7 @@
     "stylelint-order": "^4.1.0"
   },
   "resolutions": {
-    "node-fetch": "2.6.1"
+    "cross-fetch": "^3.0.6",
+    "@ampproject/toolbox-optimizer": "2.7.0-alpha.4"
   }
 }
