@@ -1,14 +1,10 @@
-import Document, {
-	DocumentContext,
-	DocumentInitialProps,
-	Html,
-	Head,
-	Main,
-	NextScript,
-} from 'next/document'
+import type { DocumentContext, DocumentInitialProps } from 'next/document'
+import type { Url } from 'url'
+
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import process from 'process'
-import { parse as URLParse, Url } from 'url'
+import { parse as URLParse } from 'url'
 
 const googleFonts = (fonts: string, text?: string) => {
 	let url = `https://fonts.googleapis.com/css2?family=${fonts}&display=swap`

@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState, ReactPortal, ReactNode } from 'react'
+import type { ReactPortal, ReactNode } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 interface IClientOnlyPortal {

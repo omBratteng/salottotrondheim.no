@@ -1,4 +1,4 @@
-import { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
