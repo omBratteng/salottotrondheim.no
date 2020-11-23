@@ -48,10 +48,7 @@ const globalLinks = [
 		as: 'style',
 	},
 	{
-		href: 'https://cdn.bratteng.cloud/tracker.js',
-		as: 'script',
-		integrity: 'sha256-zNZ8/ZPN4v9RNgn4BPTh2RNqOahGf/VFdId/079bTJ0=',
-		autoload: false,
+		href: 'https://cdn.bratteng.cloud',
 	},
 ]
 
@@ -99,18 +96,6 @@ class Doc extends Document {
 					<Main />
 					<div id="booking" />
 					<NextScript />
-
-					<script
-						async
-						src="https://cdn.bratteng.cloud/tracker.js"
-						integrity="sha256-zNZ8/ZPN4v9RNgn4BPTh2RNqOahGf/VFdId/079bTJ0="
-						crossOrigin="anonymous"
-						data-ackee-server="https://analytics.bratteng.cloud"
-						data-ackee-domain-id="f374ffdb-fc4c-497c-9a28-50ae5c9b769e"
-						data-ackee-opts={JSON.stringify({
-							detailed: true,
-						})}
-					/>
 				</body>
 			</Html>
 		)

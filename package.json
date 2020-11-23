@@ -36,6 +36,7 @@
     "@fortawesome/pro-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
     "@svgr/webpack": "^5.5.0",
+    "ackee-tracker": "^4.2.0",
     "core-js": "^3",
     "leaflet": "^1.7.1",
     "next": "^10.0.2",
