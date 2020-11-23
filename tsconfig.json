@@ -22,7 +22,12 @@
     "jsx": "preserve",
     "baseUrl": ".",
 		"paths": {
-			"*": ["src/*"],
+      "assets/*": ["public/assets/*"],
+      "components/*": ["src/components/*"],
+      "contexts/*": ["src/contexts/*"],
+      "hooks/*": ["src/hooks/*"],
+      "pages/*": ["src/pages/*"],
+      "styles/*": ["src/styles/*"]
 		}
   },
   "include": [

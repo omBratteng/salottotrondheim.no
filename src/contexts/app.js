@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 // Next.js
 import Head from 'next/head'
 
-import { GlobalStyle, theme } from 'styles'
+import { GlobalStyle, theme } from 'styles/index'
 import BookingFrame from 'components/BookingFrame'
 
 const AppContext = createContext(undefined)
