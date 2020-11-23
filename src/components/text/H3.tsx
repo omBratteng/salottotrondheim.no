@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 interface H3Props {
-	center: boolean
+	center?: boolean
 }
 
 const H3 = styled.h3<H3Props>`
