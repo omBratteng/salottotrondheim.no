@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types'
-
+import { AppProps } from 'next/app'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
@@ -25,9 +24,9 @@ import structuredData, {
 	PAGE_DESC,
 	OG_IMAGE,
 	OG_ALT,
-} from 'structuredData'
+} from '@structuredData'
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
 			<Head>
@@ -96,11 +95,6 @@ const App = ({ Component, pageProps }) => {
 			</AppProvider>
 		</>
 	)
-}
-
-App.propTypes = {
-	Component: PropTypes.func,
-	pageProps: PropTypes.object,
 }
 
 export default App
