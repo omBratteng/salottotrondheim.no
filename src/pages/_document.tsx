@@ -1,9 +1,16 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, {
+	DocumentContext,
+	DocumentInitialProps,
+	Html,
+	Head,
+	Main,
+	NextScript,
+} from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import process from 'process'
-import { parse as URLParse } from 'url'
+import { parse as URLParse, Url } from 'url'
 
-const googleFonts = (fonts, text = false) => {
+const googleFonts = (fonts: string, text?: string) => {
 	let url = `https://fonts.googleapis.com/css2?family=${fonts}&display=swap`
 	if (text) {
 		text = text
@@ -56,7 +63,9 @@ const isDev = process.env.NODE_ENV === 'development'
 const links = [...(isDev ? devLinks : prodLinks), ...globalLinks]
 
 class Doc extends Document {
-	static async getInitialProps(context) {
+	static async getInitialProps(
+		context: DocumentContext,
+	): Promise<DocumentInitialProps> {
 		const sheet = new ServerStyleSheet()
 		const originalRenderPage = context.renderPage
 
@@ -86,7 +95,7 @@ class Doc extends Document {
 		}
 	}
 
-	render() {
+	render(): JSX.Element {
 		return (
 			<Html lang="no">
 				<Head>
@@ -102,19 +111,23 @@ class Doc extends Document {
 	}
 }
 
-const PreConnect = ({ hrefs }) =>
-	hrefs.map((href, key) => (
-		<link rel="preconnect" href={href} key={key} crossOrigin="anonymous" />
-	))
+interface IPreload {
+	links: Array<{
+		as?: string
+		integrity?: string
+		autoload?: boolean
+		href: string
+	}>
+}
 
-const PreloadStyles = ({ links }) => {
-	let preconnect = new Set()
-	let preload = new Set()
-	let stylesheet = new Set()
-	let scripts = new Set()
+const PreloadStyles = ({ links }: IPreload): JSX.Element => {
+	const preconnect: Set<string> = new Set()
+	const preload: Set<unknown> = new Set()
+	const stylesheet: Set<unknown> = new Set()
+	const scripts: Set<unknown> = new Set()
 
-	links.map((linkProps) => {
-		let url = new URLParse(linkProps.href)
+	links.map((linkProps, key: number) => {
+		const url: Url = URLParse(linkProps.href)
 
 		const { as, integrity, autoload = true } = linkProps
 
@@ -123,6 +136,7 @@ const PreloadStyles = ({ links }) => {
 		if (url.pathname !== '/') {
 			preload.add(
 				<link
+					key={key}
 					rel="preload"
 					as={as}
 					href={linkProps.href}
@@ -136,6 +150,7 @@ const PreloadStyles = ({ links }) => {
 			as === 'style'
 				? stylesheet.add(
 						<link
+							key={key}
 							rel="stylesheet"
 							href={linkProps.href}
 							crossOrigin="anonymous"
@@ -143,6 +158,7 @@ const PreloadStyles = ({ links }) => {
 				  )
 				: scripts.add(
 						<script
+							key={key}
 							src={linkProps.href}
 							crossOrigin="anonymous"
 							async
@@ -151,12 +167,23 @@ const PreloadStyles = ({ links }) => {
 		}
 	})
 
-	return [
-		<PreConnect hrefs={[...preconnect]} key="0" />,
-		...preload,
-		...stylesheet,
-		...scripts,
-	]
+	return (
+		<>
+			{[
+				[...preconnect].map((href: string, key: number) => (
+					<link
+						rel="preconnect"
+						href={href}
+						key={key}
+						crossOrigin="anonymous"
+					/>
+				)),
+				...preload,
+				...stylesheet,
+				...scripts,
+			]}
+		</>
+	)
 }
 
 export default Doc
