@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components'
 
-const H3 = styled.h3`
+interface H3Props {
+	center: boolean
+}
+
+const H3 = styled.h3<H3Props>`
 	font-size: 1.125rem;
 	line-height: 1.5;
 	margin-bottom: 2em;
