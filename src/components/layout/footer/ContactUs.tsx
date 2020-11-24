@@ -73,7 +73,7 @@ const ContactUs = (): JSX.Element => {
 					<p>
 						<strong>besøk</strong>
 					</p>
-					<p itemProp="address">
+					<p>
 						<ScrollTo bottom>
 							{`${streetAddress}, ${postalCode} ${addressLocality}`.toLowerCase()}
 						</ScrollTo>
