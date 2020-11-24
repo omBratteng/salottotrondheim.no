@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import type { LinkProps } from 'next/link'
 
+import styled from 'styled-components'
 import Link from 'next/link'
 
 import SoMeLinks from 'components/SoMeLinks'
@@ -48,23 +48,27 @@ const FollowUs = styled.div`
 	}
 `
 
-const NavLink = ({ title, ...props }) => {
+interface Props extends LinkProps {
+	title: string
+}
+
+const NavLink: React.FC<Props> = ({ title, ...props }: Props) => {
 	const { setMenuOpen } = useApp()
 
 	return (
 		<Link {...props} passHref>
-			<a onClick={() => setMenuOpen((prevState) => !prevState)}>
+			<a
+				onClick={() =>
+					setMenuOpen && setMenuOpen((prevState) => !prevState)
+				}
+			>
 				{title}
 			</a>
 		</Link>
 	)
 }
 
-NavLink.propTypes = {
-	title: PropTypes.string,
-}
-
-const Menu = () => {
+const Menu = (): JSX.Element => {
 	return (
 		<Wrapper>
 			<Nav>

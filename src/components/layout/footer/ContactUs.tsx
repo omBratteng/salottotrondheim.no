@@ -62,7 +62,7 @@ const Information = styled.div`
 	}
 `
 
-const ContactUs = () => {
+const ContactUs = (): JSX.Element => {
 	const { streetAddress, postalCode, addressLocality } = ADDRESS
 	return (
 		<Wrapper>
@@ -73,8 +73,8 @@ const ContactUs = () => {
 					<p>
 						<strong>besøk</strong>
 					</p>
-					<p>
-						<ScrollTo bottom itemProp="address">
+					<p itemProp="address">
+						<ScrollTo bottom>
 							{`${streetAddress}, ${postalCode} ${addressLocality}`.toLowerCase()}
 						</ScrollTo>
 					</p>

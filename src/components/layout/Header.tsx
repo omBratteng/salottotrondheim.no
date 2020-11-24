@@ -42,7 +42,7 @@ const Logo = styled.a`
 `
 
 type PortalProps = {
-	menuOpen: boolean
+	menuOpen?: boolean
 }
 const Portal = styled.div<PortalProps>`
 	background-color: rgba(0, 0, 0, 0.97);
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
 	const { menuOpen, setMenuOpen, modalOpen } = useApp()
 
 	const closeMenu = useCallback(
-		() => setMenuOpen((prevState) => !prevState),
+		() => setMenuOpen && setMenuOpen((prevState) => !prevState),
 		[setMenuOpen],
 	)
 

@@ -8,9 +8,12 @@ import dynamic from 'next/dynamic'
 import ScrollTo from 'components/ScrollTo'
 import { P } from 'components/text'
 
+// eslint-disable-next-line
 const Map = dynamic(() => import('components/Map'), {
 	ssr: false,
 })
+
+// import Map from 'components/Map'
 
 const StyledFooter = styled.footer`
 	background-color: ${(props) => props.theme.colors.black};
@@ -41,7 +44,7 @@ const Bottom = styled(Section)`
 	}
 `
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
 	const { ref, inView } = useInView({
 		rootMargin: '340px',
 		threshold: 0,

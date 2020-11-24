@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Header from 'components/layout/Header'
@@ -13,7 +12,11 @@ const Main = styled.main`
 	padding-bottom: 4rem;
 `
 
-const Layout = ({ children }) => {
+interface Props {
+	children: React.ReactNode
+}
+
+const Layout: React.FC<Props> = ({ children }: Props) => {
 	useAnalytics({
 		domainId: '90ff8e7a-5d58-4151-9a8a-0ffa5d772195',
 		server: 'https://analytics.bratteng.cloud',
@@ -29,10 +32,6 @@ const Layout = ({ children }) => {
 			<Footer />
 		</>
 	)
-}
-
-Layout.propTypes = {
-	children: PropTypes.node,
 }
 
 export default Layout
