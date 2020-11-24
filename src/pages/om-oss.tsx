@@ -35,11 +35,11 @@ const Products = styled.div`
 	}
 `
 
-const Page = () => {
+const Page = (): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
-		setPageTitle('om oss')
+		if (setPageTitle) setPageTitle('om oss')
 	})
 
 	return (

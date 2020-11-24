@@ -7,11 +7,11 @@ import { H1, H3, P } from 'components/text'
 import ScrollTo from 'components/ScrollTo'
 import { CONTACT_EMAIL, CONTACT_PHONE } from 'structuredData'
 
-const Index = () => {
+const Index = (): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
-		setPageTitle('kontakt oss')
+		if (setPageTitle) setPageTitle('kontakt oss')
 	})
 
 	return (

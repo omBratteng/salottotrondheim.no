@@ -9,7 +9,7 @@ import { Section } from 'components/layout/section'
 import { Book } from 'components/buttons/'
 import { H1, H2 } from 'components/text'
 
-const ImageSection = styled(Section)`
+const ImageSection = styled(Section)<{ isLoaded?: boolean }>`
 	overflow: hidden;
 	position: relative;
 
@@ -56,18 +56,18 @@ const ImageSection = styled(Section)`
 	}
 `
 
-const Index = () => {
+const Index: React.FC = () => {
 	const { setPageTitle } = useApp()
-	const [isLoaded, setLoaded] = useState()
+	const [isLoaded, setLoaded] = useState<boolean>(false)
 
 	useEffect(() => {
-		setPageTitle('GI HODET EN AVKOBLING')
+		if (setPageTitle) setPageTitle('GI HODET EN AVKOBLING')
 	})
 
 	return (
 		<>
-			<ImageSection type="pseudo">
-				<div className="mobile" style={{ filter: isLoaded && 'none' }}>
+			<ImageSection type="pseudo" isLoaded={isLoaded}>
+				<div className="mobile">
 					<Image
 						src={`/assets/img/cover-mobile.jpg`}
 						width={650}
@@ -78,7 +78,7 @@ const Index = () => {
 						}}
 					/>
 				</div>
-				<div className="desktop" style={{ filter: isLoaded && 'none' }}>
+				<div className="desktop">
 					<Image
 						src={`/assets/img/cover-desktop.jpg`}
 						width={1600}

@@ -5,11 +5,11 @@ import { Section } from 'components/layout/section'
 
 import { H1, H2, H3, P } from 'components/text'
 
-const Page = () => {
+const Page = (): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
-		setPageTitle('personvernerklæring')
+		if (setPageTitle) setPageTitle('personvernerklæring')
 	})
 
 	return (
