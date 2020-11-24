@@ -33,8 +33,8 @@ jobs:
         run: |
           docker buildx build . \
             --file Dockerfile \
-            --tag image:${{ github.sha }} \
-            --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
+            --tag ghcr.io/bratteng/salottotrondheim.no:${{ github.sha }} \
+            --cache-from ghcr.io/bratteng/salottotrondheim.no:latest \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
             --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
 
@@ -53,16 +53,16 @@ jobs:
           password: ${{ secrets.CR_PAT }}
       - name: Docker build
         run: |
-          docker build . \
+          docker buildx build . \
             --file Dockerfile \
-            --tag image:${{ github.sha }} \
-            --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
+            --tag ghcr.io/bratteng/salottotrondheim.no:${{ github.sha }} \
+            --cache-from ghcr.io/bratteng/salottotrondheim.no:latest \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
             --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.0.8
         with:
-          image-ref: 'image:${{ github.sha }}'
+          image-ref: 'ghcr.io/bratteng/salottotrondheim.no:${{ github.sha }}'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
