@@ -3,7 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconName } from '@fortawesome/fontawesome-svg-core'
 import { hideVisually, size } from 'polished'
 
-const Link = styled.a<Props>`
+interface LinkProps {
+	href: string
+	alt: string
+}
+
+const Link = styled.a<LinkProps>`
 	${size('2.5rem')}
 	align-items: center;
 	background: ${(props) => props.theme.colors.grey};
@@ -33,14 +38,14 @@ const Link = styled.a<Props>`
 		color: ${(props) => props.theme.colors.black};
 	}
 `
-type Props = {
-	href: string
-	alt: string
+
+interface Props extends LinkProps {
 	icon: IconName
 }
-const SoMeLink: React.FC<Props> = ({ href, alt, icon }: Props) => {
+
+const SoMeLink = ({ href, alt, icon }: Props): JSX.Element => {
 	return (
-		<Link {...{ alt, href }} className="no-bg">
+		<Link alt={alt} href={href} className="no-bg">
 			<FontAwesomeIcon icon={['fab', icon]} fixedWidth />
 			<span>{alt}</span>
 		</Link>
