@@ -56,7 +56,7 @@ const Wrapper = styled(Section)`
 	}
 `
 
-const PriceList = () => {
+const PriceList = (): JSX.Element => {
 	return (
 		<Wrapper>
 			<ul>

@@ -6,7 +6,7 @@ const Div = styled.div`
 	text-align: center;
 `
 
-const SoMeLinks = () => (
+const SoMeLinks = (): JSX.Element => (
 	<Div>
 		<SoMeLink
 			href="https://www.facebook.com/salottotrondheim.no/"
