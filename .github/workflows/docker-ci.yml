@@ -51,9 +51,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
-      - name: Docker buildx build
+      - name: Docker build
         run: |
-          docker buildx build. \
+          docker buildx build . \
             --file Dockerfile \
             --tag ghcr.io/bratteng/salottotrondheim.no:${{ github.sha }} \
             --cache-from ghcr.io/bratteng/salottotrondheim.no:latest \
