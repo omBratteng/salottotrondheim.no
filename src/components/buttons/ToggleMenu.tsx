@@ -17,14 +17,14 @@ const Button = styled.button`
 	z-index: 100;
 `
 
-const Bars = styled.div`
+const Bars = styled.span`
 	cursor: pointer;
 	display: block;
 	height: 36px;
 	position: relative;
 	width: 40px;
 
-	> div {
+	> span {
 		background: ${(props) => props.theme.colors.black};
 		border-radius: 2px;
 		height: 4px;
@@ -34,7 +34,7 @@ const Bars = styled.div`
 			width 0.2s ease 0.2s;
 	}
 
-	> div:nth-child(1) {
+	> span:nth-child(1) {
 		left: 0;
 		margin: -2px 0 0 0;
 		top: 50%;
@@ -42,14 +42,14 @@ const Bars = styled.div`
 		width: 40px;
 	}
 
-	> div:nth-child(2) {
+	> span:nth-child(2) {
 		left: 0;
 		top: 2px;
 		transform-origin: 0 50%;
 		width: 20px;
 	}
 
-	> div:nth-child(3) {
+	> span:nth-child(3) {
 		bottom: 2px;
 		right: 0;
 		transform: translate(0, 0);
@@ -58,8 +58,8 @@ const Bars = styled.div`
 	}
 
 	&[aria-expanded='false']:hover {
-		> div:nth-child(2),
-		> div:nth-child(3) {
+		> span:nth-child(2),
+		> span:nth-child(3) {
 			width: 40px;
 		}
 	}
@@ -67,28 +67,28 @@ const Bars = styled.div`
 	&[aria-expanded='true'] {
 		position: fixed;
 
-		> div {
+		> span {
 			background: ${(props) => props.theme.colors.white};
 		}
 
-		> div:nth-child(1),
-		> div:nth-child(2),
-		> div:nth-child(3) {
+		> span:nth-child(1),
+		> span:nth-child(2),
+		> span:nth-child(3) {
 			transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s,
 				width 0.2s ease;
 			width: 19px;
 		}
 
-		> div:nth-child(1) {
+		> span:nth-child(1) {
 			transform: rotate(-45deg);
 			width: 40px;
 		}
 
-		> div:nth-child(2) {
+		> span:nth-child(2) {
 			transform: translate(6px, 0) rotate(45deg);
 		}
 
-		> div:nth-child(3) {
+		> span:nth-child(3) {
 			transform: translate(-6px, 0) rotate(45deg);
 		}
 	}
@@ -114,11 +114,12 @@ const ToggleMenu: React.FC<Props> = ({ onClick = () => {} }: Props) => {
 		<Button
 			onClick={handleClick}
 			aria-label={`${!menuOpen ? 'åpne' : 'lukk'} sidenavigasjon`}
+			aria-expanded={menuOpen}
 		>
-			<Bars aria-expanded={menuOpen}>
-				<div />
-				<div />
-				<div />
+			<Bars>
+				<span />
+				<span />
+				<span />
 			</Bars>
 		</Button>
 	)
