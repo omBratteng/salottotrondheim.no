@@ -54,7 +54,7 @@ const Book: React.FC<Props> = ({ bg = false, dark = true }: Props) => {
 			bg={bg}
 			dark={dark}
 			onClick={() => {
-				setModalOpen((prevState) => !prevState)
+				setModalOpen && setModalOpen((prevState) => !prevState)
 			}}
 			className="bookButton"
 		>

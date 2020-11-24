@@ -102,7 +102,7 @@ const ToggleMenu: React.FC<Props> = ({ onClick = () => {} }: Props) => {
 	const { menuOpen, setMenuOpen } = useApp()
 	const handleClick = useCallback(
 		(event) => {
-			setMenuOpen((prevState) => !prevState)
+			setMenuOpen && setMenuOpen((prevState) => !prevState)
 
 			event.persist()
 			onClick(event)
