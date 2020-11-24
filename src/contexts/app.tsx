@@ -1,5 +1,5 @@
+import type { Dispatch, SetStateAction } from 'react'
 import { createContext, useContext, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 // Next.js
@@ -8,8 +8,17 @@ import Head from 'next/head'
 import { GlobalStyle, theme } from 'styles/index'
 import BookingFrame from 'components/BookingFrame'
 
-const AppContext = createContext(undefined)
-const useApp = () => {
+export type ContextProps = Partial<{
+	menuOpen: boolean
+	setMenuOpen: Dispatch<SetStateAction<boolean>>
+	modalOpen: boolean
+	setModalOpen: Dispatch<SetStateAction<boolean>>
+	pageTitle: string
+	setPageTitle: Dispatch<SetStateAction<string>>
+}>
+
+const AppContext = createContext({})
+const useApp = (): ContextProps => {
 	const context = useContext(AppContext)
 
 	if (context === undefined) {
@@ -19,12 +28,20 @@ const useApp = () => {
 	return context
 }
 
-const AppProvider = ({ siteTitle, children }) => {
-	const [menuOpen, setMenuOpen] = useState(false)
-	const [modalOpen, setModalOpen] = useState(false)
+interface IAppProvider {
+	siteTitle: string
+	children: unknown
+}
 
-	const [pageTitle, setPageTitle] = useState(undefined)
-	const [title, setTitle] = useState(siteTitle)
+const AppProvider = ({
+	siteTitle = '',
+	children,
+}: IAppProvider): JSX.Element => {
+	const [menuOpen, setMenuOpen] = useState<boolean>(false)
+	const [modalOpen, setModalOpen] = useState<boolean>(false)
+
+	const [pageTitle, setPageTitle] = useState<string>('')
+	const [title, setTitle] = useState<string>(siteTitle)
 
 	useEffect(() => {
 		setTitle(pageTitle ? `${siteTitle} – ${pageTitle}` : siteTitle)
@@ -58,14 +75,5 @@ const AppProvider = ({ siteTitle, children }) => {
 	)
 }
 
-AppProvider.propTypes = {
-	children: PropTypes.node,
-	siteTitle: PropTypes.string,
-}
-
-AppProvider.defaultProps = {
-	siteTitle: '',
-}
-
 export default AppProvider
-export { useApp }
+export { useApp, AppContext }
