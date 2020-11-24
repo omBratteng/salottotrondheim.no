@@ -23,7 +23,7 @@
     "baseUrl": ".",
 		"paths": {
       "assets/*": ["public/assets/*"],
-      "components/*": ["src/components/*"],
+      "components/*": ["components/*"],
       "contexts/*": ["contexts/*"],
       "hooks/*": ["hooks/*"],
       "pages/*": ["pages/*"],
