@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components'
 
 type SectionTypes = 'pseudo' | 'wide' | 'narrow'
-
-interface Props {
-	type?: SectionTypes
-	border?: boolean
-}
+type Props = Partial<{
+	type: SectionTypes
+	border: boolean
+}>
 
 const willBleed = (type?: SectionTypes) => type === 'wide' || type === 'pseudo'
-const Section = styled.section<Props>`
+const Section = styled.section.withConfig({
+	shouldForwardProp: (prop, valid) => !['type'].includes(prop) && valid(prop),
+})<Props>`
 	grid-column: ${(props) => (willBleed(props.type) ? '1 / -1' : '2')};
 	margin-left: auto;
 	margin-right: auto;
