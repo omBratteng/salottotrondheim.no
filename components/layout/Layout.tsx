@@ -18,7 +18,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }: Props) => {
 	useAnalytics({
-		domainId: '90ff8e7a-5d58-4151-9a8a-0ffa5d772195',
+		domainId: 'cd291bc6-83f4-4b60-82e9-b2219d50f7b7',
 		server: 'https://analytics.bratteng.cloud',
 		options: {
 			detailed: true,

@@ -1,7 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { AckeeInstance } from 'ackee-tracker'
-
 interface Props {
 	domainId: string
 	server: string
@@ -11,6 +10,7 @@ interface Props {
 		detailed?: boolean
 	}>
 }
+
 const useAnalytics = ({
 	domainId,
 	server,
@@ -18,17 +18,18 @@ const useAnalytics = ({
 }: Props): AckeeInstance | undefined => {
 	const router = useRouter()
 	const tracker = useRef<AckeeInstance>()
+	const [trackerLoaded, setTrackerLoaded] = useState<boolean>(false)
 
 	const recordVisit = () => {
 		if (!tracker.current) {
 			throw new Error('Unable to load `ackee-tracker`')
 		}
-
 		tracker.current.record()
 	}
 
 	useEffect(() => {
 		;(async () => {
+			if (trackerLoaded) return
 			await import('ackee-tracker').then((ackeeTracker) => {
 				tracker.current = ackeeTracker.create(
 					{
@@ -37,19 +38,20 @@ const useAnalytics = ({
 					},
 					options,
 				)
+				setTrackerLoaded(true)
 			})
-
-			console.log(typeof tracker.current)
 
 			recordVisit()
 		})()
+	}, [domainId, server, options, trackerLoaded])
 
-		router.events.on('routeChangeStart', recordVisit)
+	useEffect(() => {
+		router.events.on('routeChangeComplete', recordVisit)
 
 		return () => {
-			router.events.off('routeChangeStart', recordVisit)
+			router.events.off('routeChangeComplete', recordVisit)
 		}
-	}, [router.events, domainId, server, options])
+	}, [router.events])
 
 	return tracker.current
 }
