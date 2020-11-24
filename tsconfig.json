@@ -27,7 +27,7 @@
       "contexts/*": ["src/contexts/*"],
       "hooks/*": ["src/hooks/*"],
       "pages/*": ["src/pages/*"],
-      "styles/*": ["src/styles/*"],
+      "styles/*": ["styles/*"],
       "@structuredData": ["structuredData"]
 		}
   },
