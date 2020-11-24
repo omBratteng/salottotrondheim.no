@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const Button = styled.a`
 	appearance: none;
@@ -9,9 +8,13 @@ const Button = styled.a`
 	text-decoration: underline;
 `
 
-const ScrollTo = ({ bottom, to, ...props }) => (
+interface Props {
+	bottom: boolean
+	to?: number
+}
+
+const ScrollTo: React.FC<Props> = ({ bottom = false, to }: Props) => (
 	<Button
-		{...props}
 		onClick={(event) => {
 			event.preventDefault()
 			window.scrollTo({
@@ -22,18 +25,5 @@ const ScrollTo = ({ bottom, to, ...props }) => (
 		}}
 	/>
 )
-
-ScrollTo.defaultProps = {
-	bottom: false,
-}
-
-ScrollTo.propTypes = {
-	bottom: PropTypes.bool,
-	to: PropTypes.number,
-	children: PropTypes.oneOfType([
-		PropTypes.arrayOf(PropTypes.node),
-		PropTypes.node,
-	]),
-}
 
 export default ScrollTo
