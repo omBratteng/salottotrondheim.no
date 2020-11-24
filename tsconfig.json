@@ -24,7 +24,7 @@
 		"paths": {
       "assets/*": ["public/assets/*"],
       "components/*": ["src/components/*"],
-      "contexts/*": ["src/contexts/*"],
+      "contexts/*": ["contexts/*"],
       "hooks/*": ["hooks/*"],
       "pages/*": ["pages/*"],
       "styles/*": ["styles/*"],

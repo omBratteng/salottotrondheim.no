@@ -17,8 +17,8 @@ export type ContextProps = Partial<{
 	setPageTitle: Dispatch<SetStateAction<string>>
 }>
 
-const AppContext = createContext({})
-const useApp = (): ContextProps => {
+export const AppContext = createContext({})
+export const useApp = (): ContextProps => {
 	const context = useContext(AppContext)
 
 	if (context === undefined) {
@@ -76,4 +76,3 @@ const AppProvider = ({
 }
 
 export default AppProvider
-export { useApp, AppContext }
