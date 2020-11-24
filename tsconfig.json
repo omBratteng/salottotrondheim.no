@@ -25,7 +25,7 @@
       "assets/*": ["public/assets/*"],
       "components/*": ["src/components/*"],
       "contexts/*": ["src/contexts/*"],
-      "hooks/*": ["src/hooks/*"],
+      "hooks/*": ["hooks/*"],
       "pages/*": ["pages/*"],
       "styles/*": ["styles/*"],
       "@structuredData": ["structuredData"]
