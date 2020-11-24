@@ -59,7 +59,7 @@ const Employee = styled.div`
 	}
 `
 
-const Employees = () => {
+const Employees = (): JSX.Element => {
 	return (
 		<Wrapper>
 			{list.map(({ name, description, image }, index) => (
