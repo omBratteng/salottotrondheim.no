@@ -40,7 +40,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 
-				{/* <meta charSet="utf-8" key="charset" /> */}
 				<link
 					rel="apple-touch-icon"
 					sizes="180x180"
