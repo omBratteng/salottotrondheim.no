@@ -24,13 +24,15 @@ import structuredData, {
 	PAGE_DESC,
 	OG_IMAGE,
 	OG_ALT,
-} from '@structuredData'
+} from 'structuredData'
+
+import Preload from 'components/tools/Preload'
+import links from 'links'
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
 			<Head>
-				<meta charSet="utf-8" />
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -38,6 +40,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 
+				{/* <meta charSet="utf-8" key="charset" /> */}
 				<link
 					rel="apple-touch-icon"
 					sizes="180x180"
@@ -80,6 +83,8 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta property="twitter:description" content={PAGE_DESC} />
 				<meta property="twitter:image" content={OG_IMAGE} />
 				<meta property="twitter:image:alt" content={OG_ALT} />
+
+				<Preload links={links} />
 
 				<script
 					type="application/ld+json"

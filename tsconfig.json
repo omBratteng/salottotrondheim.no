@@ -22,13 +22,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
 		"paths": {
+      "*": ["src/*"],
       "assets/*": ["public/assets/*"],
-      "components/*": ["components/*"],
-      "contexts/*": ["contexts/*"],
-      "hooks/*": ["hooks/*"],
-      "pages/*": ["pages/*"],
-      "styles/*": ["styles/*"],
-      "@structuredData": ["structuredData"]
+      "pages/*": ["pages/*"]
 		}
   },
   "include": [

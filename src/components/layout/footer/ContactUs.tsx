@@ -4,7 +4,7 @@ import { Section } from 'components/layout/section'
 import SoMeLinks from 'components/SoMeLinks'
 import ScrollTo from 'components/ScrollTo'
 
-import { CONTACT_EMAIL, CONTACT_PHONE, ADDRESS } from '@structuredData'
+import { CONTACT_EMAIL, CONTACT_PHONE, ADDRESS } from 'structuredData'
 
 const Wrapper = styled(Section)`
 	display: flex;

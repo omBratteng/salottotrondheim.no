@@ -10,13 +10,13 @@ const SoMeLinks = (): JSX.Element => (
 	<Div>
 		<SoMeLink
 			href="https://www.facebook.com/salottotrondheim.no/"
-			alt="Salotto på Facebook"
+			title="Salotto på Facebook"
 			icon="facebook-f"
 		/>
 
 		<SoMeLink
 			href="https://www.instagram.com/salottotrondheim/"
-			alt="Salotto på Instagram"
+			title="Salotto på Instagram"
 			icon="instagram"
 		/>
 	</Div>

@@ -84,7 +84,7 @@ const Header: React.FC = () => {
 
 	return (
 		<>
-			<StyledHeader role="banner">
+			<StyledHeader>
 				<div>
 					<Link href="/" passHref>
 						<Logo>

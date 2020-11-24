@@ -5,7 +5,7 @@ import { hideVisually, size } from 'polished'
 
 interface LinkProps {
 	href: string
-	alt: string
+	title: string
 }
 
 const Link = styled.a<LinkProps>`
@@ -43,11 +43,11 @@ interface Props extends LinkProps {
 	icon: IconName
 }
 
-const SoMeLink = ({ href, alt, icon }: Props): JSX.Element => {
+const SoMeLink = ({ href, title, icon }: Props): JSX.Element => {
 	return (
-		<Link alt={alt} href={href} className="no-bg">
+		<Link title={title} href={href} className="no-bg">
 			<FontAwesomeIcon icon={['fab', icon]} fixedWidth />
-			<span>{alt}</span>
+			<span>{title}</span>
 		</Link>
 	)
 }
