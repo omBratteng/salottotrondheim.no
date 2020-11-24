@@ -15,7 +15,7 @@ const useAnalytics = ({
 	domainId,
 	server,
 	options = {},
-}: Props): AckeeInstance => {
+}: Props): AckeeInstance | undefined => {
 	const router = useRouter()
 	const tracker = useRef<AckeeInstance>()
 
@@ -50,10 +50,6 @@ const useAnalytics = ({
 			router.events.off('routeChangeStart', recordVisit)
 		}
 	}, [router.events, domainId, server, options])
-
-	if (!tracker.current) {
-		throw new Error('Unable to load `ackee-tracker`')
-	}
 
 	return tracker.current
 }
