@@ -9,7 +9,7 @@ const Button = styled.a`
 `
 
 interface Props {
-	bottom: boolean
+	bottom?: boolean
 	to?: number
 }
 
