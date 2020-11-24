@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 
 const withPlugins = require('next-compose-plugins')
@@ -22,6 +23,13 @@ const nextConfig = {
 		})
 
 		return config
+	},
+	typescript: {
+		// !! WARN !!
+		// Dangerously allow production builds to successfully complete even if
+		// your project has type errors.
+		// !! WARN !!
+		ignoreBuildErrors: true,
 	},
 }
 

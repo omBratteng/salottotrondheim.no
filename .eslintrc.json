@@ -1,35 +1,45 @@
 {
 	"root": true,
-	"parser": "babel-eslint",
+	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
+		"ecmaVersion": 2021,
 		"ecmaFeatures": {
 			"jsx": true
 		},
-		"ecmaVersion": 2021,
-		"sourceType": "module"
+		"sourceType": "module",
+		"project": "./tsconfig.json",
+		"warnOnUnsupportedTypeScriptVersion": false
 	},
-	"plugins": ["react", "react-hooks", "prettier", "@next/eslint-plugin-next"],
+	"plugins": [
+		"@typescript-eslint",
+		"react",
+		"react-hooks",
+		"prettier",
+		"@next/eslint-plugin-next"
+	],
 	"env": {
 		"browser": true,
 		"es6": true,
 		"node": true
 	},
 	"extends": [
-		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
 		"plugin:@next/eslint-plugin-next/recommended",
+		"prettier",
+		"prettier/react",
+		"prettier/@typescript-eslint",
 		"plugin:prettier/recommended"
 	],
 	"globals": {
-		"global": true,
-		"ga": true
+		"global": true
 	},
 	"settings": {
 		"react": {
 			"version": "detect"
 		}
 	},
-	"ignorePatterns": ["build/", "**/*.min.*"],
+	"ignorePatterns": [".next/", "**/*.min.*"],
 	"rules": {
 		"prettier/prettier": [
 			"error",
@@ -44,6 +54,8 @@
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
 		"react/jsx-uses-react": "off",
-		"react/react-in-jsx-scope": "off"
-    }
+		"react/react-in-jsx-scope": "off",
+		"@typescript-eslint/type-annotation-spacing": "error",
+		"@typescript-eslint/no-empty-function": "off"
+	}
 }
