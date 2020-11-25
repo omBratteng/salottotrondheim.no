@@ -18,14 +18,17 @@ const ClientOnlyPortal: TClientOnlyPortal = ({ children, selector }) => {
 
 	useEffect(() => {
 		ref.current = document.querySelector(selector)
+
+		if (!ref.current) {
+			throw new Error(`The element ${selector} wasn't found`)
+		}
+
 		setMounted(true)
 	}, [selector])
 
-	if (!ref.current) {
-		throw new Error(`The element ${selector} wasn't found`)
-	}
-
-	return mounted ? createPortal(<>{children}</>, ref.current) : null
+	return ref.current && mounted
+		? createPortal(<>{children}</>, ref.current)
+		: null
 }
 
 export default ClientOnlyPortal
