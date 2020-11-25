@@ -87,7 +87,7 @@ const Index = ({ priceList }: Index): JSX.Element => {
 
 	return (
 		<>
-			<ImageSection type="pseudo" isLoaded={isLoaded}>
+			<ImageSection as="div" type="pseudo" isLoaded={isLoaded}>
 				<div className="mobile">
 					<Image
 						src={`/assets/img/cover-mobile.jpg`}

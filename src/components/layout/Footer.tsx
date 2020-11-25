@@ -51,10 +51,10 @@ const Footer = (): JSX.Element => {
 	return (
 		<StyledFooter>
 			<ContactUs />
-			<Section type="wide" ref={ref}>
+			<Section as="div" type="wide" ref={ref}>
 				<Map position={[63.432057, 10.395827]} render={inView} />
 			</Section>
-			<Bottom>
+			<Bottom as="div">
 				<P>
 					<span>&copy; {new Date().getFullYear()} Salotto | </span>
 					<Link href="/personvernerklaering" prefetch={false}>
