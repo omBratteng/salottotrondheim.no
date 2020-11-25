@@ -70,7 +70,7 @@ const NavLink: React.FC<Props> = ({ title, ...props }: Props) => {
 
 const Menu = (): JSX.Element => {
 	return (
-		<Wrapper as="div">
+		<Wrapper aria-label="sidenavigasjon og lenker til sosiale medier">
 			<Nav>
 				<NavLink href="/" title="forsiden" />
 				<NavLink href="/om-oss" title="om oss" />

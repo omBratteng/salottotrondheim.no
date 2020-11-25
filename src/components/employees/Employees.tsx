@@ -61,7 +61,7 @@ const Employee = styled.div`
 
 const Employees = (): JSX.Element => {
 	return (
-		<Wrapper>
+		<Wrapper aria-label="oversikt over ansatte">
 			{list.map(({ name, description, image }, index) => (
 				<Employee key={`employee-${index}`}>
 					<Name>{name}</Name>

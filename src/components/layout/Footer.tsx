@@ -51,10 +51,14 @@ const Footer = (): JSX.Element => {
 	return (
 		<StyledFooter>
 			<ContactUs />
-			<Section as="div" type="wide" ref={ref}>
+			<Section
+				aria-label="kart som viser vår lokasjon"
+				type="wide"
+				ref={ref}
+			>
 				<Map position={[63.432057, 10.395827]} render={inView} />
 			</Section>
-			<Bottom as="div">
+			<Bottom aria-label="opphavsrett og lenke til personvernerklæring">
 				<P>
 					<span>&copy; {new Date().getFullYear()} Salotto | </span>
 					<Link href="/personvernerklaering" prefetch={false}>
