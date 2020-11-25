@@ -1,3 +1,6 @@
+import type { GetServerSideProps } from 'next'
+import type { PriceListInterface } from 'utils/getPricelist'
+
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
@@ -8,6 +11,7 @@ import { useApp } from 'contexts/app'
 import { Section } from 'components/layout/section'
 import { Book } from 'components/buttons/'
 import { H1, H2 } from 'components/text'
+import { getPricelist } from 'utils/getPricelist'
 
 const ImageSection = styled(Section)<{ isLoaded?: boolean }>`
 	overflow: hidden;
@@ -56,7 +60,24 @@ const ImageSection = styled(Section)<{ isLoaded?: boolean }>`
 	}
 `
 
-const Index: React.FC = () => {
+const PriceSection = styled(Section)`
+	margin-bottom: 4rem;
+
+	${H1}, ${H2} {
+		column-span: all;
+	}
+
+	@media (min-width: 768px) {
+		column-count: 2;
+		column-gap: calc((8.3333333333vw * 1) - 3rem);
+	}
+`
+
+interface Index {
+	priceList: PriceListInterface
+}
+
+const Index = ({ priceList }: Index): JSX.Element => {
 	const { setPageTitle } = useApp()
 	const [isLoaded, setLoaded] = useState<boolean>(false)
 
@@ -91,16 +112,25 @@ const Index: React.FC = () => {
 				</div>
 				<Book bg={true} />
 			</ImageSection>
-			<Section style={{ textAlign: 'center' }}>
+			<PriceSection style={{ textAlign: 'center' }}>
 				<H1>prisliste</H1>
 				<H2>Alle behandlinger kommer med et hygienetillegg på 72kr</H2>
-			</Section>
-			<PriceList />
-			<Section style={{ textAlign: 'center' }}>
+
+				<PriceList priceList={priceList} />
+			</PriceSection>
+			<Section as="div" style={{ textAlign: 'center' }}>
 				<Book />
 			</Section>
 		</>
 	)
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+	return {
+		props: {
+			priceList: getPricelist(),
+		},
+	}
 }
 
 export default Index

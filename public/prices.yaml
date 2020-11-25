@@ -1,0 +1,94 @@
+- name: null
+  prices:
+    - name: klipp
+      price:
+        - 790
+        - 890
+    - name: barn
+      price:
+        - 600
+
+- name: hårfarge
+  prices:
+    - name: kort
+      price:
+        - 1350
+    - name: medium
+      price:
+        - 1650
+    - name: langt
+      price:
+        - 1850
+
+- name: foliefarging kort hår
+  prices:
+    - name: 1/2 hode
+      price:
+        - 1550
+    - name: 1/2 hode
+      price:
+        - 1650
+
+- name: foliefarging kort hår
+  prices:
+    - name: 1/2 hode
+      price:
+        - 1750
+    - name: 1/2 hode
+      price:
+        - 2050
+    - name: extra 1/1
+      price:
+        - 2350
+
+- name: hårkur
+  prices:
+    - name:
+      price:
+        - 250
+    - name: med massasje
+      price:
+        - 450
+
+- name: null
+  prices:
+    - name: vask eller styling
+      price:
+        - 250
+        - 400
+    - name: vask og føn
+      price:
+        - 1650
+
+- name: farging
+  prices:
+    - name: av vipper
+      price:
+        - 330
+    - name: av bryn
+      price:
+        - 250
+    - name: av vipper + bryn
+      price:
+        - 450
+
+- name: null
+  prices:
+    - name: strukurendring kort
+      price:
+        - 1150
+
+- name: null
+  prices:
+    - name: makeup
+      price:
+        - 500
+    - name: oppsetting pr 1/2 time
+      price:
+        - 550
+
+- name: null
+  prices:
+    - name: brudepynt pr time
+      price:
+        - 1300
