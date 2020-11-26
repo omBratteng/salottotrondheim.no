@@ -13,11 +13,11 @@ interface IPreload {
 	>
 }
 
-const Preload = ({ links }: IPreload): JSX.Element => {
-	const preconnect: Set<string> = new Set()
-	const preload: Set<unknown> = new Set()
-	const stylesheet: Set<unknown> = new Set()
-	const scripts: Set<unknown> = new Set()
+const preload = ({ links }: IPreload): JSX.Element[] => {
+	const preconnect = new Set<string>()
+	const preload = new Set<JSX.Element>()
+	const stylesheet = new Set<JSX.Element>()
+	const scripts = new Set<JSX.Element>()
 
 	links.map((link, key: number) => {
 		if (typeof link === 'string') {
@@ -65,22 +65,18 @@ const Preload = ({ links }: IPreload): JSX.Element => {
 		}
 	})
 
-	return (
-		<>
-			{[
-				[...preconnect].map((href: string, key: number) => (
-					<link
-						rel="preconnect"
-						href={href}
-						key={key}
-						crossOrigin="anonymous"
-					/>
-				)),
-				...preload,
-				...stylesheet,
-				...scripts,
-			]}
-		</>
-	)
+	return [
+		...[...preconnect].map((href: string, key: number) => (
+			<link
+				rel="preconnect"
+				href={href}
+				key={key}
+				crossOrigin="anonymous"
+			/>
+		)),
+		...preload,
+		...stylesheet,
+		...scripts,
+	]
 }
-export default Preload
+export default preload
