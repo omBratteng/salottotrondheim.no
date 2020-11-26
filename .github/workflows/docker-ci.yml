@@ -18,7 +18,6 @@ jobs:
   build:
     name: Docker security scan
     runs-on: ubuntu-20.04
-    needs: dockerfilelint
     steps:
       -
         name: Checkout code
