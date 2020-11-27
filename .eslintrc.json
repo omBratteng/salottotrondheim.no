@@ -15,7 +15,8 @@
 		"react",
 		"react-hooks",
 		"prettier",
-		"@next/eslint-plugin-next"
+		"@next/eslint-plugin-next",
+		"jsx-a11y"
 	],
 	"env": {
 		"browser": true,
@@ -29,7 +30,8 @@
 		"prettier",
 		"prettier/react",
 		"prettier/@typescript-eslint",
-		"plugin:prettier/recommended"
+		"plugin:prettier/recommended",
+		"plugin:jsx-a11y/recommended"
 	],
 	"globals": {
 		"global": true
