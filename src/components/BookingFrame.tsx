@@ -66,8 +66,9 @@ const BookingFrame = (): JSX.Element => {
 					<Backdrop onClick={handleClickOutside}>
 						<Modal ref={modalRef}>
 							<iframe
-								src="https://frisorsalotto.bestille.no/oncust2#!?iframe=true&width=1200&height=100%"
+								src="https://frisorsalotto.bestille.no/OnCust2/#!/"
 								frameBorder="0"
+								title="Booking av time"
 							></iframe>
 						</Modal>
 						<style jsx>{`
