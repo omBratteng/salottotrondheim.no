@@ -13,6 +13,10 @@ interface Props {
 }
 const Map = ({ render = false, position, zoom = 16 }: Props): JSX.Element => {
 	const [show, setShow] = useState(true)
+	const href =
+		process.env.NODE_ENV === 'production'
+			? 'https://cdn.salottotrondheim.no/assets/js/leaflet/leaflet.min.css'
+			: '/assets/js/leaflet/leaflet.min.css'
 
 	useEffect(() => {
 		setShow(render)
@@ -25,15 +29,15 @@ const Map = ({ render = false, position, zoom = 16 }: Props): JSX.Element => {
 					<Head>
 						<link
 							rel="preload"
-							href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"
-							integrity="sha256-BPfK9M5v34c2XP6p0cxVz1mUQLst0gTLk0mlc7kuodA="
+							href={href}
+							integrity="sha256-2VzX/spJuFIEL4PRC+T7DlbBvxXJSuXRCTXvxMqz7tk="
 							crossOrigin="anonymous"
 							as="style"
 						/>
 						<link
 							rel="stylesheet"
-							href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"
-							integrity="sha256-BPfK9M5v34c2XP6p0cxVz1mUQLst0gTLk0mlc7kuodA="
+							href={href}
+							integrity="sha256-2VzX/spJuFIEL4PRC+T7DlbBvxXJSuXRCTXvxMqz7tk="
 							crossOrigin="anonymous"
 						/>
 					</Head>
