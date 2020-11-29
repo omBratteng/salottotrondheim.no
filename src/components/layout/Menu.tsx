@@ -1,4 +1,6 @@
 import type { LinkProps } from 'next/link'
+import { useRouter } from 'next/router'
+import { useCallback, useEffect } from 'react'
 
 import styled from 'styled-components'
 import Link from 'next/link'
@@ -53,22 +55,29 @@ interface Props extends LinkProps {
 }
 
 const NavLink: React.FC<Props> = ({ title, ...props }: Props) => {
-	const { setMenuOpen } = useApp()
-
 	return (
 		<Link {...props} passHref>
-			<a
-				onClick={() =>
-					setMenuOpen && setMenuOpen((prevState) => !prevState)
-				}
-			>
-				{title}
-			</a>
+			<a>{title}</a>
 		</Link>
 	)
 }
 
 const Menu = (): JSX.Element => {
+	const router = useRouter()
+	const { setMenuOpen } = useApp()
+
+	const closeMenu = useCallback(() => setMenuOpen && setMenuOpen(false), [
+		setMenuOpen,
+	])
+
+	useEffect(() => {
+		router.events.on('routeChangeComplete', closeMenu)
+
+		return () => {
+			router.events.off('routeChangeComplete', closeMenu)
+		}
+	}, [router.events, closeMenu])
+
 	return (
 		<Wrapper aria-label="sidenavigasjon og lenker til sosiale medier">
 			<Nav>
