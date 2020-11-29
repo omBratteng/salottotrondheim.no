@@ -55,6 +55,7 @@ const Footer = (): JSX.Element => {
 				aria-label="kart som viser vår lokasjon"
 				type="wide"
 				ref={ref}
+				style={{ height: 600 }}
 			>
 				<Map position={[63.432057, 10.395827]} render={inView} />
 			</Section>
