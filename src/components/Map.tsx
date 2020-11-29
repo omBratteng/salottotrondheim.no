@@ -15,6 +15,7 @@ interface Props {
 	zoom?: number
 	position: LatLngExpression
 }
+
 const Map = ({ render = false, position, zoom = 16 }: Props): JSX.Element => {
 	const [show, setShow] = useState(false)
 	const href = `${assetPrefix}/assets/js/leaflet/leaflet.min.css`
