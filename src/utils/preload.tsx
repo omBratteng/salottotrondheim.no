@@ -33,7 +33,7 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 		if (url.pathname !== '/') {
 			preload.add(
 				<link
-					key={key}
+					key={`preload-${as}-${key}`}
 					rel="preload"
 					as={as}
 					href={href}
@@ -48,7 +48,7 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 			as === 'style'
 				? stylesheet.add(
 						<link
-							key={key}
+							key={`preloaded-stylesheet-${key}`}
 							rel="stylesheet"
 							href={href}
 							crossOrigin="anonymous"
@@ -56,7 +56,7 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 				  )
 				: scripts.add(
 						<script
-							key={key}
+							key={`preloaded-script-${key}`}
 							src={href}
 							crossOrigin="anonymous"
 							async
@@ -70,7 +70,7 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 			<link
 				rel="preconnect"
 				href={href}
-				key={key}
+				key={`preconnect-${key}`}
 				crossOrigin="anonymous"
 			/>
 		)),
