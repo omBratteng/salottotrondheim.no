@@ -1,5 +1,11 @@
 import type { Dispatch, SetStateAction } from 'react'
-import { createContext, useContext, useState, useEffect } from 'react'
+import {
+	StrictMode,
+	createContext,
+	useContext,
+	useState,
+	useEffect,
+} from 'react'
 import { ThemeProvider } from 'styled-components'
 
 // Next.js
@@ -67,8 +73,10 @@ const AppProvider = ({
 			>
 				<ThemeProvider theme={theme}>
 					<GlobalStyle />
-					{children}
-					{modalOpen && <BookingFrame />}
+					<StrictMode>
+						{children}
+						{modalOpen && <BookingFrame />}
+					</StrictMode>
 				</ThemeProvider>
 			</AppContext.Provider>
 		</>
