@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react'
 import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import Head from 'next/head'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
+const { assetPrefix } = publicRuntimeConfig
 
 interface Props {
 	render?: boolean
@@ -12,11 +16,8 @@ interface Props {
 	position: LatLngExpression
 }
 const Map = ({ render = false, position, zoom = 16 }: Props): JSX.Element => {
-	const [show, setShow] = useState(true)
-	const href =
-		process.env.NODE_ENV === 'production'
-			? 'https://cdn.salottotrondheim.no/assets/js/leaflet/leaflet.min.css'
-			: '/assets/js/leaflet/leaflet.min.css'
+	const [show, setShow] = useState(false)
+	const href = `${assetPrefix}/assets/js/leaflet/leaflet.min.css`
 
 	useEffect(() => {
 		setShow(render)

@@ -1,5 +1,9 @@
 import process from 'process'
+import getConfig from 'next/config'
 import { googleFonts } from 'utils/'
+
+const { publicRuntimeConfig } = getConfig()
+const { assetPrefix } = publicRuntimeConfig
 
 const devLinks = [
 	googleFonts(
@@ -8,7 +12,7 @@ const devLinks = [
 ]
 
 const prodLinks = [
-	'https://cdn.salottotrondheim.no',
+	assetPrefix,
 	'https://stamen-tiles.freetls.fastly.net',
 	googleFonts('Roboto:ital,wght@0,300;0,500;1,300;1,500'),
 ]
