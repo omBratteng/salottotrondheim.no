@@ -35,6 +35,15 @@ const nextConfig = {
 					},
 				],
 			},
+			{
+				source: '/assets/fonts/:path*',
+				headers: [
+					{
+						key: 'Cache-Control',
+						value: 'public, max-age=2628000',
+					},
+				],
+			},
 		]
 	},
 	publicRuntimeConfig: {
