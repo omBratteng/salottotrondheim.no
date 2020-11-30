@@ -24,6 +24,19 @@ const nextConfig = {
 
 		return config
 	},
+	async headers() {
+		return [
+			{
+				source: '/assets/js/leaflet/leaflet.min.css',
+				headers: [
+					{
+						key: 'Cache-Control',
+						value: 'public, max-age=2628000',
+					},
+				],
+			},
+		]
+	},
 	publicRuntimeConfig: {
 		assetPrefix,
 		sendMetrics: process.env.NEXT_PUBLIC_SEND_METRICS,
