@@ -6,7 +6,7 @@ import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
 
 import { Evo, Ghd, Tigi, Gold, Olaplex } from 'assets/products'
-import { H1, H3, P } from 'components/text'
+import { H1, H2, P } from 'components/text'
 
 const Section = styled(SCSection)`
 	margin-bottom: 4rem;
@@ -72,7 +72,7 @@ const Page = (): JSX.Element => {
 			<Employees />
 
 			<Section>
-				<H3 center>hos oss finner du disse produktene:</H3>
+				<H2 center>hos oss finner du disse produktene:</H2>
 
 				<Products>
 					<Tigi />
