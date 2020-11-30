@@ -2,13 +2,7 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
-library.add(faFacebookF, faInstagram)
-
-// import { fad } from '@fortawesome/pro-duotone-svg-icons'
-// import { fal } from '@fortawesome/pro-light-svg-icons'
 import { faBars } from '@fortawesome/pro-solid-svg-icons'
-// import { far } from '@fortawesome/pro-regular-svg-icons'
-library.add(faBars)
 
 // Next.js
 import Head from 'next/head'
@@ -29,6 +23,9 @@ import structuredData, {
 
 import { preload } from 'utils'
 import links from 'links'
+
+library.add(faFacebookF, faInstagram)
+library.add(faBars)
 
 const { publicRuntimeConfig } = getConfig()
 const { sendMetrics, quickMetricsAPIKey } = publicRuntimeConfig
