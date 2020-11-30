@@ -1,6 +1,5 @@
 import process from 'process'
 import getConfig from 'next/config'
-import { googleFonts } from 'utils/'
 
 type Links = (string | { href: string; as?: string })[]
 
