@@ -63,7 +63,7 @@ a {
 svg:not(:root).svg-inline--fa{overflow:visible;}
 .svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-0.125em;}
 .svg-inline--fa.fa-lg{vertical-align:-0.225em;}
-.svg-inline--fa.fa-w-1{width:0.0625em;}
+/* .svg-inline--fa.fa-w-1{width:0.0625em;}
 .svg-inline--fa.fa-w-2{width:0.125em;}
 .svg-inline--fa.fa-w-3{width:0.1875em;}
 .svg-inline--fa.fa-w-4{width:0.25em;}
@@ -86,7 +86,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 .svg-inline--fa.fa-pull-left{margin-right:0.3em;width:auto;}
 .svg-inline--fa.fa-pull-right{margin-left:0.3em;width:auto;}
 .svg-inline--fa.fa-border{height:1.5em;}
-.svg-inline--fa.fa-li{width:2em;}
+.svg-inline--fa.fa-li{width:2em;} */
 .svg-inline--fa.fa-fw{width:1.25em;}
 
 ${'' /* ${dom.css()} */}
