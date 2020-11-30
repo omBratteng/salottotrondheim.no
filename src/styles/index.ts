@@ -1,4 +1,8 @@
+import getConfig from 'next/config'
 import { createGlobalStyle } from 'styled-components'
+
+const { publicRuntimeConfig } = getConfig()
+const { assetPrefix } = publicRuntimeConfig
 
 // FontAwesome
 // Add the css on the server side
@@ -89,7 +93,60 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 .svg-inline--fa.fa-li{width:2em;} */
 .svg-inline--fa.fa-fw{width:1.25em;}
 
-${'' /* ${dom.css()} */}
+@font-face {
+	font-display: swap;
+	font-family: 'Rozha One';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Rozha One'),
+		url('${assetPrefix}/assets/fonts/rozhaone/rozha-one-v8-latin-regular.woff2') format('woff2'),
+		url('${assetPrefix}/assets/fonts/rozhaone/rozha-one-v8-latin-regular.woff') format('woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Roboto'),
+		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300.woff2') format('woff2'),
+		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300.woff') format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+}
+@font-face {
+	font-display: swap;
+	font-family: 'Roboto';
+	font-style: italic;
+	font-weight: 300;
+	src: local('Roboto'),
+		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300italic.woff2') format('woff2'),
+		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300italic.woff') format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-display: swap;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Roboto'),
+		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500.woff2') format('woff2'),
+		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500.woff') format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-display: swap;
+	font-family: 'Roboto';
+	font-style: italic;
+	font-weight: 500;
+	src: local('Roboto'),
+		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500italic.woff2') format('woff2'),
+		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500italic.woff') format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 `
 
 export { GlobalStyle, theme }

@@ -17,7 +17,7 @@ const Index = (): JSX.Element => {
 	return (
 		<Section style={{ textAlign: 'center' }}>
 			<H1>kontakt oss</H1>
-			<P style={{ fontWeight: 'bold', marginBottom: '2em' }}>
+			<P style={{ fontWeight: 500, marginBottom: '2em' }}>
 				<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
 			</P>
 			<P>
