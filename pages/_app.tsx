@@ -110,7 +110,6 @@ const metrics: NextWebVitalsMetric[] = []
 let isRequestIdleCallbackScheduled = false
 
 const sendMetric = ({ name, value }: NextWebVitalsMetric): void => {
-	if (process.env.NODE_ENV === 'production') return
 	const url = `https://qckm.io?m=webVital.${name}&v=${value}&k=${quickMetricsAPIKey}`
 
 	// Use `navigator.sendBeacon()` if available, falling back to `fetch()`.
