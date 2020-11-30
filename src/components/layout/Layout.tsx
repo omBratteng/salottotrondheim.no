@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import Header from 'components/layout/Header'
@@ -13,7 +14,7 @@ const Main = styled.main`
 `
 
 interface Props {
-	children: React.ReactNode
+	children: ReactNode
 }
 
 const Layout: React.FC<Props> = ({ children }: Props) => {

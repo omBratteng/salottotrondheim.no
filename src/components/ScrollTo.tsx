@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import styled from 'styled-components'
 
 const Button = styled.a`
@@ -11,9 +12,10 @@ const Button = styled.a`
 interface Props {
 	bottom?: boolean
 	to?: number
+	children: ReactNode
 }
 
-const ScrollTo: React.FC<Props> = ({ bottom = false, to }: Props) => (
+const ScrollTo: React.FC<Props> = ({ bottom = false, to, children }: Props) => (
 	<Button
 		onClick={(event) => {
 			event.preventDefault()
@@ -23,7 +25,9 @@ const ScrollTo: React.FC<Props> = ({ bottom = false, to }: Props) => (
 				behavior: 'smooth',
 			})
 		}}
-	/>
+	>
+		{children}
+	</Button>
 )
 
 export default ScrollTo
