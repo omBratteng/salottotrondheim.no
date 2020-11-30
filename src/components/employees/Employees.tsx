@@ -69,8 +69,8 @@ const Employees = (): JSX.Element => {
 					<Image
 						src={`/assets/employees/${image}`}
 						alt={`portrett bilde av ${name}`}
-						width="444"
-						height="650"
+						width="420"
+						height="630"
 					/>
 				</Employee>
 			))}
