@@ -1,9 +1,12 @@
-import type { GetServerSideProps } from 'next'
+import type { GetStaticProps } from 'next'
 import type { PriceListInterface } from 'utils/getPricelist'
 
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
+
+import { getImage } from '@plaiceholder/next'
+import { getPixelsCSS, PixelsCSS } from '@plaiceholder/css'
 
 import PriceList from 'components/PriceList'
 
@@ -26,28 +29,20 @@ const ImageSection = styled(Section)<{ isLoaded?: boolean }>`
 
 	.mobile,
 	.desktop {
-		background-repeat: no-repeat;
-		background-size: cover;
-		filter: ${(props) => (props.isLoaded ? 'none' : 'blur(25px)')};
-		transition: filter 0.5s ease;
+		position: relative;
+		z-index: ${(props) => (props.isLoaded ? '0' : '-1')};
+
+		> div {
+			vertical-align: middle;
+		}
 	}
 
 	.mobile {
-		background-image: url('data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCABkAGQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAIDBAEF/8QAKhAAAgEEAgEEAQQDAQAAAAAAAAECAxEhMRJBBBMiUWGBMkJxkRQjYsH/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAGxEBAQEAAwEBAAAAAAAAAAAAAAERAjFBIRL/2gAMAwEAAhEDEQA/AE2tCfI+BbZwRpGd0voglzl8IpWk3LiuhqEFe7dy9I7TpJa/spwvhIqs/p/snOrGGERT3jQp/wDUiM6+W/qxCpVcnf8AAl7ssiWqVJ2pqJFMJPkwsaR25y4WCwQAFgA9FnNnWdgr7ObbJOL9R3RSEox2/wCssvUpqSsyUvFn+zJd0TqeRJq0faiF2y3+LVvmI8fFl2X5Ey1ls3ljcG+rI0Og49MRproupiXBL7OYKMRgKB0LFHAO2ADd/JSkrtkblvH/AFHNpyup+m+Gy1BR4L3PlbJyeVZrYjjUoTSX+xS6ltfkQaeL+bneAU89P8lGsBUnFWyjLUpwbNNVu2DHVbbAlNQgTp0Z15Wpxb+2Uwt5f2NF1JpU6btyfzs1qYSp4VWmruz/AIMzxi2j1ZUHShHlOTl3kyeZR4uMl2sklLPjLcAA0y2Z0NGXGSZO8rD0oupNRS2YabqKUmpPQ8oJtyW32LimlHoeLuFNCNklv7OTdkM3ZGepMDk5XM8430O5Ngo3Ckh4zktkuK9b0308M2c+EHx3pCU/FcXyqz9zy0kBSv7aCvl3sZPKeYRe0smnyaism17Y5z2zz5Sc5uT2xC9Fcc6AYDTD1XRj+3AJOC/9KAPzGJyqDcpO0ov6d9jUJPjLdrlTkngzZjpLscnLBnm7jzeBLXI0VLI2jqjZCykArllX6Y9TzKcV7Xd/BnnIjFJyKgq1Z1pXk/wcSLKmmLOPEumJ5AGwCPZOMANuIa5JrV/ghapGolyUo93VmXE9PjJyi3l5Rmt8K41dCWHkycpWRh1cnKyM06n2FWoZpSbLIlqkp4FhKzuxvS4U+c+9IjdzlZGsTWuFamlmSEqTTytEeNmorMmXnBUqa7kyYajeT0BojVhRiobfeOwKj0gADTkAACVZ2lUwjJOTADDszN3qJdNnaPvrwi9X0AGmR5c26jT0jlJJU7rb7AB4eq+JFepJ9rCI16knVedaABOzxHYABpl//9k=');
 		display: block;
-
-		> div {
-			vertical-align: middle;
-		}
 	}
 
 	.desktop {
-		background-image: url('data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAApAGQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMEAQUC/8QAKxAAAgIBAwMDAQkAAAAAAAAAAQIAEQMEITESQVEiMnETIzM0QkNicoGR/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgEAA//EABkRAQEBAQEBAAAAAAAAAAAAAAABEQIhMf/aAAwDAQACEQMRAD8A6Bk+sF4b8GUReVOvGy+RMMQCFzB47jtC4XQrOaXbkwxoiY+puY0orYyW7TDoWcg9e3giVk+TUflTZREMSzXLX0RxixRk7Y2LUFJPgbxTEpO8Ziyvia1PyPM81R32mGVHY02cMoYcHkSkicTTZvp7EzrYMoyJVw/Gs17hNIhE5tswuZNkZNqcBa8mP3dx5knVfzOpF5NPjyGyN/IksOdJtP67T+5Vix9ANmx2nhcIxqQg55Nz07EJR57wnPSdSeoUDFYsbLmRW4begajAO5ng6jpBCpbnvMSbVqpe15reSmUsDuW5MQELNQEUCt+n9mHDcmqlOlcpR7XJyVS1G5vmUYlK4wDzzLUdRSGUEQkK5CoqEjZF0IQlcxCEJWHMURS+rmNitR7Iej4vqTUZ69KycsyZNxv3Hib+sP5CeD78vzJIdprtZDZKAq6kxcsT2BMZq/vj8CLx+8RQa6Oj0ClBky7k7hfEoOixfu/2M034fH8RpmFIdEl7M0JTCZNf/9k=');
 		display: none;
-
-		> div {
-			vertical-align: middle;
-		}
 	}
 
 	@media (min-width: 650px) {
@@ -73,11 +68,43 @@ const PriceSection = styled(Section)`
 	}
 `
 
+type TPlaceholder = Partial<{
+	mobileCSS: PixelsCSS
+	desktopCSS: PixelsCSS
+}>
+const Placeholder = styled.div<TPlaceholder>`
+	filter: blur(40px);
+	height: 100%;
+	position: absolute;
+	transform: scale(1.2);
+	width: 100%;
+
+	${(props) => props.mobileCSS}
+
+	@media (min-width: 650px) {
+		${(props) => props.desktopCSS}
+	}
+`
+
 interface Index {
 	priceList: PriceListInterface
+	img: {
+		src: {
+			mobile: string
+			desktop: string
+		}
+		alt: string
+	}
+	mobileCSS: PixelsCSS
+	desktopCSS: PixelsCSS
 }
 
-const Index = ({ priceList }: Index): JSX.Element => {
+const Index = ({
+	priceList,
+	mobileCSS,
+	desktopCSS,
+	img,
+}: Index): JSX.Element => {
 	const { setPageTitle } = useApp()
 	const [isLoaded, setLoaded] = useState<boolean>(false)
 
@@ -88,12 +115,13 @@ const Index = ({ priceList }: Index): JSX.Element => {
 	return (
 		<>
 			<ImageSection as="div" type="pseudo" isLoaded={isLoaded}>
+				<Placeholder mobileCSS={mobileCSS} desktopCSS={desktopCSS} />
 				<div className="mobile">
 					<Image
-						src={`/assets/img/cover-mobile.jpg`}
+						src={img.src.mobile}
 						width={650}
 						height={650}
-						alt="en kvinne med solhatt"
+						alt={img.alt}
 						onLoad={() => {
 							setLoaded(true)
 						}}
@@ -101,10 +129,10 @@ const Index = ({ priceList }: Index): JSX.Element => {
 				</div>
 				<div className="desktop">
 					<Image
-						src={`/assets/img/cover-desktop.jpg`}
+						src={img.src.desktop}
 						width={1600}
 						height={650}
-						alt="en kvinne med solhatt"
+						alt={img.alt}
 						onLoad={() => {
 							setLoaded(true)
 						}}
@@ -125,10 +153,27 @@ const Index = ({ priceList }: Index): JSX.Element => {
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps<Index> = async () => {
+	const img = {
+		src: {
+			mobile: '/assets/img/cover-mobile.jpg',
+			desktop: '/assets/img/cover-desktop.jpg',
+		},
+		alt: 'en kvinne med solhatt',
+	}
+
+	const mobileImage = await getImage(img.src.mobile)
+	const mobileCSS = await getPixelsCSS(mobileImage)
+
+	const desktopImage = await getImage(img.src.desktop)
+	const desktopCSS = await getPixelsCSS(desktopImage)
+
 	return {
 		props: {
 			priceList: getPricelist(),
+			img,
+			mobileCSS,
+			desktopCSS,
 		},
 	}
 }

@@ -1124,6 +1124,25 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
+"@plaiceholder/core@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@plaiceholder/core/-/core-1.0.0.tgz#8ce30534a4b7f7ef467439139a116213a3814448"
+  integrity sha512-rlVzjBxtzbMIyfKRAElC3h+jcPpRviVSzd4faMG0sHdPErBR+Jc2vb3eWIZskNPly4BJn4KMoMr2kt/bEqLxaA==
+
+"@plaiceholder/css@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@plaiceholder/css/-/css-1.0.0.tgz#6864bdea144035a8d3fa9fe0b99793d633e3bdeb"
+  integrity sha512-GqLUDhYhCmM2N6uWT9KTKTC/S/nu8QQUbxUjU6kBvl63ZYtVDN/1nJmPfmCTFv68P6Rhcz2OkTDWO1NS+tkkgg==
+  dependencies:
+    "@plaiceholder/core" "^1.0.0"
+
+"@plaiceholder/next@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@plaiceholder/next/-/next-1.0.0.tgz#b288d05a37245cfaa734e5bdcad401ed75d810fe"
+  integrity sha512-hIbne8jSh7ipU8tAxqCQIbDCaslQbe9O5/LyeSaaqM4/N4D6acJlTuhjYD5LslNADPMQtlil1QIVhAJoQWHd3Q==
+  dependencies:
+    "@plaiceholder/core" "^1.0.0"
+
 "@react-leaflet/core@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@react-leaflet/core/-/core-1.0.2.tgz#39c6a73f61c666d5dcf673741cea2672fa4bbae1"
