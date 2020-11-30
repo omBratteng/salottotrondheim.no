@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useApp } from 'contexts/app'
 import { Section } from 'components/layout/section'
 
-import { H1, H3, P } from 'components/text'
+import { H1, P } from 'components/text'
 import ScrollTo from 'components/ScrollTo'
 import { CONTACT_EMAIL, CONTACT_PHONE } from 'structuredData'
 
@@ -17,9 +17,9 @@ const Index = (): JSX.Element => {
 	return (
 		<Section style={{ textAlign: 'center' }}>
 			<H1>kontakt oss</H1>
-			<H3>
+			<P style={{ fontWeight: 'bold', marginBottom: '2em' }}>
 				<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-			</H3>
+			</P>
 			<P>
 				<a href={`tel:${CONTACT_PHONE}`}>
 					{CONTACT_PHONE.replace(

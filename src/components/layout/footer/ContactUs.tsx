@@ -20,7 +20,7 @@ const Wrapper = styled(Section)`
 	}
 `
 
-const Header = styled.h4`
+const Header = styled.p`
 	font-size: 1.25rem;
 	font-weight: 500;
 	letter-spacing: 1.5px;
@@ -65,7 +65,7 @@ const Information = styled.div`
 const ContactUs = (): JSX.Element => {
 	const { streetAddress, postalCode, addressLocality } = ADDRESS
 	return (
-		<Wrapper>
+		<Wrapper aria-label="kontakt informasjon">
 			<div>
 				<Header>Kontakt</Header>
 
