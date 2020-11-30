@@ -62,9 +62,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          key: ${{ runner.os }}-buildx-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-buildx-
+            ${{ runner.os }}-
 
       -
         name: tmp post cache
