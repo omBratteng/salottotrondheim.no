@@ -3,6 +3,7 @@
 .editorconfig
 .env.default
 .eslintrc.json
+.eslintcache
 .git
 .github
 .gitignore

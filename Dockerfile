@@ -1,3 +1,17 @@
+# -- PREPARE STAGE --------------------------------
+FROM node:lts-slim AS prepare
+
+WORKDIR /src
+
+# Define build arguments & map them to environment variables
+ARG NPM_TOKEN
+ARG FONTAWESOME_TOKEN
+
+# Build the project and then dispose files not necessary to run the project
+# This will make the runtime image as small as possible
+COPY package.json .npmrc yarn.lock /src/
+RUN yarn install --frozen-lockfile
+
 # -- BUILD STAGE --------------------------------
 FROM node:lts-slim AS build
 
@@ -10,8 +24,11 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 # Build the project and then dispose files not necessary to run the project
 # This will make the runtime image as small as possible
-COPY . .
-RUN yarn install --frozen-lockfile
+COPY --from=prepare /src /src
+COPY src /src/src
+COPY pages /src/pages
+COPY public /src/public
+COPY .npmrc babel.config.js .browserslistrc next-env.d.ts next.config.js tsconfig.json /src/
 RUN yarn build
 RUN yarn install --production
 RUN rm -rf .next/cache
@@ -25,7 +42,6 @@ WORKDIR /app
 # copy in our healthcheck binary
 COPY --from=ghcr.io/bratteng/healthcheck-next:latest --chown=nonroot /healthcheck /healthcheck
 
-COPY --chown=nonroot --from=build /src/package.json /app/package.json
 COPY --chown=nonroot --from=build /src/node_modules /app/node_modules
 COPY --chown=nonroot --from=build /src/.next /app/.next
 COPY --chown=nonroot --from=build /src/public /app/public
