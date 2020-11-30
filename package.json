@@ -36,6 +36,7 @@
     "@svgr/webpack": "^5.5.0",
     "@types/js-yaml": "^3.12.5",
     "ackee-tracker": "^4.2.0",
+    "bowser": "^2.11.0",
     "core-js": "3",
     "js-yaml": "^3.14.0",
     "leaflet": "^1.7.1",

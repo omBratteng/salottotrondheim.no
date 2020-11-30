@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { AckeeInstance } from 'ackee-tracker'
@@ -17,7 +18,7 @@ const useAnalytics = ({
 	options = {},
 }: Props): AckeeInstance | undefined => {
 	const router = useRouter()
-	const tracker = useRef<AckeeInstance>()
+	const tracker = useRef<any>()
 	const [trackerLoaded, setTrackerLoaded] = useState<boolean>(false)
 
 	const recordVisit = () => {
@@ -30,7 +31,7 @@ const useAnalytics = ({
 	useEffect(() => {
 		;(async () => {
 			if (trackerLoaded) return
-			await import('ackee-tracker').then((ackeeTracker) => {
+			await import('utils/tracker/ackee-tracker').then((ackeeTracker) => {
 				tracker.current = ackeeTracker.create(
 					{
 						server,
