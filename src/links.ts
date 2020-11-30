@@ -11,6 +11,7 @@ const devLinks: Links = []
 const prodLinks: Links = [
 	assetPrefix,
 	'https://stamen-tiles.freetls.fastly.net',
+	'https://qckm.io',
 ]
 const globalLinks: Links = [
 	{
