@@ -68,11 +68,6 @@ jobs:
             ${{ runner.os }}-
 
       -
-        name: tmp post cache
-        run: |
-          ls -la ${{ github.workspace }}/.buildx-cache
-
-      -
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
