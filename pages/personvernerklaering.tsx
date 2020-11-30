@@ -32,6 +32,9 @@ const Page = (): JSX.Element => {
 					samler inn, hvordan vi gjør det, og hva vi bruker
 					opplysningene til.
 				</P>
+			</Section>
+
+			<Section type="narrow">
 				<H2>
 					Hvilke person&shy;opplysninger vi samler inn og hvorfor?
 				</H2>
@@ -106,6 +109,9 @@ const Page = (): JSX.Element => {
 					via det innebygde innholdet dersom du har en konto og er
 					logget inn på nettstedet.
 				</P>
+			</Section>
+
+			<Section type="narrow">
 				<H2>Kontakt</H2>
 				<P>
 					Om du har spørsmål knyttet til Grensesnitt og våre rutiner
