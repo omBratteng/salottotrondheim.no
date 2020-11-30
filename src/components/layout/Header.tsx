@@ -54,6 +54,7 @@ const Portal = styled.div<PortalProps>`
 	position: fixed;
 	top: 0;
 	transition: ease-in-out 0.5s;
+	visibility: ${(props) => (props.menuOpen ? 'visible' : 'hidden')};
 	width: 100%;
 	z-index: 99;
 `
