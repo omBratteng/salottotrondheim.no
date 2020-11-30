@@ -45,23 +45,24 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 
 			if (!autoload) return
 
-			as === 'style'
-				? stylesheet.add(
-						<link
-							key={`preloaded-stylesheet-${key}`}
-							rel="stylesheet"
-							href={href}
-							crossOrigin="anonymous"
-						/>,
-				  )
-				: scripts.add(
-						<script
-							key={`preloaded-script-${key}`}
-							src={href}
-							crossOrigin="anonymous"
-							async
-						/>,
-				  )
+			as === 'style' &&
+				stylesheet.add(
+					<link
+						key={`preloaded-stylesheet-${key}`}
+						rel="stylesheet"
+						href={href}
+						crossOrigin="anonymous"
+					/>,
+				)
+			as === 'script' &&
+				scripts.add(
+					<script
+						key={`preloaded-script-${key}`}
+						src={href}
+						crossOrigin="anonymous"
+						async
+					/>,
+				)
 		}
 	})
 
