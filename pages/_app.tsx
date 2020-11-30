@@ -2,7 +2,6 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faBars } from '@fortawesome/pro-solid-svg-icons'
 
 // Next.js
 import Head from 'next/head'
@@ -25,7 +24,6 @@ import { preload } from 'utils'
 import links from 'links'
 
 library.add(faFacebookF, faInstagram)
-library.add(faBars)
 
 const { publicRuntimeConfig } = getConfig()
 const { sendMetrics, quickMetricsAPIKey } = publicRuntimeConfig
