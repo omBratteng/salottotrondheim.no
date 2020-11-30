@@ -1369,6 +1369,11 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
+"@types/requestidlecallback@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@types/requestidlecallback/-/requestidlecallback-0.3.1.tgz#34bb89753b1cdc72d0547522527b1cb0f02b5ec4"
+  integrity sha512-BnnRkgWYijCIndUn+LgoqKHX/hNpJC5G03B9y7mZya/C2gUQTSn75fEj3ZP1/Rl2E6EYeXh2/7/8UNEZ4X7HuQ==
+
 "@types/styled-components@^5.1.4":
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-5.1.4.tgz#11f167dbde268635c66adc89b5a5db2e69d75384"
