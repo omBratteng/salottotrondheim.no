@@ -26,7 +26,7 @@ import links from 'links'
 library.add(faFacebookF, faInstagram)
 
 const { publicRuntimeConfig } = getConfig()
-const { sendMetrics, quickMetricsAPIKey } = publicRuntimeConfig
+const { quickMetricsAPIKey } = publicRuntimeConfig
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
@@ -158,7 +158,7 @@ const processPendingAnalyticsEvents = (deadline?: IdleDeadline): void => {
 }
 
 export function reportWebVitals(metric: NextWebVitalsMetric): void {
-	if (sendMetrics !== 'true') return
+	if (process.env.NODE_ENV !== 'production') return
 	switch (metric.name) {
 		case 'LCP': // Largest Contentful Paint
 		case 'FID': // First Input Delay
