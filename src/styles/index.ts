@@ -60,6 +60,8 @@ a {
 	color: ${(props) => props.theme.font};
 }
 
+.leaflet-bar a, .leaflet-bar a:hover { color: #000; }
+
 svg:not(:root).svg-inline--fa{overflow:visible;}
 .svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-0.125em;}
 .svg-inline--fa.fa-lg{vertical-align:-0.225em;}
