@@ -40,7 +40,7 @@ const nextConfig = {
 				headers: [
 					{
 						key: 'Cache-Control',
-						value: 'public, max-age=2628000',
+						value: 'public, max-age=7884000',
 					},
 				],
 			},
