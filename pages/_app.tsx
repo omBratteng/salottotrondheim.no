@@ -12,6 +12,7 @@ library.add(faBars)
 
 // Next.js
 import Head from 'next/head'
+import getConfig from 'next/config'
 
 // Context
 import AppProvider from 'contexts/app'
@@ -28,6 +29,9 @@ import structuredData, {
 
 import { preload } from 'utils'
 import links from 'links'
+
+const { publicRuntimeConfig } = getConfig()
+const { sendMetrics, quickMetricsAPIKey } = publicRuntimeConfig
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
@@ -106,7 +110,7 @@ let isRequestIdleCallbackScheduled = false
 
 const sendMetric = ({ name, value }: NextWebVitalsMetric): void => {
 	if (process.env.NODE_ENV === 'production') return
-	const url = `https://qckm.io?m=webVital.${name}&v=${value}&k=${process.env.NEXT_PUBLIC_QUICK_METRICS_API_KEY}`
+	const url = `https://qckm.io?m=webVital.${name}&v=${value}&k=${quickMetricsAPIKey}`
 
 	// Use `navigator.sendBeacon()` if available, falling back to `fetch()`.
 	if ('sendBeacon' in navigator) {
@@ -156,7 +160,7 @@ const processPendingAnalyticsEvents = (deadline?: IdleDeadline): void => {
 }
 
 export function reportWebVitals(metric: NextWebVitalsMetric): void {
-	if (process.env.NEXT_PUBLIC_SEND_METRICS !== 'true') return
+	if (sendMetrics !== 'true') return
 	switch (metric.name) {
 		case 'LCP': // Largest Contentful Paint
 		case 'FID': // First Input Delay
