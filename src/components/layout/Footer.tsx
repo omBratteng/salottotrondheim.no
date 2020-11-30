@@ -23,6 +23,11 @@ const StyledFooter = styled.footer`
 	a {
 		color: inherit;
 	}
+
+	.leaflet-bar a,
+	.leaflet-bar a:hover {
+		color: #000;
+	}
 `
 
 const Bottom = styled(Section)`
