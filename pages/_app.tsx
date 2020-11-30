@@ -102,6 +102,10 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	)
 }
 
+App.getInitialProps = async (): Promise<Record<string, unknown>> => {
+	return {}
+}
+
 const metrics: NextWebVitalsMetric[] = []
 let isRequestIdleCallbackScheduled = false
 
