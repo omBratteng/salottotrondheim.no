@@ -1,9 +1,15 @@
+import type { GetStaticProps } from 'next'
+
 import { useEffect } from 'react'
 import styled from 'styled-components'
+
+import { getImage } from '@plaiceholder/next'
+import { getPixelsCSS, PixelsCSS } from '@plaiceholder/css'
 
 import { useApp } from 'contexts/app'
 import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
+import employeeList from 'components/employees/list'
 
 import { Evo, Ghd, Tigi, Gold, Olaplex } from 'assets/products'
 import { H1, H2, P } from 'components/text'
@@ -35,7 +41,11 @@ const Products = styled.div`
 	}
 `
 
-const Page = (): JSX.Element => {
+export type EmployeeCSS = Record<string, PixelsCSS>
+interface Page {
+	employeeCSS: EmployeeCSS
+}
+const Page = ({ employeeCSS }: Page): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
@@ -69,7 +79,7 @@ const Page = (): JSX.Element => {
 				</P>
 			</Section>
 
-			<Employees />
+			<Employees employeeCSS={employeeCSS} />
 
 			<Section>
 				<H2 center>hos oss finner du disse produktene:</H2>
@@ -84,6 +94,32 @@ const Page = (): JSX.Element => {
 			</Section>
 		</>
 	)
+}
+
+export const getStaticProps: GetStaticProps<Page> = async () => {
+	const employeeCSS: EmployeeCSS = {}
+
+	await Promise.all(
+		employeeList.map(async (employee) => {
+			return {
+				employee: employee.name,
+				css: await getPixelsCSS(
+					await getImage(`/assets/employees/${employee.image}`),
+				),
+			}
+		}),
+	).then((styles) => {
+		styles.map((style) => {
+			// console.log(style.employee)
+			employeeCSS[style.employee] = style.css
+		})
+	})
+
+	return {
+		props: {
+			employeeCSS,
+		},
+	}
 }
 
 export default Page

@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import type { PixelsCSS } from '@plaiceholder/css'
+import type { EmployeeCSS } from 'pages/om-oss'
 
 import Image from 'next/image'
 
@@ -59,19 +61,48 @@ const Employee = styled.div`
 	}
 `
 
-const Employees = (): JSX.Element => {
+const Portrait = styled.div`
+	overflow: hidden;
+	position: relative;
+
+	> div {
+		vertical-align: middle;
+	}
+`
+
+type TPlaceholder = Partial<{
+	css: PixelsCSS
+}>
+const Placeholder = styled.div<TPlaceholder>`
+	filter: blur(40px);
+	height: 100%;
+	position: absolute;
+	transform: scale(1.2);
+	width: 100%;
+
+	${(props) => props.css}
+`
+
+const Employees = ({
+	employeeCSS,
+}: {
+	employeeCSS: EmployeeCSS
+}): JSX.Element => {
 	return (
 		<Wrapper aria-label="oversikt over ansatte">
 			{list.map(({ name, description, image }, index) => (
 				<Employee key={`employee-${index}`}>
 					<Name>{name}</Name>
 					<Description>{description}</Description>
-					<Image
-						src={`/assets/employees/${image}`}
-						alt={`portrett bilde av ${name}`}
-						width="420"
-						height="630"
-					/>
+					<Portrait>
+						<Placeholder css={employeeCSS[name]} />
+						<Image
+							src={`/assets/employees/${image}`}
+							alt={`portrett bilde av ${name}`}
+							width="420"
+							height="630"
+						/>
+					</Portrait>
 				</Employee>
 			))}
 		</Wrapper>
