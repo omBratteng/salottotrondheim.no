@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import type { PixelsCSS } from '@plaiceholder/css'
-import type { EmployeeCSS } from 'pages/om-oss'
+import type { PixelsSVG } from '@plaiceholder/svg'
+import type { EmployeeSVG } from 'pages/om-oss'
 
 import Image from 'next/image'
 
@@ -71,7 +71,7 @@ const Portrait = styled.div`
 `
 
 type TPlaceholder = Partial<{
-	css: PixelsCSS
+	// css: PixelsCSS
 }>
 const Placeholder = styled.div<TPlaceholder>`
 	filter: blur(40px);
@@ -83,10 +83,20 @@ const Placeholder = styled.div<TPlaceholder>`
 	${(props) => props.css}
 `
 
+const PlaceholderSVG = styled.svg`
+	bottom: 0;
+	filter: blur(24px);
+	left: 50%;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: scale(1.3) translate(-37.5%, -37.5%);
+`
+
 const Employees = ({
-	employeeCSS,
+	employeeSVG,
 }: {
-	employeeCSS: EmployeeCSS
+	employeeSVG: EmployeeSVG
 }): JSX.Element => {
 	return (
 		<Wrapper aria-label="oversikt over ansatte">
@@ -95,7 +105,17 @@ const Employees = ({
 					<Name>{name}</Name>
 					<Description>{description}</Description>
 					<Portrait>
-						<Placeholder css={employeeCSS[name]} />
+						<PlaceholderSVG {...employeeSVG[name][1]}>
+							{employeeSVG[name][2].map((child) => (
+								<rect
+									key={`desktop-placeholder-${[
+										child[1].x,
+										child[1].y,
+									].join(',')}`}
+									{...child[1]}
+								/>
+							))}
+						</PlaceholderSVG>
 						<Image
 							src={`/assets/employees/${image}`}
 							alt={`portrett bilde av ${name}`}

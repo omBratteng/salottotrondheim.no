@@ -1,12 +1,12 @@
 import type { GetStaticProps } from 'next'
 import type { PriceListInterface } from 'utils/getPricelist'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 
 import { getImage } from '@plaiceholder/next'
-import { getPixelsCSS, PixelsCSS } from '@plaiceholder/css'
+import { getPixelsSVG, PixelsSVG } from '@plaiceholder/svg'
 
 import PriceList from 'components/PriceList'
 
@@ -16,7 +16,7 @@ import { Book } from 'components/buttons/'
 import { H1, H2 } from 'components/text'
 import { getPricelist } from 'utils/getPricelist'
 
-const ImageSection = styled(Section)<{ isLoaded?: boolean }>`
+const ImageSection = styled(Section)`
 	overflow: hidden;
 	position: relative;
 
@@ -29,9 +29,6 @@ const ImageSection = styled(Section)<{ isLoaded?: boolean }>`
 
 	.mobile,
 	.desktop {
-		position: relative;
-		z-index: ${(props) => (props.isLoaded ? '0' : '-1')};
-
 		> div {
 			vertical-align: middle;
 		}
@@ -68,24 +65,6 @@ const PriceSection = styled(Section)`
 	}
 `
 
-type TPlaceholder = Partial<{
-	mobileCSS: PixelsCSS
-	desktopCSS: PixelsCSS
-}>
-const Placeholder = styled.div<TPlaceholder>`
-	filter: blur(40px);
-	height: 100%;
-	position: absolute;
-	transform: scale(1.2);
-	width: 100%;
-
-	${(props) => props.mobileCSS}
-
-	@media (min-width: 650px) {
-		${(props) => props.desktopCSS}
-	}
-`
-
 interface Index {
 	priceList: PriceListInterface
 	img: {
@@ -95,18 +74,21 @@ interface Index {
 		}
 		alt: string
 	}
-	mobileCSS: PixelsCSS
-	desktopCSS: PixelsCSS
+	desktopSVG: PixelsSVG
 }
 
-const Index = ({
-	priceList,
-	mobileCSS,
-	desktopCSS,
-	img,
-}: Index): JSX.Element => {
+const PlaceholderSVG = styled.svg`
+	bottom: 0;
+	filter: blur(24px);
+	left: 50%;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: scale(1.3) translate(-37.5%, -37.5%);
+`
+
+const Index = ({ priceList, desktopSVG, img }: Index): JSX.Element => {
 	const { setPageTitle } = useApp()
-	const [isLoaded, setLoaded] = useState<boolean>(false)
 
 	useEffect(() => {
 		if (setPageTitle) setPageTitle('GI HODET EN AVKOBLING')
@@ -114,17 +96,24 @@ const Index = ({
 
 	return (
 		<>
-			<ImageSection as="div" type="pseudo" isLoaded={isLoaded}>
-				<Placeholder mobileCSS={mobileCSS} desktopCSS={desktopCSS} />
+			<ImageSection as="div" type="pseudo">
+				<PlaceholderSVG {...desktopSVG[1]}>
+					{desktopSVG[2].map((child) => (
+						<rect
+							key={`desktop-placeholder-${[
+								child[1].x,
+								child[1].y,
+							].join(',')}`}
+							{...child[1]}
+						/>
+					))}
+				</PlaceholderSVG>
 				<div className="mobile">
 					<Image
 						src={img.src.mobile}
 						width={650}
 						height={650}
 						alt={img.alt}
-						onLoad={() => {
-							setLoaded(true)
-						}}
 					/>
 				</div>
 				<div className="desktop">
@@ -133,9 +122,6 @@ const Index = ({
 						width={1600}
 						height={650}
 						alt={img.alt}
-						onLoad={() => {
-							setLoaded(true)
-						}}
 					/>
 				</div>
 				<Book bg={true} />
@@ -162,18 +148,17 @@ export const getStaticProps: GetStaticProps<Index> = async () => {
 		alt: 'en kvinne med solhatt',
 	}
 
-	const mobileImage = await getImage(img.src.mobile)
-	const mobileCSS = await getPixelsCSS(mobileImage)
-
 	const desktopImage = await getImage(img.src.desktop)
-	const desktopCSS = await getPixelsCSS(desktopImage)
+	const desktopSVG = await getPixelsSVG(desktopImage)
+
+	delete desktopSVG[1].style
+	desktopSVG[1].height = '100%'
 
 	return {
 		props: {
 			priceList: getPricelist(),
 			img,
-			mobileCSS,
-			desktopCSS,
+			desktopSVG,
 		},
 	}
 }
