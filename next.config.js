@@ -48,6 +48,7 @@ const nextConfig = {
 	},
 	publicRuntimeConfig: {
 		assetPrefix,
+		quickMetricsAPIKey: process.env.NEXT_PUBLIC_QUICK_METRICS_API_KEY,
 	},
 }
 
