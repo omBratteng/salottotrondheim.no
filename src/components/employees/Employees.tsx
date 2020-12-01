@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import type { PixelsSVG } from '@plaiceholder/svg'
 import type { EmployeeSVG } from 'pages/om-oss'
 
 import Image from 'next/image'
@@ -68,19 +67,6 @@ const Portrait = styled.div`
 	> div {
 		vertical-align: middle;
 	}
-`
-
-type TPlaceholder = Partial<{
-	// css: PixelsCSS
-}>
-const Placeholder = styled.div<TPlaceholder>`
-	filter: blur(40px);
-	height: 100%;
-	position: absolute;
-	transform: scale(1.2);
-	width: 100%;
-
-	${(props) => props.css}
 `
 
 const PlaceholderSVG = styled.svg`

@@ -5,7 +5,6 @@ import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 // Next.js
 import Head from 'next/head'
-import getConfig from 'next/config'
 
 // Context
 import AppProvider from 'contexts/app'
@@ -24,9 +23,6 @@ import { preload } from 'utils'
 import links from 'links'
 
 library.add(faFacebookF, faInstagram)
-
-const { publicRuntimeConfig } = getConfig()
-const { quickMetricsAPIKey } = publicRuntimeConfig
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (

@@ -1,7 +1,7 @@
 import type { GetStaticProps } from 'next'
 import type { PriceListInterface } from 'utils/getPricelist'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 
