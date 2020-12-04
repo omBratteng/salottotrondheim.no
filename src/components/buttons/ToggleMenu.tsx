@@ -3,20 +3,6 @@ import styled from 'styled-components'
 
 import { useApp } from 'contexts/app'
 
-const Button = styled.button`
-	align-items: center;
-	background: transparent;
-	border: 0;
-	cursor: pointer;
-	display: flex;
-	font-size: 1.5rem;
-	height: var(--header-height);
-	justify-content: center;
-	padding: 0;
-	width: var(--header-height);
-	z-index: 100;
-`
-
 const Bars = styled.span`
 	cursor: pointer;
 	display: block;
@@ -56,15 +42,29 @@ const Bars = styled.span`
 		transform-origin: 100% 50%;
 		width: 20px;
 	}
+`
 
-	&[aria-expanded='false']:hover {
+const Button = styled.button`
+	align-items: center;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	display: flex;
+	font-size: 1.5rem;
+	height: var(--header-height);
+	justify-content: center;
+	padding: 0;
+	width: var(--header-height);
+	z-index: 100;
+
+	&[aria-expanded='false']:hover ${Bars} {
 		> span:nth-child(2),
 		> span:nth-child(3) {
 			width: 40px;
 		}
 	}
 
-	&[aria-expanded='true'] {
+	&[aria-expanded='true'] ${Bars} {
 		position: fixed;
 
 		> span {
