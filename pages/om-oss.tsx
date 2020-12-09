@@ -11,7 +11,7 @@ import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
 import employeeList from 'components/employees/list'
 
-import { Evo, Ghd, Tigi, Gold, Olaplex } from 'assets/products'
+import { Evo, Ghd, Tigi, Gold, Olaplex } from 'products'
 import { H1, H2, P } from 'components/text'
 
 const Section = styled(SCSection)`
