@@ -1,35 +1,15 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import bowser from 'bowser'
+import { AckeeInstance, ServerDetails, TrackingOptions } from './ackee-types'
 
 const isBrowser = typeof window !== 'undefined'
-
-/**
- * Validates options and sets defaults for undefined properties.
- * @param {?Object} opts
- * @returns {Object} opts - Validated options.
- */
-const validate = (opts = {}) => {
-	// Create new object to avoid changes by reference
-	const _opts = {}
-
-	// Defaults to false
-	_opts.detailed = opts.detailed === true
-
-	// Defaults to true
-	_opts.ignoreLocalhost = opts.ignoreLocalhost !== false
-
-	// Defaults to false
-	_opts.ignoreOwnVisits = opts.ignoreOwnVisits === true
-
-	return _opts
-}
 
 /**
  * Determines if a host is a localhost.
  * @param {String} hostname - Hostname that should be tested.
  * @returns {Boolean} isLocalhost
  */
-const isLocalhost = (hostname) =>
+const isLocalhost = (hostname: string): boolean =>
 	hostname === '' ||
 	hostname === 'localhost' ||
 	hostname === '127.0.0.1' ||
@@ -41,16 +21,16 @@ const isLocalhost = (hostname) =>
  * @param {String} userAgent - User agent that should be tested.
  * @returns {Boolean} isBot
  */
-const isBot = (userAgent) => /bot|crawler|spider|crawling/i.test(userAgent)
+const isBot = (userAgent: string): boolean =>
+	/bot|crawler|spider|crawling/i.test(userAgent)
 
 /**
  * Check if record id is a fake id. This is the case when Ackee ignores you because of the `ackee_ignore` cookie.
  * @param {String} recordId - Record id that should be tested.
  * @returns {Boolean} isFakeRecordId
  */
-const isFakeRecordId = (recordId) =>
+const isFakeRecordId = (recordId: string): boolean =>
 	recordId === '88888888-8888-8888-8888-888888888888'
-
 /**
  * Gathers all platform-, screen- and user-related information.
  * @param {Boolean} detailed - Include personal data.
@@ -91,7 +71,7 @@ export const attributes = (detailed = false) => {
  * @param {String} server - URL of the Ackee server.
  * @returns {String} endpoint - URL to the GraphQL endpoint of the Ackee server.
  */
-const endpoint = (server) => {
+const endpoint = (server: string): string => {
 	const hasTrailingSlash = server.substr(-1) === '/'
 
 	return server + (hasTrailingSlash === true ? '' : '/') + 'api'
@@ -107,7 +87,13 @@ const endpoint = (server) => {
  * @param {?Object} opts
  * @param {Function} next - The callback that handles the response. Receives the following properties: err, json.
  */
-const send = (url, query, variables, opts, next) => {
+const send = (
+	url: string,
+	query: string,
+	variables: any,
+	opts: any,
+	next: any,
+) => {
 	const xhr = new XMLHttpRequest()
 
 	xhr.open('POST', url)
@@ -149,7 +135,13 @@ const send = (url, query, variables, opts, next) => {
  * @param {Function} active - Indicates if the record should still update.
  * @returns {?*}
  */
-const record = (server, domainId, attrs, opts, active) => {
+const record = (
+	server: string,
+	domainId: string,
+	attrs: any,
+	opts: any,
+	active: any,
+) => {
 	if (
 		opts.ignoreLocalhost === true &&
 		isLocalhost(location.hostname) === true
@@ -179,7 +171,7 @@ const record = (server, domainId, attrs, opts, active) => {
 	}
 
 	// Send initial request to server. This will create a new record.
-	send(url, createQuery, createVariables, opts, (err, json) => {
+	send(url, createQuery, createVariables, opts, (err: string, json: any) => {
 		if (err != null) return console.error(err)
 
 		const recordId = json.data.createRecord.payload.id
@@ -212,14 +204,20 @@ const record = (server, domainId, attrs, opts, active) => {
 			if ('requestIdleCallback' in window) {
 				requestIdleCallback(
 					() => {
-						send(url, updateQuery, updateVariables, opts, (err) => {
-							if (err != null) return console.error(err)
-						})
+						send(
+							url,
+							updateQuery,
+							updateVariables,
+							opts,
+							(err: string) => {
+								if (err != null) return console.error(err)
+							},
+						)
 					},
 					{ timeout: 2000 },
 				)
 			} else {
-				send(url, updateQuery, updateVariables, opts, (err) => {
+				send(url, updateQuery, updateVariables, opts, (err: string) => {
 					if (err != null) return console.error(err)
 				})
 			}
@@ -231,13 +229,13 @@ const record = (server, domainId, attrs, opts, active) => {
  * Looks for an element with Ackee attributes and executes Ackee with the given attributes.
  * Fails silently.
  */
-export const detect = () => {
+export const detect = (): void => {
 	const elem = document.querySelector('[data-ackee-domain-id]')
 
 	if (elem == null) return
 
-	const server = elem.getAttribute('data-ackee-server') || ''
-	const domainId = elem.getAttribute('data-ackee-domain-id')
+	const server: string = elem.getAttribute('data-ackee-server') || ''
+	const domainId: string = elem.getAttribute('data-ackee-domain-id') || ''
 	const opts = elem.getAttribute('data-ackee-opts') || '{}'
 
 	create({ server, domainId }, JSON.parse(opts)).record()
@@ -249,50 +247,53 @@ export const detect = () => {
  * @param {?Object} opts
  * @returns {Object} instance
  */
-export const create = ({ server, domainId }, opts) => {
-	let globalExecutionId
 
-	// Validate options
-	opts = validate(opts)
-
-	// Creates a new record on the server and updates the record
-	// very x seconds to track the duration of the visit. Tries to use
-	// the default attributes when there're no custom attributes defined.
-	const _record = (attrs = attributes(opts.detailed)) => {
-		// Manually stop updating
-		let isStopped = false
-
-		// Automatically stop updating when calling the record function, again
-		const localExecutionId = (globalExecutionId = Date.now())
-
-		// Helper function that checks if the record should still update
-		const active = () =>
-			isStopped === false && localExecutionId === globalExecutionId
-
-		// Call this function to stop updating the record
-		const stop = () => {
-			isStopped = true
-		}
-
-		if ('requestIdleCallback' in window) {
-			requestIdleCallback(
-				() => {
-					record(server, domainId, attrs, opts, active)
-				},
-				{ timeout: 2000 },
-			)
-		} else {
-			record(server, domainId, attrs, opts, active)
-		}
-
-		return {
-			stop,
-		}
-	}
+export const create = (
+	{ server, domainId }: ServerDetails,
+	opts: TrackingOptions = {
+		detailed: false,
+		ignoreLocalhost: true,
+		ignoreOwnVisits: false,
+	},
+): AckeeInstance => {
+	let globalExecutionId: number
 
 	// Return the instance
 	return {
-		record: _record,
+		// Creates a new record on the server and updates the record
+		// very x seconds to track the duration of the visit. Tries to use
+		// the default attributes when there're no custom attributes defined.
+		record: (attrs = attributes(opts.detailed)) => {
+			// Manually stop updating
+			let isStopped = false
+
+			// Automatically stop updating when calling the record function, again
+			const localExecutionId: number = (globalExecutionId = Date.now())
+
+			// Helper function that checks if the record should still update
+			const active = () =>
+				isStopped === false && localExecutionId === globalExecutionId
+
+			// Call this function to stop updating the record
+			const stop = () => {
+				isStopped = true
+			}
+
+			if ('requestIdleCallback' in window) {
+				requestIdleCallback(
+					() => {
+						record(server, domainId, attrs, opts, active)
+					},
+					{ timeout: 2000 },
+				)
+			} else {
+				record(server, domainId, attrs, opts, active)
+			}
+
+			return {
+				stop,
+			}
+		},
 	}
 }
 
