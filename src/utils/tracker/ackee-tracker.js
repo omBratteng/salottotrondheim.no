@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import bowser from 'bowser'
 
 const isBrowser = typeof window !== 'undefined'
@@ -7,8 +8,7 @@ const isBrowser = typeof window !== 'undefined'
  * @param {?Object} opts
  * @returns {Object} opts - Validated options.
  */
-const validate = function(opts = {}) {
-
+const validate = (opts = {}) => {
 	// Create new object to avoid changes by reference
 	const _opts = {}
 
@@ -22,7 +22,6 @@ const validate = function(opts = {}) {
 	_opts.ignoreOwnVisits = opts.ignoreOwnVisits === true
 
 	return _opts
-
 }
 
 /**
@@ -30,11 +29,11 @@ const validate = function(opts = {}) {
  * @param {String} hostname - Hostname that should be tested.
  * @returns {Boolean} isLocalhost
  */
-const isLocalhost = function(hostname) {
-
-	return hostname === '' || hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1'
-
-}
+const isLocalhost = (hostname) =>
+	hostname === '' ||
+	hostname === 'localhost' ||
+	hostname === '127.0.0.1' ||
+	hostname === '::1'
 
 /**
  * Determines if user agent is a bot. Approach is to get most bots, assuming other bots don't run JS.
@@ -42,34 +41,28 @@ const isLocalhost = function(hostname) {
  * @param {String} userAgent - User agent that should be tested.
  * @returns {Boolean} isBot
  */
-const isBot = function(userAgent) {
-
-	return (/bot|crawler|spider|crawling/i).test(userAgent)
-
-}
+const isBot = (userAgent) => /bot|crawler|spider|crawling/i.test(userAgent)
 
 /**
  * Check if record id is a fake id. This is the case when Ackee ignores you because of the `ackee_ignore` cookie.
  * @param {String} recordId - Record id that should be tested.
  * @returns {Boolean} isFakeRecordId
  */
-const isFakeRecordId = function(recordId) {
-
-	return recordId === '88888888-8888-8888-8888-888888888888'
-
-}
+const isFakeRecordId = (recordId) =>
+	recordId === '88888888-8888-8888-8888-888888888888'
 
 /**
  * Gathers all platform-, screen- and user-related information.
  * @param {Boolean} detailed - Include personal data.
  * @returns {Object} attributes - User-related information.
  */
-export const attributes = function(detailed = false) {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const attributes = (detailed = false) => {
 	const { browser, os, platform } = bowser.parse(navigator.userAgent)
 
 	const defaultData = {
 		siteLocation: window.location.href,
-		siteReferrer: document.referrer
+		siteReferrer: document.referrer,
 	}
 
 	const detailedData = {
@@ -89,9 +82,8 @@ export const attributes = function(detailed = false) {
 
 	return {
 		...defaultData,
-		...(detailed === true ? detailedData : {})
+		...(detailed === true ? detailedData : {}),
 	}
-
 }
 
 /**
@@ -99,12 +91,10 @@ export const attributes = function(detailed = false) {
  * @param {String} server - URL of the Ackee server.
  * @returns {String} endpoint - URL to the GraphQL endpoint of the Ackee server.
  */
-const endpoint = function(server) {
-
+const endpoint = (server) => {
 	const hasTrailingSlash = server.substr(-1) === '/'
 
 	return server + (hasTrailingSlash === true ? '' : '/') + 'api'
-
 }
 
 /**
@@ -117,16 +107,13 @@ const endpoint = function(server) {
  * @param {?Object} opts
  * @param {Function} next - The callback that handles the response. Receives the following properties: err, json.
  */
-const send = function(url, query, variables, opts, next) {
-
+const send = (url, query, variables, opts, next) => {
 	const xhr = new XMLHttpRequest()
 
 	xhr.open('POST', url)
 
 	xhr.onload = () => {
-
 		if (xhr.status === 200 || xhr.status === 201) {
-
 			let json = null
 
 			try {
@@ -140,13 +127,9 @@ const send = function(url, query, variables, opts, next) {
 			}
 
 			return next(null, json)
-
 		} else {
-
 			return next(new Error('Server returned with an unhandled status'))
-
 		}
-
 	}
 
 	xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
@@ -154,7 +137,6 @@ const send = function(url, query, variables, opts, next) {
 	if (opts.ignoreOwnVisits) xhr.withCredentials = true
 
 	xhr.send(JSON.stringify({ query, variables }))
-
 }
 
 /**
@@ -167,9 +149,11 @@ const send = function(url, query, variables, opts, next) {
  * @param {Function} active - Indicates if the record should still update.
  * @returns {?*}
  */
-const record = function(server, domainId, attrs, opts, active) {
-
-	if (opts.ignoreLocalhost === true && isLocalhost(location.hostname) === true) {
+const record = (server, domainId, attrs, opts, active) => {
+	if (
+		opts.ignoreLocalhost === true &&
+		isLocalhost(location.hostname) === true
+	) {
 		return console.warn('Ackee ignores you because you are on localhost')
 	}
 
@@ -191,23 +175,23 @@ const record = function(server, domainId, attrs, opts, active) {
 
 	const createVariables = {
 		domainId,
-		input: attrs
+		input: attrs,
 	}
 
 	// Send initial request to server. This will create a new record.
 	send(url, createQuery, createVariables, opts, (err, json) => {
-
 		if (err != null) return console.error(err)
 
 		const recordId = json.data.createRecord.payload.id
 
 		if (isFakeRecordId(recordId) === true) {
-			return console.warn('Ackee ignores you because this is your own site')
+			return console.warn(
+				'Ackee ignores you because this is your own site',
+			)
 		}
 
 		// PATCH the record constantly to track the duration of the visit
 		const interval = setInterval(() => {
-
 			if (active() === false) {
 				clearInterval(interval)
 				return
@@ -222,37 +206,32 @@ const record = function(server, domainId, attrs, opts, active) {
 			`
 
 			const updateVariables = {
-				id: recordId
+				id: recordId,
 			}
 
 			if ('requestIdleCallback' in window) {
-				requestIdleCallback(() => {
-					send(url, updateQuery, updateVariables, opts, (err) => {
-
-						if (err != null) return console.error(err)
-
-					})
-				}, {timeout: 2000})
+				requestIdleCallback(
+					() => {
+						send(url, updateQuery, updateVariables, opts, (err) => {
+							if (err != null) return console.error(err)
+						})
+					},
+					{ timeout: 2000 },
+				)
 			} else {
 				send(url, updateQuery, updateVariables, opts, (err) => {
-
 					if (err != null) return console.error(err)
-
 				})
 			}
-
 		}, 15000)
-
 	})
-
 }
 
 /**
  * Looks for an element with Ackee attributes and executes Ackee with the given attributes.
  * Fails silently.
  */
-export const detect = function() {
-
+export const detect = () => {
 	const elem = document.querySelector('[data-ackee-domain-id]')
 
 	if (elem == null) return
@@ -262,7 +241,6 @@ export const detect = function() {
 	const opts = elem.getAttribute('data-ackee-opts') || '{}'
 
 	create({ server, domainId }, JSON.parse(opts)).record()
-
 }
 
 /**
@@ -271,8 +249,7 @@ export const detect = function() {
  * @param {?Object} opts
  * @returns {Object} instance
  */
-export const create = function({ server, domainId }, opts) {
-
+export const create = ({ server, domainId }, opts) => {
 	let globalExecutionId
 
 	// Validate options
@@ -282,44 +259,44 @@ export const create = function({ server, domainId }, opts) {
 	// very x seconds to track the duration of the visit. Tries to use
 	// the default attributes when there're no custom attributes defined.
 	const _record = (attrs = attributes(opts.detailed)) => {
-
 		// Manually stop updating
 		let isStopped = false
 
 		// Automatically stop updating when calling the record function, again
-		const localExecutionId = globalExecutionId = Date.now()
+		const localExecutionId = (globalExecutionId = Date.now())
 
 		// Helper function that checks if the record should still update
-		const active = () => isStopped === false && localExecutionId === globalExecutionId
+		const active = () =>
+			isStopped === false && localExecutionId === globalExecutionId
 
 		// Call this function to stop updating the record
-		const stop = () => { isStopped = true }
-
+		const stop = () => {
+			isStopped = true
+		}
 
 		if ('requestIdleCallback' in window) {
-			requestIdleCallback(() => {
-				record(server, domainId, attrs, opts, active)
-			}, {timeout: 2000})
+			requestIdleCallback(
+				() => {
+					record(server, domainId, attrs, opts, active)
+				},
+				{ timeout: 2000 },
+			)
 		} else {
 			record(server, domainId, attrs, opts, active)
 		}
 
 		return {
-			stop
+			stop,
 		}
-
 	}
 
 	// Return the instance
 	return {
-		record: _record
+		record: _record,
 	}
-
 }
 
 // Only run Ackee automatically when executed in a browser environment
 if (isBrowser === true) {
-
 	detect()
-
 }
