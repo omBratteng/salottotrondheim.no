@@ -1,7 +1,4 @@
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
-import { library } from '@fortawesome/fontawesome-svg-core'
-
-import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 // Next.js
 import Head from 'next/head'
@@ -21,8 +18,6 @@ import structuredData, {
 
 import { preload } from 'utils'
 import links from 'links'
-
-library.add(faFacebookF, faInstagram)
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
@@ -158,7 +153,6 @@ export function reportWebVitals(metric: NextWebVitalsMetric): void {
 		case 'FCP': // First Contentful Paint
 		case 'TTFB': // Time to First Byte
 			metrics.push(metric)
-			// prepareMetrics(metric)
 			break
 		default:
 			break

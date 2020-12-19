@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconName } from '@fortawesome/fontawesome-svg-core'
 import { hideVisually, size } from 'polished'
 
 interface LinkProps {
@@ -40,13 +38,13 @@ const Link = styled.a<LinkProps>`
 `
 
 interface Props extends LinkProps {
-	icon: IconName
+	children: React.ReactNode
 }
 
-const SoMeLink = ({ href, title, icon }: Props): JSX.Element => {
+const SoMeLink = ({ href, title, children }: Props): JSX.Element => {
 	return (
 		<Link title={title} href={href} className="no-bg">
-			<FontAwesomeIcon icon={['fab', icon]} fixedWidth />
+			{children}
 			<span>{title}</span>
 		</Link>
 	)

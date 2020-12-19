@@ -28,9 +28,6 @@
     "lint:stylelint": "stylelint '{components,contexts,hooks,pages,styles}/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.13",
     "@plaiceholder/next": "^1.0.0",
     "@plaiceholder/svg": "^1.0.0",
     "@svgr/webpack": "^5.5.0",

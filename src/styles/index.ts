@@ -6,8 +6,6 @@ const { assetPrefix } = publicRuntimeConfig
 
 // FontAwesome
 // Add the css on the server side
-import { config } from '@fortawesome/fontawesome-svg-core'
-config.autoAddCss = false
 
 import { theme } from 'styles/theme'
 
