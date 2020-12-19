@@ -19,7 +19,7 @@ const Product = styled.li`
 	width: 100%;
 `
 
-const Price = styled.small`
+const Option = styled.small`
 	color: #555;
 	font-size: 0.625rem;
 	font-style: italic;
@@ -70,7 +70,7 @@ const PriceList = ({ priceList }: IPriceList): JSX.Element => {
 							>
 								{group.name ?? product.name}
 							</Span>
-							{group.name && <Price>{product.name}</Price>}
+							{group.name && <Option>{product.name}</Option>}
 							<Span>
 								{product.price
 									.map((price) => formatCurrency(price))

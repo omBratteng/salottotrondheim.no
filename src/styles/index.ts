@@ -67,30 +67,6 @@ a {
 svg:not(:root).svg-inline--fa{overflow:visible;}
 .svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-0.125em;}
 .svg-inline--fa.fa-lg{vertical-align:-0.225em;}
-/* .svg-inline--fa.fa-w-1{width:0.0625em;}
-.svg-inline--fa.fa-w-2{width:0.125em;}
-.svg-inline--fa.fa-w-3{width:0.1875em;}
-.svg-inline--fa.fa-w-4{width:0.25em;}
-.svg-inline--fa.fa-w-5{width:0.3125em;}
-.svg-inline--fa.fa-w-6{width:0.375em;}
-.svg-inline--fa.fa-w-7{width:0.4375em;}
-.svg-inline--fa.fa-w-8{width:0.5em;}
-.svg-inline--fa.fa-w-9{width:0.5625em;}
-.svg-inline--fa.fa-w-10{width:0.625em;}
-.svg-inline--fa.fa-w-11{width:0.6875em;}
-.svg-inline--fa.fa-w-12{width:0.75em;}
-.svg-inline--fa.fa-w-13{width:0.8125em;}
-.svg-inline--fa.fa-w-14{width:0.875em;}
-.svg-inline--fa.fa-w-15{width:0.9375em;}
-.svg-inline--fa.fa-w-16{width:1em;}
-.svg-inline--fa.fa-w-17{width:1.0625em;}
-.svg-inline--fa.fa-w-18{width:1.125em;}
-.svg-inline--fa.fa-w-19{width:1.1875em;}
-.svg-inline--fa.fa-w-20{width:1.25em;}
-.svg-inline--fa.fa-pull-left{margin-right:0.3em;width:auto;}
-.svg-inline--fa.fa-pull-right{margin-left:0.3em;width:auto;}
-.svg-inline--fa.fa-border{height:1.5em;}
-.svg-inline--fa.fa-li{width:2em;} */
 .svg-inline--fa.fa-fw{width:1.25em;}
 
 @font-face {
@@ -98,9 +74,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 	font-family: 'Rozha One';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Rozha One'),
-		url('${assetPrefix}/assets/fonts/rozhaone/rozha-one-v8-latin-regular.woff2') format('woff2'),
-		url('${assetPrefix}/assets/fonts/rozhaone/rozha-one-v8-latin-regular.woff') format('woff');
+	src: url("data:application/x-font-woff2;base64,d09GMgABAAAAAASYAA4AAAAACCQAAARFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbHhwoBmAAXBEICoUYhCcLFAABNgIkAyQEIAWFKAcgG6wGyAQeeDqt9yfpbtB6Fk6pKalUWGhyhpIc7Bx/77Rn4QLcwin92brm1E1zUxEHNvb0MNDAMQ3xajoQD97gaATgjGqXEBLoIj8Y2I10kZtfWosOba/R4XiEshUBAkiI9Oztm+vCVS55pLdW2idOwQkkVWqEqiQJE+0oQv5WsVslSlsV1eZX8AgmzJrP/28GzefiKmbk9LvYL0hRThMGspmgAWQ0SqqMlkLAFYskNmGimz6GGMNMR1pljTLzE8dHjkscFznOd5zrOOPXJBWecDhwA32k9pwlxutm4fqAWjtnRKCW5g7Hd2q1+m1emw06Q1TYjg6ti9Ogk4u2YcNqse+3qWFvvaE+d9996g0YnAzCyPl2o8XKxhs9zlajxR665YY3VJvNJvbbLdZO436b+gYNRgzCqGGZ9lfU1/a/bnm1oUE8q1ruHrn/MYP6TNCFSEacy9ZM6ZkwrrcbLXXhffRYxH6bzWaz2y3WPefe8MR9F98s9tvUFzasViuBO1Tb3vNufvreC25gw9rCxoVbzrVs4wGDahNv+bfutjcYMfKV2rSzqUJ98MiDvHp+qXd2SdLki6lj1WtPruV55Sw4L/hdvddLVeRnfv+7cG9Q6eSh+fzwHj56OkJ/87pP/b7Ut2qHIodq5IrosJ6CxcPmh9fWIxYvbw04Xu9/qJ4fvBT5b1m5Ikh+SNfhU6QUxRT58oOXIv8tK3OK/AwJyIr8t6xsLzg/ZHuK7vZMSZG1cur2gvNDknZ1KPLfsnKFIj8TG1zpFznvm31xnU/UbY+i2TyYZCoI6tvR7Z1ZZJwfL7u8J6Yl+cT9FTteMXhkutfVJWYHdmxv35udE5vXVf3UUkp78oVTPe/Lrdv54O5f699Y+arkK/mnpNqGigFjsVz8R1GpS47ruWZ5q8wGUeY6GXvS1g631N90es2XLMDLXx3fkiywKu4+/336f7OuXfM5bEz6BWpz160L++/TP1/StW9Bcb30PXdg7ytFYJA07BWZBAVMzSMx4h32iaEfu/UcOMRlXycEh47+46HUbmP3EfFAIRB4iusEEq7iAo+GePGoQIuPyBU48SO1xMFSx8LuSiweHcSMmUmSiSSSGXqYZohJzMwQwcyR+0QEE0wzQCQV5FNKNRMsMUgXFYzTRzjV9DHALKN0MU09fZx47bQJxjERTQQxRBFNCpXUNAZFkcIgE5jpeUQ717UoggQSSWGMLkbou92rnwhGGaIbhaG4YDzRJH1SmXLhkDy0i1nMTHD7EOOK3UQQCHlwNMGYCGcUEwkZmnYqJCqogBtHFCxQgBigXGI8YB7D4HD6MdFLH3N0VdF8ZcFcqE2KJFPJ6FtXRC35VJAyh2UrZX8QmcMEkyyuFgysIjFW6BklKD9SxCKziHF6GaKLfrCWRSbJ2fOZkIluDLD4EjFfwX4myMykj6vNcnW/DBEr5hwj+BrHtVqOO1FwAQAA") format("woff2");
 }
 @font-face {
 	font-display: swap;
@@ -108,11 +82,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 	font-style: normal;
 	font-weight: 300;
 	src: local('Roboto'),
-		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300.woff2') format('woff2'),
-		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300.woff') format('woff');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-
+		url('${assetPrefix}/assets/fonts/roboto-aa15f90aa29a18c813f9f34597b779f01222af95.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
@@ -120,10 +90,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 	font-style: italic;
 	font-weight: 300;
 	src: local('Roboto'),
-		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300italic.woff2') format('woff2'),
-		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300italic.woff') format('woff');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		url('${assetPrefix}/assets/fonts/roboto-8370d7348c62e9e25631cb33454da110fa57afd0.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
@@ -131,21 +98,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 	font-style: normal;
 	font-weight: 500;
 	src: local('Roboto'),
-		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500.woff2') format('woff2'),
-		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500.woff') format('woff');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-	font-display: swap;
-	font-family: 'Roboto';
-	font-style: italic;
-	font-weight: 500;
-	src: local('Roboto'),
-		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500italic.woff2') format('woff2'),
-		url('${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500italic.woff') format('woff');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		url('${assetPrefix}/assets/fonts/roboto-e55fb552fb1e9cf4a64979459c04857d19daaef6.woff2') format('woff2');
 }
 `
 

@@ -15,22 +15,17 @@ const prodLinks: Links = [
 ]
 const globalLinks: Links = [
 	{
-		href: `${assetPrefix}/assets/fonts/rozhaone/rozha-one-v8-latin-regular.woff2`,
+		href: `${assetPrefix}/assets/fonts/roboto-aa15f90aa29a18c813f9f34597b779f01222af95.woff2`,
 		as: 'font',
 		type: 'font/woff2',
 	},
 	{
-		href: `${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300.woff2`,
+		href: `${assetPrefix}/assets/fonts/roboto-8370d7348c62e9e25631cb33454da110fa57afd0.woff2`,
 		as: 'font',
 		type: 'font/woff2',
 	},
 	{
-		href: `${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-300italic.woff2`,
-		as: 'font',
-		type: 'font/woff2',
-	},
-	{
-		href: `${assetPrefix}/assets/fonts/roboto/roboto-v20-latin-500.woff2`,
+		href: `${assetPrefix}/assets/fonts/roboto-e55fb552fb1e9cf4a64979459c04857d19daaef6.woff2`,
 		as: 'font',
 		type: 'font/woff2',
 	},
