@@ -23,6 +23,7 @@ const Layout: React.FC<Props> = ({ children }: Props) => {
 		server: 'https://analytics.bratteng.cloud',
 		options: {
 			detailed: true,
+			ignoreLocalhost: true,
 		},
 	})
 
