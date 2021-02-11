@@ -36,7 +36,7 @@
     "core-js": "^3",
     "js-yaml": "^3.14.1",
     "leaflet": "^1.7.1",
-    "next": "^10.0.3",
+    "next": "^10.0.6",
     "next-compose-plugins": "^2.2.1",
     "polished": "^4.0.5",
     "pure-react-carousel": "^1.27.6",
