@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import type { EmployeeSVG } from 'pages/om-oss'
 
 import Image from 'next/image'
 import getConfig from 'next/config'
@@ -73,21 +72,7 @@ const Portrait = styled.div`
 	}
 `
 
-const PlaceholderSVG = styled.svg`
-	bottom: 0;
-	filter: blur(24px);
-	left: 50%;
-	position: absolute;
-	right: 0;
-	top: 50%;
-	transform: scale(1.3) translate(-37.5%, -37.5%);
-`
-
-const Employees = ({
-	employeeSVG,
-}: {
-	employeeSVG: EmployeeSVG
-}): JSX.Element => {
+const Employees = (): JSX.Element => {
 	return (
 		<Wrapper aria-label="oversikt over ansatte">
 			{list.map(({ name, description, image }, index) => (
@@ -95,17 +80,6 @@ const Employees = ({
 					<Name>{name}</Name>
 					<Description>{description}</Description>
 					<Portrait>
-						<PlaceholderSVG {...employeeSVG[name][1]}>
-							{employeeSVG[name][2].map((child) => (
-								<rect
-									key={`desktop-placeholder-${[
-										child[1].x,
-										child[1].y,
-									].join(',')}`}
-									{...child[1]}
-								/>
-							))}
-						</PlaceholderSVG>
 						<Image
 							src={`${assetPrefix}/assets/employees/${image}`}
 							alt={`portrett bilde av ${name}`}

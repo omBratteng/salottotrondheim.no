@@ -1,15 +1,9 @@
-import type { GetStaticProps } from 'next'
-
 import { useEffect } from 'react'
 import styled from 'styled-components'
-
-import { getImage } from '@plaiceholder/next'
-import { getPixelsSVG, PixelsSVG } from '@plaiceholder/svg'
 
 import { useApp } from 'contexts/app'
 import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
-import employeeList from 'components/employees/list'
 
 import { Evo, Ghd, Tigi, Gold, Olaplex } from 'products'
 import { H1, H2, P } from 'components/text'
@@ -41,11 +35,7 @@ const Products = styled.div`
 	}
 `
 
-export type EmployeeSVG = Record<string, PixelsSVG>
-interface Page {
-	employeeSVG: EmployeeSVG
-}
-const Page = ({ employeeSVG }: Page): JSX.Element => {
+const Page = (): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
@@ -79,7 +69,7 @@ const Page = ({ employeeSVG }: Page): JSX.Element => {
 				</P>
 			</Section>
 
-			<Employees employeeSVG={employeeSVG} />
+			<Employees />
 
 			<Section>
 				<H2 center>hos oss finner du disse produktene:</H2>
@@ -94,36 +84,6 @@ const Page = ({ employeeSVG }: Page): JSX.Element => {
 			</Section>
 		</>
 	)
-}
-
-export const getStaticProps: GetStaticProps<Page> = async () => {
-	const employeeSVG: EmployeeSVG = {}
-
-	await Promise.all(
-		employeeList.map(async (employee) => {
-			const svg = await getPixelsSVG(
-				await getImage(`/assets/employees/${employee.image}`),
-			)
-
-			delete svg[1].style
-			svg[1].height = '100%'
-
-			return {
-				employee: employee.name,
-				svg,
-			}
-		}),
-	).then((styles) => {
-		styles.map((style) => {
-			employeeSVG[style.employee] = style.svg
-		})
-	})
-
-	return {
-		props: {
-			employeeSVG,
-		},
-	}
 }
 
 export default Page

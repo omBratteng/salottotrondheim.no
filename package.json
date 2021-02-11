@@ -28,8 +28,6 @@
     "lint:stylelint": "stylelint '{src,pages}/**/*.{ts,tsx}' --cache"
   },
   "dependencies": {
-    "@plaiceholder/next": "^1.0.0",
-    "@plaiceholder/svg": "^1.0.0",
     "@svgr/webpack": "^5.5.0",
     "ackee-tracker": "4.2.0",
     "bowser": "^2.11.0",
