@@ -1547,7 +1547,7 @@ abort-controller@3.0.0:
   dependencies:
     event-target-shim "^5.0.0"
 
-ackee-tracker@^4.2.0:
+ackee-tracker@4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/ackee-tracker/-/ackee-tracker-4.2.0.tgz#6bae008eabdaac358c3da79b568e5e2694bed765"
   integrity sha512-SEEr7c+6l1+leLmjf61Abkjux+NnFQON3dpoXgbnmYj/MdYcOF2qiaT8Y8jpMspNJ94CN1TKTD9uLcGrmPvBHA==
