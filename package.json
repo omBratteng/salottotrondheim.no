@@ -33,7 +33,6 @@
     "@svgr/webpack": "^5.5.0",
     "ackee-tracker": "4.2.0",
     "bowser": "^2.11.0",
-    "core-js": "^3",
     "leaflet": "^1.7.1",
     "next": "^10.0.6",
     "next-compose-plugins": "^2.2.1",
