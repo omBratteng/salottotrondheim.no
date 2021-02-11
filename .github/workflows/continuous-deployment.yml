@@ -1,4 +1,4 @@
-name: Docker CD
+name: continuous-deployment
 
 on:
   release:
@@ -58,24 +58,12 @@ jobs:
           password: ${{ secrets.CR_PAT }}
 
       -
-        name: Cache Docker layers
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-            ${{ runner.os }}-
-
-      -
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: ${{ steps.prep.outputs.tags }}
-          cache-from: type=local,src=${{ github.workspace }}/.buildx-cache
-          cache-to: type=local,mode=max,dest=${{ github.workspace }}/.buildx-cache
           build-args: |
             NPM_TOKEN=${{ secrets.NPM_TOKEN }}
             FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
@@ -86,8 +74,3 @@ jobs:
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.licenses=${{ fromJson(steps.repo.outputs.result).license.spdx_id }}
-
-      -
-        name: tmp
-        run: |
-          ls -la ${{ github.workspace }}/.buildx-cache
