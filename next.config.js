@@ -3,7 +3,8 @@ const withPlugins = require('next-compose-plugins')
 const isProd =
 	process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
 
-const assetPrefix = isProd ? 'https://cdn.salottotrondheim.no' : ''
+const CDN = 'https://cdn.salottotrondheim.no'
+const assetPrefix = isProd ? CDN : ''
 
 const nextConfig = {
 	reactStrictMode: false,
@@ -44,7 +45,28 @@ const nextConfig = {
 					},
 				],
 			},
+			{
+				source: '/assets/employees/:path*',
+				headers: [
+					{
+						key: 'Cache-Control',
+						value: 'public, max-age=15552000',
+					},
+				],
+			},
+			{
+				source: '/assets/img/:path*',
+				headers: [
+					{
+						key: 'Cache-Control',
+						value: 'public, max-age=15552000',
+					},
+				],
+			},
 		]
+	},
+	images: {
+		domains: [new URL(CDN).hostname],
 	},
 	publicRuntimeConfig: {
 		assetPrefix,

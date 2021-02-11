@@ -2,9 +2,13 @@ import styled from 'styled-components'
 import type { EmployeeSVG } from 'pages/om-oss'
 
 import Image from 'next/image'
+import getConfig from 'next/config'
 
 import list from 'components/employees/list'
 import { Section } from 'components/layout/section'
+
+const { publicRuntimeConfig } = getConfig()
+const { assetPrefix } = publicRuntimeConfig
 
 const Name = styled.p`
 	font-size: 2.25rem;
@@ -103,7 +107,7 @@ const Employees = ({
 							))}
 						</PlaceholderSVG>
 						<Image
-							src={`/assets/employees/${image}`}
+							src={`${assetPrefix}/assets/employees/${image}`}
 							alt={`portrett bilde av ${name}`}
 							width="420"
 							height="630"
