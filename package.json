@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
-    "ackee-tracker": "4.2.0",
+    "ackee-tracker": "5.0.1",
     "bowser": "^2.11.0",
     "leaflet": "^1.7.1",
     "next": "^10.0.6",
