@@ -81,10 +81,10 @@ const Employees = (): JSX.Element => {
 					<Description>{description}</Description>
 					<Portrait>
 						<Image
-							src={`${assetPrefix}/assets/employees/${image}`}
+							src={`${assetPrefix}/assets/employees/${image}?${Date.now()}`}
 							alt={`portrett bilde av ${name}`}
 							width="420"
-							height="630"
+							height="525"
 						/>
 					</Portrait>
 				</Employee>

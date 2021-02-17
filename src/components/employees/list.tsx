@@ -3,7 +3,7 @@ import { P } from 'components/text'
 const list = [
 	{
 		name: 'Pål',
-		image: 'Paal.jpg',
+		image: 'paal.jpg',
 		description: (
 			<>
 				<P>
@@ -20,7 +20,7 @@ const list = [
 	},
 	{
 		name: 'Lindis',
-		image: 'Lindis.jpg',
+		image: 'lindis.jpg',
 		description: (
 			<>
 				<P>
@@ -37,7 +37,7 @@ const list = [
 	},
 	{
 		name: 'Kristine',
-		image: 'Kristine.jpg',
+		image: 'kristine.jpg',
 		description: (
 			<>
 				<P>
@@ -54,7 +54,7 @@ const list = [
 	},
 	{
 		name: 'Solvår',
-		image: 'Solvaar.jpg',
+		image: 'solvaar.jpg',
 		description: (
 			<>
 				<P>
