@@ -50,8 +50,8 @@ jobs:
         name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.0.8
         with:
-          image-ref: 'image:${{ github.sha }}'
-          format: 'table'
-          exit-code: '1'
+          image-ref: ghcr.io/bratteng/salottotrondheim.no:${{ github.sha }}
+          format: table
+          exit-code: 1
           ignore-unfixed: true
-          severity: 'CRITICAL,HIGH'
+          severity: CRITICAL,HIGH
