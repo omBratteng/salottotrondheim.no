@@ -72,7 +72,11 @@ const Portrait = styled.div`
 	}
 `
 
-const Employees = (): JSX.Element => {
+type Props = {
+	imageTime: number
+}
+
+const Employees = ({ imageTime }: Props): JSX.Element => {
 	return (
 		<Wrapper aria-label="oversikt over ansatte">
 			{list.map(({ name, description, image }, index) => (
@@ -81,7 +85,7 @@ const Employees = (): JSX.Element => {
 					<Description>{description}</Description>
 					<Portrait>
 						<Image
-							src={`${assetPrefix}/assets/employees/${image}?${Date.now()}`}
+							src={`${assetPrefix}/assets/employees/${image}?${imageTime}`}
 							alt={`portrett bilde av ${name}`}
 							width="420"
 							height="525"

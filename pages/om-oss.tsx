@@ -1,3 +1,5 @@
+import type { GetStaticProps } from 'next'
+
 import { useEffect } from 'react'
 import styled from 'styled-components'
 
@@ -35,7 +37,10 @@ const Products = styled.div`
 	}
 `
 
-const Page = (): JSX.Element => {
+interface Page {
+	imageTime: number
+}
+const Page = ({ imageTime }: Page): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
@@ -69,7 +74,7 @@ const Page = (): JSX.Element => {
 				</P>
 			</Section>
 
-			<Employees />
+			<Employees imageTime={imageTime} />
 
 			<Section>
 				<H2 center>hos oss finner du disse produktene:</H2>
@@ -84,6 +89,14 @@ const Page = (): JSX.Element => {
 			</Section>
 		</>
 	)
+}
+
+export const getStaticProps: GetStaticProps<Page> = async () => {
+	return {
+		props: {
+			imageTime: Date.now(),
+		},
+	}
 }
 
 export default Page
