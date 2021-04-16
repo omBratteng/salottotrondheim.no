@@ -7,7 +7,7 @@ import { useApp } from 'contexts/app'
 import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
 
-import { Evo, Ghd, Tigi, Gold, Olaplex } from 'products'
+import { Evo, Ghd, PhilipMartin, Gold, Olaplex } from 'products'
 import { H1, H2, P } from 'components/text'
 
 const Section = styled(SCSection)`
@@ -80,7 +80,7 @@ const Page = ({ imageTime }: Page): JSX.Element => {
 				<H2 center>hos oss finner du disse produktene:</H2>
 
 				<Products>
-					<Tigi />
+					<PhilipMartin />
 					<Evo />
 					<Ghd />
 					<Gold />
