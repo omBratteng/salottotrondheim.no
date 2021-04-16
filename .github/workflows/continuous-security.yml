@@ -48,7 +48,7 @@ jobs:
 
       -
         name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.0.8
+        uses: aquasecurity/trivy-action@0.0.14
         with:
           image-ref: ghcr.io/bratteng/salottotrondheim.no:${{ github.sha }}
           format: table
