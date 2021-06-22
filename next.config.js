@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPlugins = require('next-compose-plugins')
-const isProd =
-	process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
+const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
 
 const CDN = 'https://cdn.salottotrondheim.no'
 const assetPrefix = isProd ? CDN : ''
@@ -17,9 +16,6 @@ const nextConfig = {
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/,
-			issuer: {
-				test: /\.(js|ts)x?$/,
-			},
 			use: ['@svgr/webpack'],
 		})
 
