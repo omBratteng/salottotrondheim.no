@@ -17,16 +17,10 @@
 		"@next/eslint-plugin-next",
 		"jsx-a11y"
 	],
-	"env": {
-		"browser": true,
-		"es6": true,
-		"node": true
-	},
 	"extends": [
 		"plugin:@typescript-eslint/recommended",
-		"plugin:react/recommended",
-		"plugin:@next/eslint-plugin-next/recommended",
 		"plugin:prettier/recommended",
+		"next",
 		"plugin:jsx-a11y/recommended"
 	],
 	"globals": {
@@ -50,10 +44,6 @@
 				"printWidth": 127
 			}
 		],
-		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn",
-		"react/jsx-uses-react": "off",
-		"react/react-in-jsx-scope": "off",
 		"@typescript-eslint/type-annotation-spacing": "error",
 		"@typescript-eslint/no-empty-function": "off",
 		"jsx-a11y/anchor-is-valid": [ "error", {
