@@ -10,10 +10,7 @@ const isBrowser = typeof window !== 'undefined'
  * @returns {Boolean} isLocalhost
  */
 const isLocalhost = (hostname: string): boolean =>
-	hostname === '' ||
-	hostname === 'localhost' ||
-	hostname === '127.0.0.1' ||
-	hostname === '::1'
+	hostname === '' || hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1'
 
 /**
  * Determines if user agent is a bot. Approach is to get most bots, assuming other bots don't run JS.
@@ -21,16 +18,14 @@ const isLocalhost = (hostname: string): boolean =>
  * @param {String} userAgent - User agent that should be tested.
  * @returns {Boolean} isBot
  */
-const isBot = (userAgent: string): boolean =>
-	/bot|crawler|spider|crawling/i.test(userAgent)
+const isBot = (userAgent: string): boolean => /bot|crawler|spider|crawling/i.test(userAgent)
 
 /**
  * Check if record id is a fake id. This is the case when Ackee ignores you because of the `ackee_ignore` cookie.
  * @param {String} recordId - Record id that should be tested.
  * @returns {Boolean} isFakeRecordId
  */
-const isFakeRecordId = (recordId: string): boolean =>
-	recordId === '88888888-8888-8888-8888-888888888888'
+const isFakeRecordId = (recordId: string): boolean => recordId === '88888888-8888-8888-8888-888888888888'
 /**
  * Gathers all platform-, screen- and user-related information.
  * @param {Boolean} detailed - Include personal data.
@@ -87,13 +82,7 @@ const endpoint = (server: string): string => {
  * @param {?Object} opts
  * @param {Function} next - The callback that handles the response. Receives the following properties: err, json.
  */
-const send = (
-	url: string,
-	query: string,
-	variables: any,
-	opts: any,
-	next: any,
-) => {
+const send = (url: string, query: string, variables: any, opts: any, next: any) => {
 	const xhr = new XMLHttpRequest()
 
 	xhr.open('POST', url)
@@ -135,17 +124,8 @@ const send = (
  * @param {Function} active - Indicates if the record should still update.
  * @returns {?*}
  */
-const record = (
-	server: string,
-	domainId: string,
-	attrs: any,
-	opts: any,
-	active: any,
-) => {
-	if (
-		opts.ignoreLocalhost === true &&
-		isLocalhost(location.hostname) === true
-	) {
+const record = (server: string, domainId: string, attrs: any, opts: any, active: any) => {
+	if (opts.ignoreLocalhost === true && isLocalhost(location.hostname) === true) {
 		return console.warn('Ackee ignores you because you are on localhost')
 	}
 
@@ -177,9 +157,7 @@ const record = (
 		const recordId = json.data.createRecord.payload.id
 
 		if (isFakeRecordId(recordId) === true) {
-			return console.warn(
-				'Ackee ignores you because this is your own site',
-			)
+			return console.warn('Ackee ignores you because this is your own site')
 		}
 
 		// PATCH the record constantly to track the duration of the visit
@@ -204,15 +182,9 @@ const record = (
 			if ('requestIdleCallback' in window) {
 				requestIdleCallback(
 					() => {
-						send(
-							url,
-							updateQuery,
-							updateVariables,
-							opts,
-							(err: string) => {
-								if (err != null) return console.error(err)
-							},
-						)
+						send(url, updateQuery, updateVariables, opts, (err: string) => {
+							if (err != null) return console.error(err)
+						})
 					},
 					{ timeout: 2000 },
 				)
@@ -271,8 +243,7 @@ export const create = (
 			const localExecutionId: number = (globalExecutionId = Date.now())
 
 			// Helper function that checks if the record should still update
-			const active = () =>
-				isStopped === false && localExecutionId === globalExecutionId
+			const active = () => isStopped === false && localExecutionId === globalExecutionId
 
 			// Call this function to stop updating the record
 			const stop = () => {

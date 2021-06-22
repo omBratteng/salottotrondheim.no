@@ -7,10 +7,7 @@ interface IClientOnlyPortal {
 	selector: string
 }
 
-type TClientOnlyPortal = ({
-	children,
-	selector,
-}: IClientOnlyPortal) => ReactPortal | null
+type TClientOnlyPortal = ({ children, selector }: IClientOnlyPortal) => ReactPortal | null
 
 const ClientOnlyPortal: TClientOnlyPortal = ({ children, selector }) => {
 	const ref = useRef<Element | null>()
@@ -26,9 +23,7 @@ const ClientOnlyPortal: TClientOnlyPortal = ({ children, selector }) => {
 		setMounted(true)
 	}, [selector])
 
-	return ref.current && mounted
-		? createPortal(<>{children}</>, ref.current)
-		: null
+	return ref.current && mounted ? createPortal(<>{children}</>, ref.current) : null
 }
 
 export default ClientOnlyPortal

@@ -12,11 +12,7 @@ interface Props {
 	}>
 }
 
-const useAnalytics = ({
-	domainId,
-	server,
-	options = {},
-}: Props): AckeeInstance | undefined => {
+const useAnalytics = ({ domainId, server, options = {} }: Props): AckeeInstance | undefined => {
 	const router = useRouter()
 	const tracker = useRef<any>()
 	const [trackerLoaded, setTrackerLoaded] = useState<boolean>(false)

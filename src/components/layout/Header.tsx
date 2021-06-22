@@ -62,10 +62,7 @@ const Portal = styled.div<PortalProps>`
 const Header: React.FC = () => {
 	const { menuOpen, setMenuOpen, modalOpen } = useApp()
 
-	const closeMenu = useCallback(
-		() => setMenuOpen && setMenuOpen((prevState) => !prevState),
-		[setMenuOpen],
-	)
+	const closeMenu = useCallback(() => setMenuOpen && setMenuOpen((prevState) => !prevState), [setMenuOpen])
 
 	const onKeydown = useCallback(
 		(event) => {

@@ -43,11 +43,7 @@ const Map = ({ render = false, position, zoom = 16 }: Props): JSX.Element => {
 							crossOrigin="anonymous"
 						/>
 					</Head>
-					<MapContainer
-						center={position}
-						zoom={zoom}
-						style={{ height: 600 }}
-					>
+					<MapContainer center={position} zoom={zoom} style={{ height: 600 }}>
 						<TileLayer
 							url="https://stamen-tiles.freetls.fastly.net/toner/{z}/{x}/{y}.png"
 							attribution='Map tiles by <a href="https://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

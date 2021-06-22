@@ -61,21 +61,11 @@ const PriceList = ({ priceList }: IPriceList): JSX.Element => {
 				<ProductGroup key={`priceGroup-${groupKey}`}>
 					{group.prices.map((product, productKey) => (
 						<Product key={`priceGroup-${groupKey}-${productKey}`}>
-							<Span
-								className={
-									group.name && productKey !== 0
-										? 'hidden'
-										: undefined
-								}
-							>
+							<Span className={group.name && productKey !== 0 ? 'hidden' : undefined}>
 								{group.name ?? product.name}
 							</Span>
 							{group.name && <Option>{product.name}</Option>}
-							<Span>
-								{product.price
-									.map((price) => formatCurrency(price))
-									.join(' / ')}
-							</Span>
+							<Span>{product.price.map((price) => formatCurrency(price)).join(' / ')}</Span>
 						</Product>
 					))}
 				</ProductGroup>

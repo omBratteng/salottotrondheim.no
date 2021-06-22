@@ -46,7 +46,8 @@
 				"singleQuote": true,
 				"tabWidth": 4,
 				"trailingComma": "all",
-				"useTabs": true
+				"useTabs": true,
+				"printWidth": 127
 			}
 		],
 		"react-hooks/rules-of-hooks": "error",

@@ -59,12 +59,7 @@ const Book: React.FC<Props> = ({ bg = false, dark = true }: Props) => {
 		>
 			<span>bestill time</span>
 			<svg width="47" height="22">
-				<g
-					fill="none"
-					stroke="currentColor"
-					fillRule="evenodd"
-					strokeWidth="2"
-				>
+				<g fill="none" stroke="currentColor" fillRule="evenodd" strokeWidth="2">
 					<path d="M1.5 10.602h41.104M33.259 20.523l11.408-9.804L33.357 1" />
 				</g>
 			</svg>

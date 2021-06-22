@@ -1,11 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react'
-import {
-	StrictMode,
-	createContext,
-	useContext,
-	useState,
-	useEffect,
-} from 'react'
+import { StrictMode, createContext, useContext, useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 // Next.js
@@ -39,10 +33,7 @@ interface IAppProvider {
 	children: unknown
 }
 
-const AppProvider = ({
-	siteTitle = '',
-	children,
-}: IAppProvider): JSX.Element => {
+const AppProvider = ({ siteTitle = '', children }: IAppProvider): JSX.Element => {
 	const [menuOpen, setMenuOpen] = useState<boolean>(false)
 	const [modalOpen, setModalOpen] = useState<boolean>(false)
 

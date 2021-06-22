@@ -56,12 +56,7 @@ const Footer = (): JSX.Element => {
 	return (
 		<StyledFooter>
 			<ContactUs />
-			<Section
-				aria-label="kart som viser vår lokasjon"
-				type="wide"
-				ref={ref}
-				style={{ height: 600 }}
-			>
+			<Section aria-label="kart som viser vår lokasjon" type="wide" ref={ref} style={{ height: 600 }}>
 				<Map position={[63.432057, 10.395827]} render={inView} />
 			</Section>
 			<Bottom aria-label="opphavsrett og lenke til personvernerklæring">

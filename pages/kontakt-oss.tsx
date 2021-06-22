@@ -22,10 +22,7 @@ const Index = (): JSX.Element => {
 			</P>
 			<P>
 				<a href={`tel:${CONTACT_PHONE}`}>
-					{CONTACT_PHONE.replace(
-						/(\+\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/g,
-						'$1 $2 $3 $4 $5',
-					)}
+					{CONTACT_PHONE.replace(/(\+\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/g, '$1 $2 $3 $4 $5')}
 				</a>
 			</P>
 

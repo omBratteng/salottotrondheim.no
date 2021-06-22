@@ -66,9 +66,7 @@ const Menu = (): JSX.Element => {
 	const router = useRouter()
 	const { setMenuOpen } = useApp()
 
-	const closeMenu = useCallback(() => setMenuOpen && setMenuOpen(false), [
-		setMenuOpen,
-	])
+	const closeMenu = useCallback(() => setMenuOpen && setMenuOpen(false), [setMenuOpen])
 
 	useEffect(() => {
 		router.events.on('routeChangeComplete', closeMenu)

@@ -4,9 +4,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
 class Doc extends Document {
-	static async getInitialProps(
-		context: DocumentContext,
-	): Promise<DocumentInitialProps> {
+	static async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps> {
 		const sheet = new ServerStyleSheet()
 		const originalRenderPage = context.renderPage
 

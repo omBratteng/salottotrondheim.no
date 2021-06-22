@@ -74,19 +74,14 @@ const ContactUs = (): JSX.Element => {
 						<strong>besøk</strong>
 					</p>
 					<p>
-						<ScrollTo bottom>
-							{`${streetAddress}, ${postalCode} ${addressLocality}`.toLowerCase()}
-						</ScrollTo>
+						<ScrollTo bottom>{`${streetAddress}, ${postalCode} ${addressLocality}`.toLowerCase()}</ScrollTo>
 					</p>
 					<p>
 						<strong>ring</strong>
 					</p>
 					<p>
 						<a href={`tel:${CONTACT_PHONE}`}>
-							{CONTACT_PHONE.replace(
-								/(\+\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/g,
-								'$1 $2 $3 $4 $5',
-							)}
+							{CONTACT_PHONE.replace(/(\+\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/g, '$1 $2 $3 $4 $5')}
 						</a>
 					</p>
 					<p>

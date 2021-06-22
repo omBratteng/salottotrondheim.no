@@ -26,9 +26,7 @@ export interface TrackingOptions {
 }
 
 export interface AckeeInstance {
-	record: (
-		attrs?: DefaultData | (DefaultData & DetailedData),
-	) => { stop: () => void }
+	record: (attrs?: DefaultData | (DefaultData & DetailedData)) => { stop: () => void }
 }
 
 export interface DefaultData {

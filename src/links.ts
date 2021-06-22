@@ -8,11 +8,7 @@ const { assetPrefix } = publicRuntimeConfig
 
 const devLinks: Links = []
 
-const prodLinks: Links = [
-	assetPrefix,
-	'https://stamen-tiles.freetls.fastly.net',
-	'https://qckm.io',
-]
+const prodLinks: Links = [assetPrefix, 'https://stamen-tiles.freetls.fastly.net', 'https://qckm.io']
 const globalLinks: Links = [
 	{
 		href: `${assetPrefix}/assets/fonts/roboto-aa15f90aa29a18c813f9f34597b779f01222af95.woff2`,
@@ -31,9 +27,6 @@ const globalLinks: Links = [
 	},
 ]
 
-const links: Links = [
-	...(process.env.NODE_ENV === 'development' ? devLinks : prodLinks),
-	...globalLinks,
-]
+const links: Links = [...(process.env.NODE_ENV === 'development' ? devLinks : prodLinks), ...globalLinks]
 
 export default links

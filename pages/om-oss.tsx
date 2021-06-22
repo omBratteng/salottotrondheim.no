@@ -55,19 +55,15 @@ const Page = ({ imageTime }: Page): JSX.Element => {
 				<em>[salåttå] er italiensk for salong</em>
 
 				<P>
-					Salonger var et fenomen fra 1600-tallet til 1700-tallet, en
-					utvalgt del av byens overklasse samles for å «holde salong»,
-					det vil si konversere om litterære begivenheter eller hva
-					som helst.
+					Salonger var et fenomen fra 1600-tallet til 1700-tallet, en utvalgt del av byens overklasse samles for å
+					«holde salong», det vil si konversere om litterære begivenheter eller hva som helst.
 				</P>
 
 				<P>
 					Salotto er en videreutvikling av salongfenomenet.
 					<br />
-					Vi er et sted du kan føle deg hjemme med dyktige stylister
-					som frisker opp frisyren. <br />
-					Ta en god kopp kaffe mens fargen setter seg. Gi deg en
-					avkobling fra hverdagsmaset med en hodemassasje i
+					Vi er et sted du kan føle deg hjemme med dyktige stylister som frisker opp frisyren. <br />
+					Ta en god kopp kaffe mens fargen setter seg. Gi deg en avkobling fra hverdagsmaset med en hodemassasje i
 					vaskestolen.
 					<br />
 					Stikk innom, slå av en prat og bestill din behandling!
