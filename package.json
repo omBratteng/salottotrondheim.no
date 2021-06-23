@@ -49,7 +49,7 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
-    "@next/eslint-plugin-next": "^11.0.0",
+    "@next/eslint-plugin-next": "^11.0.1",
     "@types/ackee-tracker": "^5.0.0",
     "@types/leaflet": "^1.7.3",
     "@types/node": "^15.12.4",
