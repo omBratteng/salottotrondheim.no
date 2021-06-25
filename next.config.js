@@ -12,6 +12,7 @@ const nextConfig = {
 	devIndicators: false,
 	images: {
 		deviceSizes: [320, 420, 768, 1024, 1200, 1400],
+		domains: [new URL(CDN).hostname],
 	},
 	webpack(config) {
 		config.module.rules.push({
@@ -60,9 +61,6 @@ const nextConfig = {
 				],
 			},
 		]
-	},
-	images: {
-		domains: [new URL(CDN).hostname],
 	},
 	publicRuntimeConfig: {
 		assetPrefix,
