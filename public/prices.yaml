@@ -25,16 +25,16 @@
     - name: 1/2 hode
       price:
         - 1550
-    - name: 1/2 hode
+    - name: 1/1 hode
       price:
         - 1650
 
-- name: foliefarging kort hår
+- name: foliefarging langt hår
   prices:
     - name: 1/2 hode
       price:
         - 1750
-    - name: 1/2 hode
+    - name: 1/1 hode
       price:
         - 2050
     - name: extra 1/1
