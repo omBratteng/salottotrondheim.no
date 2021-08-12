@@ -25,7 +25,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
+          password: ${{ github.token }}
 
       -
         name: Cache Docker layers
@@ -40,7 +40,7 @@ jobs:
         name: Docker build
         run: |
           docker buildx build . --load \
-            --tag ghcr.io/bratteng/salottotrondheim.no:${{ github.sha }} \
+            --tag image:${{ github.sha }} \
             --cache-to=type=local,dest=/tmp/.buildx-cache \
             --cache-from=type=local,src=/tmp/.buildx-cache \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
@@ -50,7 +50,7 @@ jobs:
         name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.0.19
         with:
-          image-ref: ghcr.io/bratteng/salottotrondheim.no:${{ github.sha }}
+          image-ref: image:${{ github.sha }}
           format: table
           exit-code: 1
           ignore-unfixed: true
