@@ -1,6 +1,8 @@
+import { IMGIX_URL } from 'site-config'
+
 export const PAGE_URL = 'https://salottotrondheim.no/'
 export const PAGE_DESC = 'Gi hodet en avkobling.'
-export const OG_IMAGE = PAGE_URL + 'assets/img/og.jpg'
+export const OG_IMAGE = IMGIX_URL + 'assets/img/og.jpg'
 export const OG_ALT = 'En mann iført dress og sløyfe som holder en iskrem'
 export const CONTACT_EMAIL = 'ciao@salottotrondheim.no'
 export const CONTACT_PHONE = '+4773505051'
