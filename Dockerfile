@@ -39,7 +39,7 @@ FROM gcr.io/distroless/nodejs:16
 WORKDIR /app
 
 # copy in our healthcheck binary
-COPY --from=ghcr.io/bratteng/healthcheck-next:latest --chown=nonroot /healthcheck /healthcheck
+COPY --from=ghcr.io/bratteng/healthcheck:latest --chown=nonroot /healthcheck /healthcheck
 
 COPY --chown=nonroot --from=build /src/node_modules /app/node_modules
 COPY --chown=nonroot --from=build /src/.next /app/.next
@@ -53,6 +53,6 @@ EXPOSE 3000
 VOLUME [ "/app/.next/cache/images" ]
 
 # healthcheck to report the container status
-HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD [ "/healthcheck", "3000" ]
+HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD [ "/healthcheck", "-port", "3000" ]
 
 CMD ["/app/node_modules/.bin/next", "start", "-p", "3000"]
