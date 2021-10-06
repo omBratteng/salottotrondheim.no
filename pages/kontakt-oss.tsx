@@ -7,7 +7,7 @@ import { H1, P } from 'components/text'
 import ScrollTo from 'components/ScrollTo'
 import { CONTACT_EMAIL, CONTACT_PHONE } from 'structuredData'
 
-const Index = (): JSX.Element => {
+const Page = (): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
@@ -33,4 +33,4 @@ const Index = (): JSX.Element => {
 	)
 }
 
-export default Index
+export default Page

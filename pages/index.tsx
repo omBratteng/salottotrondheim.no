@@ -64,11 +64,11 @@ const PriceSection = styled(Section)`
 	}
 `
 
-interface Index {
+type Props = {
 	priceList: PriceListInterface
 }
 
-const Index = ({ priceList }: Index): JSX.Element => {
+const Page = ({ priceList }: Props): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
@@ -113,7 +113,7 @@ const Index = ({ priceList }: Index): JSX.Element => {
 	)
 }
 
-export const getStaticProps: GetStaticProps<Index> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
 	return {
 		props: {
 			priceList: getPricelist(),
@@ -121,4 +121,4 @@ export const getStaticProps: GetStaticProps<Index> = async () => {
 	}
 }
 
-export default Index
+export default Page

@@ -50,11 +50,11 @@ const FollowUs = styled.div`
 	}
 `
 
-interface Props extends LinkProps {
+type Props = LinkProps & {
 	title: string
 }
 
-const NavLink: React.FC<Props> = ({ title, ...props }: Props) => {
+const NavLink = ({ title, ...props }: Props) => {
 	return (
 		<Link {...props} passHref>
 			<a>{title}</a>

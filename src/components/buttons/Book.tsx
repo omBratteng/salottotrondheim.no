@@ -45,7 +45,7 @@ type Props = {
 	dark?: boolean
 }
 
-const Book: React.FC<Props> = ({ bg = false, dark = true }: Props) => {
+const Book = ({ bg = false, dark = true }: Props): JSX.Element => {
 	const { setModalOpen } = useApp()
 
 	return (

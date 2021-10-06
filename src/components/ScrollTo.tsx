@@ -9,13 +9,13 @@ const Button = styled.a`
 	text-decoration: underline;
 `
 
-interface Props {
+type Props = {
 	bottom?: boolean
 	to?: number
 	children: ReactNode
 }
 
-const ScrollTo: React.FC<Props> = ({ bottom = false, to, children }: Props) => (
+const ScrollTo = ({ bottom = false, to, children }: Props): JSX.Element => (
 	<Button
 		onClick={(event) => {
 			event.preventDefault()

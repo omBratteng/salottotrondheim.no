@@ -96,7 +96,7 @@ type Props = {
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const ToggleMenu: React.FC<Props> = ({ onClick }: Props) => {
+const ToggleMenu = ({ onClick }: Props): JSX.Element => {
 	const { menuOpen, setMenuOpen } = useApp()
 	const handleClick = useCallback(
 		(event) => {

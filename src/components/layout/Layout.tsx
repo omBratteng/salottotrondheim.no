@@ -13,11 +13,11 @@ const Main = styled.main`
 	padding-bottom: 4rem;
 `
 
-interface Props {
+type Props = {
 	children: ReactNode
 }
 
-const Layout: React.FC<Props> = ({ children }: Props) => {
+const Layout = ({ children }: Props): JSX.Element => {
 	useAnalytics({
 		domainId: 'f374ffdb-fc4c-497c-9a28-50ae5c9b769e',
 		server: 'https://analytics.bratteng.cloud',

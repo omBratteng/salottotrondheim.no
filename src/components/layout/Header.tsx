@@ -59,7 +59,7 @@ const Portal = styled.div<PortalProps>`
 	z-index: 99;
 `
 
-const Header: React.FC = () => {
+const Header = (): JSX.Element => {
 	const { menuOpen, setMenuOpen, modalOpen } = useApp()
 
 	const closeMenu = useCallback(() => setMenuOpen && setMenuOpen((prevState) => !prevState), [setMenuOpen])
