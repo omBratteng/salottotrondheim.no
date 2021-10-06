@@ -1,13 +1,10 @@
 import styled from 'styled-components'
 
 import Image from 'next/image'
-import getConfig from 'next/config'
 
 import list from 'components/employees/list'
 import { Section } from 'components/layout/section'
-
-const { publicRuntimeConfig } = getConfig()
-const { assetPrefix } = publicRuntimeConfig
+import { imgixLoader } from 'utils'
 
 const Name = styled.p`
 	font-size: 2.25rem;
@@ -72,11 +69,7 @@ const Portrait = styled.div`
 	}
 `
 
-type Props = {
-	imageTime: number
-}
-
-const Employees = ({ imageTime }: Props): JSX.Element => {
+const Employees = (): JSX.Element => {
 	return (
 		<Wrapper aria-label="oversikt over ansatte">
 			{list.map(({ name, description, image }, index) => (
@@ -85,7 +78,8 @@ const Employees = ({ imageTime }: Props): JSX.Element => {
 					<Description>{description}</Description>
 					<Portrait>
 						<Image
-							src={`${assetPrefix}/assets/employees/${image}?${imageTime}`}
+							loader={imgixLoader}
+							src={`assets/employees/${image}`}
 							alt={`portrett bilde av ${name}`}
 							width="420"
 							height="525"

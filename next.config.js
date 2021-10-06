@@ -15,6 +15,7 @@ const nextConfig = {
 	assetPrefix,
 	devIndicators: false,
 	images: {
+		loader: 'custom',
 		deviceSizes: [320, 420, 768, 1024, 1200, 1400],
 		domains: [new URL(CDN).hostname],
 	},
@@ -39,24 +40,6 @@ const nextConfig = {
 			},
 			{
 				source: '/assets/fonts/:path*',
-				headers: [
-					{
-						key: 'Cache-Control',
-						value: 'public, max-age=15552000',
-					},
-				],
-			},
-			{
-				source: '/assets/employees/:path*',
-				headers: [
-					{
-						key: 'Cache-Control',
-						value: 'public, max-age=15552000',
-					},
-				],
-			},
-			{
-				source: '/assets/img/:path*',
 				headers: [
 					{
 						key: 'Cache-Control',

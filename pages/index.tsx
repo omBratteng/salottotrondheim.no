@@ -5,7 +5,6 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import Image from 'next/image'
-import getConfig from 'next/config'
 
 import PriceList from 'components/PriceList'
 
@@ -14,9 +13,7 @@ import { Section } from 'components/layout/section'
 import { Book } from 'components/buttons/'
 import { H1, H2 } from 'components/text'
 import { getPricelist } from 'utils/getPricelist'
-
-const { publicRuntimeConfig } = getConfig()
-const { assetPrefix } = publicRuntimeConfig
+import { imgixLoader } from 'utils'
 
 const ImageSection = styled(Section)`
 	overflow: hidden;
@@ -83,17 +80,21 @@ const Index = ({ priceList }: Index): JSX.Element => {
 			<ImageSection as="div" type="pseudo">
 				<div className="mobile">
 					<Image
-						src={`${assetPrefix}/assets/img/cover-mobile.jpg`}
+						src="/assets/img/cover-mobile.jpg"
+						loader={imgixLoader}
 						width={650}
 						height={650}
+						layout="responsive"
 						alt="en kvinne med solhatt"
 					/>
 				</div>
 				<div className="desktop">
 					<Image
-						src={`${assetPrefix}/assets/img/cover-desktop.jpg`}
+						src="/assets/img/cover-desktop.jpg"
+						loader={imgixLoader}
 						width={1600}
 						height={650}
+						layout="responsive"
 						alt="en kvinne med solhatt"
 					/>
 				</div>

@@ -1,5 +1,3 @@
-import type { GetStaticProps } from 'next'
-
 import { useEffect } from 'react'
 import styled from 'styled-components'
 
@@ -70,7 +68,7 @@ const Page = ({ imageTime }: Page): JSX.Element => {
 				</P>
 			</Section>
 
-			<Employees imageTime={imageTime} />
+			<Employees />
 
 			<Section>
 				<H2 center>hos oss finner du disse produktene:</H2>
@@ -85,14 +83,6 @@ const Page = ({ imageTime }: Page): JSX.Element => {
 			</Section>
 		</>
 	)
-}
-
-export const getStaticProps: GetStaticProps<Page> = async () => {
-	return {
-		props: {
-			imageTime: Date.now(),
-		},
-	}
 }
 
 export default Page
