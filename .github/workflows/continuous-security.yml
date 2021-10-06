@@ -41,7 +41,7 @@ jobs:
         run: |
           docker buildx build . --load \
             --tag image:${{ github.sha }} \
-            --cache-to=type=local,dest=/tmp/.buildx-cache \
+            --cache-to=type=local,dest=/tmp/.buildx-cache-new \
             --cache-from=type=local,src=/tmp/.buildx-cache \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
             --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
@@ -55,3 +55,9 @@ jobs:
           exit-code: 1
           ignore-unfixed: true
           severity: CRITICAL,HIGH
+
+      -
+        name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
