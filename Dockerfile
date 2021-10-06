@@ -26,7 +26,6 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # This will make the runtime image as small as possible
 COPY --from=prepare /src /src
 COPY src /src/src
-COPY pages /src/pages
 COPY public /src/public
 COPY .npmrc babel.config.js .browserslistrc next-env.d.ts next.config.js tsconfig.json /src/
 RUN yarn build
