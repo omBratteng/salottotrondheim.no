@@ -11,9 +11,6 @@ import Layout from 'components/layout/Layout'
 
 import structuredData, { PAGE_URL, PAGE_DESC, OG_IMAGE, OG_ALT } from 'structuredData'
 
-import { preload } from 'utils'
-import links from 'links'
-
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
@@ -21,8 +18,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
-
-				{preload({ links })}
 
 				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
