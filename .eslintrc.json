@@ -8,20 +8,18 @@
 		},
 		"sourceType": "module",
 		"project": "./tsconfig.json",
-		"warnOnUnsupportedTypeScriptVersion": false
+		"warnOnUnsupportedTypeScriptVersion": true
 	},
 	"plugins": [
 		"@typescript-eslint",
 		"react",
 		"react-hooks",
-		"@next/eslint-plugin-next",
-		"jsx-a11y"
+		"@next/eslint-plugin-next"
 	],
 	"extends": [
 		"plugin:@typescript-eslint/recommended",
 		"plugin:prettier/recommended",
-		"next",
-		"plugin:jsx-a11y/recommended"
+		"next"
 	],
 	"globals": {
 		"global": true
@@ -45,7 +43,10 @@
 			}
 		],
 		"@typescript-eslint/type-annotation-spacing": "error",
-		"@typescript-eslint/no-empty-function": "off",
+		"@typescript-eslint/no-empty-function": "warn",
+		"@typescript-eslint/ban-ts-comment": "warn",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"@typescript-eslint/explicit-module-boundary-types": "warn",
 		"jsx-a11y/anchor-is-valid": [ "error", {
 			"components": [ "Link" ],
 			"specialLink": [ "hrefLeft", "hrefRight" ],
