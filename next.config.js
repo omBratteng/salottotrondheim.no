@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPlugins = require('next-compose-plugins')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
+})
+
 const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
 
 const CDN = 'https://cdn.salottotrondheim.no'
@@ -67,4 +71,4 @@ const nextConfig = {
 	},
 }
 
-module.exports = withPlugins([], nextConfig)
+module.exports = withPlugins([withBundleAnalyzer], nextConfig)

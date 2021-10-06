@@ -21,6 +21,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:staging": "APP_ENV=staging next build",
+    "analyze": "ANALYZE=true yarn build",
     "start": "next start",
     "start:staging": "APP_ENV=staging next start",
     "lint": "yarn lint:eslint && yarn lint:stylelint",
@@ -28,6 +29,7 @@
     "lint:stylelint": "stylelint '{src,pages}/**/*.{ts,tsx}' --cache"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^11.1.2",
     "@svgr/webpack": "^5.5.0",
     "ackee-tracker": "5.1.0",
     "bowser": "^2.11.0",
