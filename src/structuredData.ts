@@ -15,7 +15,7 @@ export const ADDRESS = {
 	addressCountry: 'NO',
 }
 
-export default {
+const STRUCTURED_DATA = {
 	'@context': 'https://schema.org',
 	'@type': 'HealthAndBeautyBusiness',
 	name: 'Salotto',
@@ -61,3 +61,5 @@ export default {
 	],
 	smokingAllowed: false,
 }
+
+export default STRUCTURED_DATA
