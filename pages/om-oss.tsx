@@ -35,10 +35,7 @@ const Products = styled.div`
 	}
 `
 
-interface Page {
-	imageTime: number
-}
-const Page = ({ imageTime }: Page): JSX.Element => {
+const Page = (): JSX.Element => {
 	const { setPageTitle } = useApp()
 
 	useEffect(() => {
