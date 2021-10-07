@@ -1,10 +1,12 @@
-import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
 import { useInView } from 'react-intersection-observer'
+
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
 import { Section } from 'components/layout/section'
 import { ContactUs } from './footer/'
-import dynamic from 'next/dynamic'
 import ScrollTo from 'components/ScrollTo'
 import { P } from 'components/text'
 
@@ -47,17 +49,23 @@ const Bottom = styled(Section)`
 `
 
 const Footer = (): JSX.Element => {
+	const [map, setMap] = useState(<></>)
+
 	const { ref, inView } = useInView({
 		rootMargin: '340px',
 		threshold: 0,
 		triggerOnce: true,
 	})
 
+	useEffect(() => {
+		inView && setMap(<Map position={[63.432057, 10.395827]} />)
+	}, [inView])
+
 	return (
 		<StyledFooter>
 			<ContactUs />
 			<Section aria-label="kart som viser vår lokasjon" type="wide" ref={ref} style={{ height: 600 }}>
-				<Map position={[63.432057, 10.395827]} render={inView} />
+				{map}
 			</Section>
 			<Bottom aria-label="opphavsrett og lenke til personvernerklæring">
 				<P>
