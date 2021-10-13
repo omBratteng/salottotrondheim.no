@@ -1,5 +1,5 @@
 # -- BUILD STAGE --------------------------------
-FROM node:16.10.0-slim AS build
+FROM node:16.11.1-slim AS build
 WORKDIR /src
 
 # Define build arguments & map them to environment variables
