@@ -1,5 +1,3 @@
-/* eslint-env node */
-
 module.exports = (api) => {
 	const isDev = api.env('development')
 
