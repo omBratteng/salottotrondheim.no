@@ -48,7 +48,7 @@ jobs:
 
       -
         name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.0.20
+        uses: aquasecurity/trivy-action@0.0.21
         with:
           image-ref: image:${{ github.sha }}
           format: table
