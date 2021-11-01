@@ -35,9 +35,8 @@
     "analyze": "ANALYZE=true yarn build",
     "start": "next start",
     "staging": "APP_ENV=staging next build && next start",
-    "lint": "yarn lint:eslint && yarn lint:stylelint",
-    "lint:eslint": "eslint '{src,pages}/**/*.{ts,tsx}' --cache --report-unused-disable-directives",
-    "lint:stylelint": "stylelint '{src,pages}/**/*.{ts,tsx}' --cache"
+    "lint": "yarn lint:eslint",
+    "lint:eslint": "next lint --dir src --cache"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.0.2",
@@ -82,10 +81,6 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.4.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-recommended": "^5.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-order": "^4.1.0",
     "typescript": "^4.4.4"
   }
 }
