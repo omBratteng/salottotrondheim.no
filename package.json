@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.14.5",
     "@next/eslint-plugin-next": "^11.1.2",
     "@types/ackee-tracker": "^5.0.1",
