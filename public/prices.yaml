@@ -58,7 +58,7 @@
         - 400
     - name: vask og føn
       price:
-        - 1650
+        - 550
 
 - name: farging
   prices:
