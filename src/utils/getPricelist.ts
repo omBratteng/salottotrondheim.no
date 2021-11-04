@@ -7,6 +7,7 @@ const getFile = (): string => fs.readFileSync(join(process.cwd(), 'public', 'pri
 
 export type PriceListInterface = {
 	name: null | string
+	comment: null | string
 	prices: {
 		name: string
 		price: number[]

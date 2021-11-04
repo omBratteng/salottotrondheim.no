@@ -9,6 +9,7 @@
         - 600
 
 - name: null
+  comment: "(Pris varierer etter mengde farge(ml) / tykkelse av hår)"
   prices:
     - name: Ettervekst farge
       price:
@@ -18,10 +19,9 @@
       price:
         - 1950
         - 2050
-    - name: (Pris varierer etter mengde farge(ml) / tykkelse av hår)
-      price:
 
 - name: null
+  comment: "(Obs: gloss, klipp og eventuelle andre behandlinger kommer i tillegg til denne prisen)"
   prices:
     - name: Foliestriper ettervekst
       price:
@@ -29,16 +29,14 @@
     - name: Foliestriper hele håret
       price:
         - fra 2550
-    - name: (Obs: gloss, klipp og eventuelle andre behandlinger kommer i tillegg til denne prisen)
-      price:
-       
+
 - name: null
   prices:
     - name: Gloss
       price:
         - 650
         - 950
-        
+
 - name: hårkur
   prices:
     - name:

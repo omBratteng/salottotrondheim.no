@@ -46,6 +46,13 @@ const Span = styled.span`
 	}
 `
 
+const Comment = styled(Span)`
+	font-size: 0.95rem;
+	font-style: italic;
+	text-align: center;
+	width: 100%;
+`
+
 interface IPriceList {
 	priceList: PriceListInterface
 }
@@ -65,9 +72,14 @@ const PriceList = ({ priceList }: IPriceList): JSX.Element => {
 								{group.name ?? product.name}
 							</Span>
 							{group.name && <Option>{product.name}</Option>}
-							<Span>{product.price.map((price) => formatCurrency(price)).join(' / ')}</Span>
+							{product.price && <Span>{product.price.map((price) => formatCurrency(price)).join(' / ')}</Span>}
 						</Product>
 					))}
+					{group.comment && (
+						<Product>
+							<Comment>{group.comment}</Comment>
+						</Product>
+					)}
 				</ProductGroup>
 			))}
 		</>
