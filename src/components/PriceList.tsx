@@ -49,7 +49,7 @@ const Span = styled.span`
 const Comment = styled(Span)`
 	font-size: 0.95rem;
 	font-style: italic;
-	text-align: center;
+	text-align: left;
 	width: 100%;
 `
 
