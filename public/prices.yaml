@@ -8,39 +8,37 @@
       price:
         - 600
 
-- name: hårfarge
+- name: null
   prices:
-    - name: kort
+    - name: Ettervekst farge
       price:
-        - 1350
-    - name: medium
-      price:
-        - 1650
-    - name: langt
-      price:
-        - 1850
-
-- name: foliefarging kort hår
-  prices:
-    - name: 1/2 hode
-      price:
+        - 1450
         - 1550
-    - name: 1/1 hode
+    - name: Helfarge
       price:
-        - 1650
-
-- name: foliefarging langt hår
-  prices:
-    - name: 1/2 hode
-      price:
-        - 1750
-    - name: 1/1 hode
-      price:
+        - 1950
         - 2050
-    - name: extra 1/1
+    - name: (Pris varierer etter mengde farge(ml) / tykkelse av hår)
       price:
-        - 2350
 
+- name: null
+  prices:
+    - name: Foliestriper ettervekst
+      price:
+        - fra 2050
+    - name: Foliestriper hele håret
+      price:
+        - fra 2550
+    - name: (Obs: gloss, klipp og eventuelle andre behandlinger kommer i tillegg til denne prisen)
+      price:
+       
+- name: null
+  prices:
+    - name: Gloss
+      price:
+        - 650
+        - 950
+        
 - name: hårkur
   prices:
     - name:
