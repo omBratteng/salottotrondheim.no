@@ -60,7 +60,6 @@
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "@next/eslint-plugin-next": "^12.0.8",
     "@types/ackee-tracker": "^5.0.x",
     "@types/leaflet": "^1.7.x",
     "@types/node": "^16.10.x",
