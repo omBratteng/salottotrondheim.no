@@ -4,7 +4,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
@@ -17,10 +17,10 @@ updates:
       - dependency-name: '@types/leaflet'
       - dependency-name: '@types/styled-components'
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   # Maintain dependencies for docker
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
