@@ -39,7 +39,7 @@
     "lint:eslint": "next lint --dir src --cache"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^12.0.8",
+    "@next/bundle-analyzer": "^12.0.9",
     "@svgr/webpack": "^6.2.0",
     "ackee-tracker": "5.1.0",
     "bowser": "^2.11.0",
