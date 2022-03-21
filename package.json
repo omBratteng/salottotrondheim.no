@@ -57,7 +57,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@types/ackee-tracker": "^5.0.x",
