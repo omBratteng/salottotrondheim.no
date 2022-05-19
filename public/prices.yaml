@@ -2,8 +2,8 @@
   prices:
     - name: klipp
       price:
-        - 790
-        - 890
+        - 864
+        - 964
     - name: barn
       price:
         - 600
