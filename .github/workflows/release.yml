@@ -80,7 +80,7 @@ jobs:
 
       -
         run: |
-          git config --local user.name "{{ github.actor }}"
+          git config --local user.name "${{ github.actor }}"
           git config --local user.email "106002604+ombratteng-gitops-bot@users.noreply.github.com"
           git add -A
           echo $(git status)
