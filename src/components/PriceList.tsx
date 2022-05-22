@@ -5,7 +5,6 @@ const ProductGroup = styled.ul`
 	list-style: none;
 	margin: 0 0 40px 0;
 	padding: 0;
-	transition: all ease-in-out 0.1s;
 `
 
 const Product = styled.li`

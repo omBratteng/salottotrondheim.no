@@ -108,7 +108,7 @@ const Page = ({ priceList }: Props): JSX.Element => {
 
 				<PriceList priceList={priceList} />
 			</PriceSection>
-			<Section as="div" style={{ textAlign: 'center' }}>
+			<Section as="div" style={{ display: 'flex', justifyContent: 'center' }}>
 				<Book />
 			</Section>
 		</>
