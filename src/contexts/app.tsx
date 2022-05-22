@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react'
-import { StrictMode, createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import { Global, ThemeProvider } from '@emotion/react'
 
 // Next.js
@@ -63,11 +63,11 @@ const AppProvider = ({ siteTitle = '', children }: IAppProvider): JSX.Element =>
 				}}
 			>
 				<ThemeProvider theme={theme}>
-					<Global styles={appGlobalStyles} />
-					<StrictMode>
+					<>
+						<Global styles={appGlobalStyles} />
 						{children}
 						{modalOpen && <BookingFrame />}
-					</StrictMode>
+					</>
 				</ThemeProvider>
 			</AppContext.Provider>
 		</>

@@ -1,5 +1,5 @@
 # -- BUILD STAGE --------------------------------
-FROM node:16.13-bullseye-slim AS build
+FROM node:18.2.0-bullseye-slim AS build
 WORKDIR /src
 
 # Define build arguments & map them to environment variables
@@ -16,7 +16,6 @@ RUN yarn install --frozen-lockfile
 # This will make the runtime image as small as possible
 COPY next-env.d.ts ./
 COPY tsconfig.json ./
-COPY babel.config.js ./
 COPY next.config.js ./
 COPY src ./src/
 COPY public ./public/
@@ -30,7 +29,7 @@ RUN rm -rf .next/cache
 
 # -- RUNTIME STAGE --------------------------------
 
-FROM gcr.io/distroless/nodejs:16
+FROM gcr.io/distroless/nodejs:18
 ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /app

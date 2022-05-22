@@ -39,7 +39,7 @@ const BookingFrame = (): JSX.Element => {
 	}, [setModalOpen])
 
 	const onKeydown = useCallback(
-		(event) => {
+		(event: KeyboardEvent) => {
 			if (event.key === 'Escape') closeModal()
 		},
 		[closeModal],

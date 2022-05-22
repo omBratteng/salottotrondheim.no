@@ -13,7 +13,7 @@ const nextConfig = {
 	experimental: {
 		emotion: true,
 	},
-	reactStrictMode: false,
+	reactStrictMode: true,
 	poweredByHeader: false,
 	assetPrefix,
 	devIndicators: false,

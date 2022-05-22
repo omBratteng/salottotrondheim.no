@@ -65,7 +65,7 @@ const Header = (): JSX.Element => {
 	const closeMenu = useCallback(() => setMenuOpen && setMenuOpen((prevState) => !prevState), [setMenuOpen])
 
 	const onKeydown = useCallback(
-		(event) => {
+		(event: KeyboardEvent) => {
 			if (modalOpen) return
 			if (event.key === 'Escape') closeMenu()
 		},

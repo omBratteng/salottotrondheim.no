@@ -8,31 +8,30 @@ const Button = styled.button<Props>`
 	clear: both;
 	color: ${(props) => (props.dark ? '#000' : '#f6f6f6')};
 	cursor: pointer;
-	display: inline-block;
+	display: flex;
 	font-family: 'Rozha One', serif;
 	font-size: 1.75rem;
 	font-weight: 400;
-	padding: 15px 90px 15px 20px;
+	justify-content: space-between;
+	padding: 15px 20px 15px 20px;
 	position: relative;
 	text-decoration: none;
-	transition: ease-in-out 0.1s;
 
 	svg {
-		position: absolute;
-		right: 30px;
-		top: 50%;
-		transform: translate3d(0, -50%, 0);
-		transition: ease-in-out 0.5s;
+		align-self: center;
+		transform: translate3d(0, 0, 0);
+		transition: transform ease-in-out 0.5s;
+		margin-left: 30px;
 	}
 
 	&:hover {
 		svg {
-			transform: translate3d(15%, -50%, 0);
+			transform: translate3d(15%, 0, 0);
 		}
 	}
 
 	@media (min-width: 425px) {
-		padding: 20px 100px 20px 30px;
+		padding: 20px 30px;
 	}
 
 	@media (min-width: 768px) {

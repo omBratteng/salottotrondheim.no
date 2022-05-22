@@ -81,6 +81,7 @@ const Page = ({ priceList }: Props): JSX.Element => {
 				<div className="mobile">
 					<Image
 						src="/assets/img/cover-mobile.jpg"
+						priority
 						loader={imgixLoader}
 						width={650}
 						height={650}
@@ -91,6 +92,7 @@ const Page = ({ priceList }: Props): JSX.Element => {
 				<div className="desktop">
 					<Image
 						src="/assets/img/cover-desktop.jpg"
+						priority
 						loader={imgixLoader}
 						width={1600}
 						height={650}
@@ -106,7 +108,7 @@ const Page = ({ priceList }: Props): JSX.Element => {
 
 				<PriceList priceList={priceList} />
 			</PriceSection>
-			<Section as="div" style={{ textAlign: 'center' }}>
+			<Section as="div" style={{ display: 'flex', justifyContent: 'center' }}>
 				<Book />
 			</Section>
 		</>

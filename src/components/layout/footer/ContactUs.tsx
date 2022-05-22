@@ -48,11 +48,7 @@ const Information = styled.div`
 		border-bottom: 1px dashed #373636;
 		padding: 1rem;
 
-		&:nth-child(odd) {
-			border-bottom: 0;
-		}
-
-		&:nth-last-child(-n + 2) {
+		&:nth-of-type(odd) {
 			border-bottom: 0;
 		}
 	}
