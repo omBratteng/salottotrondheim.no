@@ -1,19 +1,25 @@
-import type { AppProps, NextWebVitalsMetric } from 'next/app'
-
-// Next.js
+import type { AppProps as NextAppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
+import { CacheProvider, EmotionCache } from '@emotion/react'
 
 // Context
 import AppProvider from 'contexts/app'
 
 // Components
 import Layout from 'components/layout/Layout'
+import { createEmotionCache } from 'utils'
 
 import structuredData, { PAGE_URL, PAGE_DESC, OG_IMAGE, OG_ALT } from 'structuredData'
 
-const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+type AppProps = NextAppProps & {
+	emotionCache: EmotionCache
+}
+
+const clientSideEmotionCache = createEmotionCache()
+
+const App = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: AppProps): JSX.Element => {
 	return (
-		<>
+		<CacheProvider value={emotionCache}>
 			<Head>
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
@@ -56,7 +62,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 					<Component {...pageProps} />
 				</Layout>
 			</AppProvider>
-		</>
+		</CacheProvider>
 	)
 }
 
