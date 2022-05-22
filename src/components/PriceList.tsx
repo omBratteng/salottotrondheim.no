@@ -1,5 +1,5 @@
 import type { PriceListInterface } from 'utils/getPricelist'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const ProductGroup = styled.ul`
 	list-style: none;

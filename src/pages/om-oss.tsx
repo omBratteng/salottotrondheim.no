@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import { useApp } from 'contexts/app'
 import { Section as SCSection } from 'components/layout/section'

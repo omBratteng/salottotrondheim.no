@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { hideVisually } from 'polished'
 
 import Link from 'next/link'

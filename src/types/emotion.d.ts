@@ -1,14 +1,4 @@
-// Strongly type the styled-components theme
-// import { CSSProp } from 'styled-components'
-
 import { theme } from 'styles'
-
-// Enable css prop support globally
-// declare module 'react' {
-// 	interface Attributes {
-// 		css?: CSSProp
-// 	}
-// }
 
 declare module '@emotion/react' {
 	type CustomTheme = typeof theme
