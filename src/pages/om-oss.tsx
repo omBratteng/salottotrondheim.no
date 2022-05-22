@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import { useApp } from 'contexts/app'
 import { Section as SCSection } from 'components/layout/section'
@@ -44,7 +44,7 @@ const Page = (): JSX.Element => {
 
 	return (
 		<>
-			<Section type="narrow" border={true}>
+			<Section type="narrow" border>
 				<H1>om oss</H1>
 
 				<em>[salåttå] er italiensk for salong</em>

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { hideVisually, size } from 'polished'
 
-interface LinkProps {
+type LinkProps = {
 	href: string
 	title: string
 }
@@ -37,7 +37,7 @@ const Link = styled.a<LinkProps>`
 	}
 `
 
-interface Props extends LinkProps {
+type Props = LinkProps & {
 	children: React.ReactNode
 }
 

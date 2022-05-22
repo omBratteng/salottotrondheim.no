@@ -2,7 +2,7 @@ import type { GetStaticProps } from 'next'
 import type { PriceListInterface } from 'utils/getPricelist'
 
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import Image from 'next/image'
 

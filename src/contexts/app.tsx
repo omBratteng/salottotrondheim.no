@@ -1,11 +1,11 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { StrictMode, createContext, useContext, useState, useEffect } from 'react'
-import { ThemeProvider } from 'styled-components'
+import { Global, ThemeProvider } from '@emotion/react'
 
 // Next.js
 import Head from 'next/head'
 
-import { GlobalStyle, theme } from 'styles/index'
+import { appGlobalStyles, theme } from 'styles/index'
 import BookingFrame from 'components/BookingFrame'
 
 export type ContextProps = Partial<{
@@ -63,7 +63,7 @@ const AppProvider = ({ siteTitle = '', children }: IAppProvider): JSX.Element =>
 				}}
 			>
 				<ThemeProvider theme={theme}>
-					<GlobalStyle />
+					<Global styles={appGlobalStyles} />
 					<StrictMode>
 						{children}
 						{modalOpen && <BookingFrame />}

@@ -1,6 +1,6 @@
 import type { SyntheticEvent } from 'react'
 import { useCallback, useEffect, useRef } from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import { useApp } from 'contexts/app'
 import ClientOnlyPortal from 'components/tools/ClientOnlyPortal'

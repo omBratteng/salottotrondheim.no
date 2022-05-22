@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
 type SectionTypes = 'pseudo' | 'wide' | 'narrow'
 type Props = Partial<{
@@ -7,8 +8,8 @@ type Props = Partial<{
 }>
 
 const willBleed = (type?: SectionTypes) => type === 'wide' || type === 'pseudo'
-const Section = styled.section.withConfig({
-	shouldForwardProp: (prop, valid) => !['type'].includes(prop) && valid(prop),
+const Section = styled('section', {
+	shouldForwardProp: (prop) => !['type', 'border'].includes(prop as string),
 })<Props>`
 	grid-column: ${(props) => (willBleed(props.type) ? '1 / -1' : '2')};
 	margin-left: auto;

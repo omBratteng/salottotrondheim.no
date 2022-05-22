@@ -2,7 +2,7 @@ import type { LinkProps } from 'next/link'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect } from 'react'
 
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import Link from 'next/link'
 
 import SoMeLinks from 'components/SoMeLinks'

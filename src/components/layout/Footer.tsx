@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
 
 import Link from 'next/link'
