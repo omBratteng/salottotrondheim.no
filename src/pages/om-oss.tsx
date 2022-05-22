@@ -44,7 +44,7 @@ const Page = (): JSX.Element => {
 
 	return (
 		<>
-			<Section type="narrow" border={true}>
+			<Section type="narrow" border>
 				<H1>om oss</H1>
 
 				<em>[salåttå] er italiensk for salong</em>
