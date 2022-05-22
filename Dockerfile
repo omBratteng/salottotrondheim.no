@@ -16,7 +16,6 @@ RUN yarn install --frozen-lockfile
 # This will make the runtime image as small as possible
 COPY next-env.d.ts ./
 COPY tsconfig.json ./
-COPY babel.config.js ./
 COPY next.config.js ./
 COPY src ./src/
 COPY public ./public/
