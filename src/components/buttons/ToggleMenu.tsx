@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { MouseEvent, useCallback } from 'react'
 import styled from '@emotion/styled'
 
 import { useApp } from 'contexts/app'
@@ -93,13 +93,13 @@ const Button = styled.button`
 `
 
 type Props = {
-	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+	onClick?: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 const ToggleMenu = ({ onClick }: Props): JSX.Element => {
 	const { menuOpen, setMenuOpen } = useApp()
 	const handleClick = useCallback(
-		(event) => {
+		(event: MouseEvent<HTMLButtonElement>) => {
 			setMenuOpen && setMenuOpen((prevState) => !prevState)
 
 			event.persist()
