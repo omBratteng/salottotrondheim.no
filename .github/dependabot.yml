@@ -9,13 +9,6 @@ updates:
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
-    ignore:
-      - dependency-name: '@types/node'
-      - dependency-name: '@types/react'
-      - dependency-name: '@types/react-dom'
-      - dependency-name: '@types/ackee-tracker'
-      - dependency-name: '@types/leaflet'
-      - dependency-name: '@types/styled-components'
     schedule:
       interval: "weekly"
 
