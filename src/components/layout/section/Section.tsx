@@ -9,7 +9,7 @@ type Props = Partial<{
 
 const willBleed = (type?: SectionTypes) => type === 'wide' || type === 'pseudo'
 const Section = styled('section', {
-	shouldForwardProp: (prop) => !['type'].includes(prop as string),
+	shouldForwardProp: (prop) => !['type', 'border'].includes(prop as string),
 })<Props>`
 	grid-column: ${(props) => (willBleed(props.type) ? '1 / -1' : '2')};
 	margin-left: auto;
