@@ -9,6 +9,7 @@ import { Section } from 'components/layout/section'
 import { ContactUs } from './footer/'
 import ScrollTo from 'components/ScrollTo'
 import { P } from 'components/text'
+import STRUCTURED_DATA from 'structuredData'
 
 const Map = dynamic(() => import('components/Map'), {
 	ssr: false,
@@ -49,6 +50,7 @@ const Bottom = styled(Section)`
 `
 
 const Footer = (): JSX.Element => {
+	const { geo } = STRUCTURED_DATA
 	const [map, setMap] = useState(<></>)
 
 	const { ref, inView } = useInView({
@@ -58,8 +60,8 @@ const Footer = (): JSX.Element => {
 	})
 
 	useEffect(() => {
-		inView && setMap(<Map position={[63.432057, 10.395827]} />)
-	}, [inView])
+		inView && setMap(<Map position={[geo.latitude, geo.longitude]} />)
+	}, [geo.latitude, geo.longitude, inView])
 
 	return (
 		<StyledFooter>
