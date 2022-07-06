@@ -10,7 +10,7 @@ export const VAT_ID = 917021597
 
 export const ADDRESS = {
 	'@type': 'PostalAddress',
-	streetAddress: 'Dronningens gate 26',
+	streetAddress: 'Sommerveita (Nordre gate 4)',
 	addressLocality: 'Trondheim',
 	addressRegion: 'Trøndelag',
 	postalCode: '7011',
