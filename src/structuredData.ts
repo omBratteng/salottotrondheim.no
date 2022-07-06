@@ -33,8 +33,8 @@ const STRUCTURED_DATA = {
 	address: ADDRESS,
 	geo: {
 		'@type': 'GeoCoordinates',
-		latitude: 63.43210315034183,
-		longitude: 10.39570885089437,
+		latitude: 63.43101005599353,
+		longitude: 10.396782252157035,
 	},
 	naics: '812112',
 	foundingDate: '2016-03-01',
