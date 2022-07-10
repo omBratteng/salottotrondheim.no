@@ -1,4 +1,4 @@
-import type { AppProps as NextAppProps, NextWebVitalsMetric } from 'next/app'
+import type { AppProps as NextAppProps } from 'next/app'
 import Head from 'next/head'
 import { CacheProvider, EmotionCache } from '@emotion/react'
 
@@ -64,76 +64,6 @@ const App = ({ Component, emotionCache = clientSideEmotionCache, pageProps }: Ap
 			</AppProvider>
 		</CacheProvider>
 	)
-}
-
-const metrics: NextWebVitalsMetric[] = []
-let isRequestIdleCallbackScheduled = false
-
-const sendMetric = ({ name, value }: NextWebVitalsMetric): void => {
-	const url = `https://qckm.io?m=webVital.${name}&v=${value}&k=${'1UeQ8NzHv9ca2GpaKAPd4Q'}`
-
-	// Use `navigator.sendBeacon()` if available, falling back to `fetch()`.
-	if ('sendBeacon' in navigator) {
-		navigator.sendBeacon(url)
-	} else {
-		fetch(url, { method: 'POST', keepalive: true })
-	}
-}
-
-const schedulePendingEvents = (): void => {
-	if (isRequestIdleCallbackScheduled) return
-
-	isRequestIdleCallbackScheduled = true
-
-	if ('requestIdleCallback' in window) {
-		// Wait at most two seconds before processing events.
-		requestIdleCallback(processPendingAnalyticsEvents, {
-			timeout: 2000,
-		})
-	} else {
-		processPendingAnalyticsEvents()
-	}
-}
-
-const processPendingAnalyticsEvents = (deadline?: IdleDeadline): void => {
-	// Reset the boolean so future rICs can be set.
-	isRequestIdleCallbackScheduled = false
-
-	// If there is no deadline, just run as long as necessary.
-	// This will be the case if requestIdleCallback doesn’t exist.
-	if (typeof deadline === 'undefined')
-		deadline = {
-			timeRemaining: function () {
-				return Number.MAX_VALUE
-			},
-			didTimeout: false,
-		}
-
-	// Go for as long as there is time remaining and work to do.
-	while (deadline.timeRemaining() > 0 && metrics.length > 0) {
-		const metric = metrics.pop()
-		metric && sendMetric(metric)
-	}
-
-	// Check if there are more events still to send.
-	if (metrics.length > 0) schedulePendingEvents()
-}
-
-export function reportWebVitals(metric: NextWebVitalsMetric): void {
-	if (process.env.NODE_ENV !== 'production') return
-	switch (metric.name) {
-		case 'LCP': // Largest Contentful Paint
-		case 'FID': // First Input Delay
-		case 'CLS': // Cumulative Layout Shift
-		case 'FCP': // First Contentful Paint
-		case 'TTFB': // Time to First Byte
-			metrics.push(metric)
-			break
-		default:
-			break
-	}
-
-	schedulePendingEvents()
 }
 
 export default App
