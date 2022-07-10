@@ -63,7 +63,7 @@
   "devDependencies": {
     "@types/ackee-tracker": "^5.0.x",
     "@types/leaflet": "^1.7.10",
-    "@types/node": "^17.x",
+    "@types/node": "^18.x",
     "@types/react": "^18.x",
     "@types/react-dom": "^18.x",
     "@types/requestidlecallback": "^0.3.4",
