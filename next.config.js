@@ -10,7 +10,7 @@ const CDN = 'https://cdn.salottotrondheim.no'
 const assetPrefix = isProd ? CDN : ''
 
 const nextConfig = {
-	experimental: {
+	compiler: {
 		emotion: true,
 	},
 	reactStrictMode: true,
