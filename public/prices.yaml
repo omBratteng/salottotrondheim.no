@@ -76,9 +76,6 @@
 
 - name: null
   prices:
-    - name: makeup
-      price:
-        - 500
     - name: oppsetting pr 1/2 time
       price:
         - 550
