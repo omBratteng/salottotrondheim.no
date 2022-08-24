@@ -2,6 +2,7 @@ import type { PriceListInterface } from 'utils/getPricelist'
 import styled from '@emotion/styled'
 
 const ProductGroup = styled.ul`
+	break-inside: avoid-column;
 	list-style: none;
 	margin: 0 0 40px 0;
 	padding: 0;
