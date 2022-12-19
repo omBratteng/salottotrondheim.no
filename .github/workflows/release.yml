@@ -66,7 +66,7 @@ jobs:
       - build
     steps:
       -
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v3.2.0
         with:
           repository: omBratteng/salotto-k8s-config
           ref: main
