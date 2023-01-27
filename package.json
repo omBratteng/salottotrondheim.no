@@ -46,7 +46,6 @@
     "@emotion/styled": "^11.10.0",
     "@next/bundle-analyzer": "^12.2.5",
     "@svgr/webpack": "^6.3.1",
-    "ackee-tracker": "5.1.0",
     "bowser": "^2.11.0",
     "leaflet": "^1.8.0",
     "next": "^12.2.2",
@@ -61,7 +60,6 @@
     "yaml": "^2.1.1"
   },
   "devDependencies": {
-    "@types/ackee-tracker": "^5.0.x",
     "@types/leaflet": "^1.7.x",
     "@types/node": "^18.x",
     "@types/react": "^18.x",
