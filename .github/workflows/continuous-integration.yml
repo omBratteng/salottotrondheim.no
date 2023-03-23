@@ -159,3 +159,9 @@ jobs:
           yarn start &
           sleep 5
           curl --silent --fail http://localhost:3000/api/_health
+
+  dependabot:
+    needs:
+      - check
+      - build-and-run
+    uses: ./.github/workflows/dependabot-automerge.yaml
