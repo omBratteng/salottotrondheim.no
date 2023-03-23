@@ -32,6 +32,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:staging": "APP_ENV=staging next build",
     "analyze": "ANALYZE=true yarn build",
     "start": "next start",
     "staging": "APP_ENV=staging next build && next start",
