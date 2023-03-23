@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 
 import list from 'components/employees/list'
 import { Section } from 'components/layout/section'

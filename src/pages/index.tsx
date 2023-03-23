@@ -4,7 +4,7 @@ import type { PriceListInterface } from 'utils/getPricelist'
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 
 import PriceList from 'components/PriceList'
 
