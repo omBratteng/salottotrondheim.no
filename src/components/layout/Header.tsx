@@ -28,7 +28,7 @@ const StyledHeader = styled.header`
 	}
 `
 
-const Logo = styled.a`
+const Logo = styled(Link)`
 	align-items: center;
 	display: flex;
 
@@ -84,12 +84,10 @@ const Header = (): JSX.Element => {
 		<>
 			<StyledHeader>
 				<div>
-					<Link href="/" passHref>
-						<Logo>
-							<span>Salotto</span>
-							<LogoSVG />
-						</Logo>
-					</Link>
+					<Logo href="/">
+						<span>Salotto</span>
+						<LogoSVG />
+					</Logo>
 
 					{!modalOpen && <ToggleMenu />}
 				</div>
