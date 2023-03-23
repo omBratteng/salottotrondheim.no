@@ -1,4 +1,4 @@
-import { ImageLoaderProps } from 'next/image'
+import { ImageLoaderProps } from 'next/legacy/image'
 
 import { IMGIX_URL } from 'site-config'
 
