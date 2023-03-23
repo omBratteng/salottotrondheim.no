@@ -55,11 +55,7 @@ type Props = LinkProps & {
 }
 
 const NavLink = ({ title, ...props }: Props) => {
-	return (
-		<Link {...props} passHref>
-			<a>{title}</a>
-		</Link>
-	)
+	return <Link {...props}>{title}</Link>
 }
 
 const Menu = (): JSX.Element => {
