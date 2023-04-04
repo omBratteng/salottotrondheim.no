@@ -46,7 +46,7 @@
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.6",
     "@next/bundle-analyzer": "^13.2.4",
-    "@svgr/webpack": "^6.5.1",
+    "@svgr/webpack": "^7.0.0",
     "bowser": "^2.11.0",
     "leaflet": "^1.9.3",
     "next": "^13.2.4",
