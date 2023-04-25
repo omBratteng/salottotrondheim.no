@@ -4,22 +4,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 	enabled: process.env.ANALYZE === 'true',
 })
 
-const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
-
-const CDN = 'https://cdn.salottotrondheim.no'
-const assetPrefix = isProd ? CDN : ''
-
 const nextConfig = {
 	compiler: {
 		emotion: true,
 	},
 	reactStrictMode: true,
 	poweredByHeader: false,
-	assetPrefix,
 	images: {
 		loader: 'custom',
 		deviceSizes: [320, 420, 768, 1024, 1200, 1400],
-		domains: [new URL(CDN).hostname],
 	},
 	webpack(config) {
 		config.module.rules.push({
@@ -50,9 +43,6 @@ const nextConfig = {
 				],
 			},
 		]
-	},
-	publicRuntimeConfig: {
-		assetPrefix,
 	},
 	eslint: {
 		// Warning: This allows production builds to successfully complete even if

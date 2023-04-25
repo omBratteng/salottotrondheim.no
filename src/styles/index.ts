@@ -1,8 +1,4 @@
-import getConfig from 'next/config'
 import { css, SerializedStyles } from '@emotion/react'
-
-const { publicRuntimeConfig } = getConfig()
-const { assetPrefix } = publicRuntimeConfig
 
 import { theme } from 'styles/theme'
 
@@ -91,24 +87,21 @@ const appGlobalStyles = (pageTheme: typeof theme): SerializedStyles => css`
 		font-family: 'Roboto';
 		font-style: normal;
 		font-weight: 300;
-		src: local('Roboto'),
-			url('${assetPrefix}/assets/fonts/roboto-aa15f90aa29a18c813f9f34597b779f01222af95.woff2') format('woff2');
+		src: local('Roboto'), url('/assets/fonts/roboto-aa15f90aa29a18c813f9f34597b779f01222af95.woff2') format('woff2');
 	}
 	@font-face {
 		font-display: swap;
 		font-family: 'Roboto';
 		font-style: italic;
 		font-weight: 300;
-		src: local('Roboto'),
-			url('${assetPrefix}/assets/fonts/roboto-8370d7348c62e9e25631cb33454da110fa57afd0.woff2') format('woff2');
+		src: local('Roboto'), url('/assets/fonts/roboto-8370d7348c62e9e25631cb33454da110fa57afd0.woff2') format('woff2');
 	}
 	@font-face {
 		font-display: swap;
 		font-family: 'Roboto';
 		font-style: normal;
 		font-weight: 500;
-		src: local('Roboto'),
-			url('${assetPrefix}/assets/fonts/roboto-e55fb552fb1e9cf4a64979459c04857d19daaef6.woff2') format('woff2');
+		src: local('Roboto'), url('/assets/fonts/roboto-e55fb552fb1e9cf4a64979459c04857d19daaef6.woff2') format('woff2');
 	}
 `
 

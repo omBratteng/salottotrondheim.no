@@ -3,10 +3,6 @@ import type { LatLngExpression } from 'leaflet'
 import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import Head from 'next/head'
-import getConfig from 'next/config'
-
-const { publicRuntimeConfig } = getConfig()
-const { assetPrefix } = publicRuntimeConfig
 
 interface Props {
 	zoom?: number
@@ -14,7 +10,7 @@ interface Props {
 }
 
 const Map = ({ position, zoom = 16 }: Props): JSX.Element => {
-	const href = `${assetPrefix}/assets/js/leaflet/leaflet.min.css`
+	const href = `/assets/js/leaflet/leaflet.min.css`
 
 	return (
 		<>
