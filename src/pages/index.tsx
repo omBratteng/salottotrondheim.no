@@ -80,7 +80,7 @@ const Page = ({ priceList }: Props): JSX.Element => {
 			<ImageSection as="div" type="pseudo">
 				<div className="mobile">
 					<Image
-						src="/assets/img/cover-mobile.jpg"
+						src="assets/img/cover-mobile.jpg"
 						priority
 						loader={imgixLoader}
 						width={650}
@@ -91,7 +91,7 @@ const Page = ({ priceList }: Props): JSX.Element => {
 				</div>
 				<div className="desktop">
 					<Image
-						src="/assets/img/cover-desktop.jpg"
+						src="assets/img/cover-desktop.jpg"
 						priority
 						loader={imgixLoader}
 						width={1600}
