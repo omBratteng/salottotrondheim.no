@@ -33,7 +33,7 @@ jobs:
 
       # Direct prod dependencies
       - name: Approve PR and auto-merge prod-dependencies (only patches)
-        if: ${{contains(steps.metadata.outputs.dependency-type, 'direct:production') && steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
+        if: ${{contains(steps.metadata.outputs.dependency-type, 'direct:production') && steps.metadata.outputs.update-type != 'version-update:semver-major'}}
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -43,7 +43,7 @@ jobs:
 
       # Indirect dependencies
       - name: Approve PR and auto-merge all indirect dependencies
-        if: ${{contains(steps.metadata.outputs.dependency-type, 'indirect') && steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
+        if: ${{contains(steps.metadata.outputs.dependency-type, 'indirect') && steps.metadata.outputs.update-type != 'version-update:semver-major'}}
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
