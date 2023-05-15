@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.x",
-    "@types/node": "^18.x",
+    "@types/node": "^20.x",
     "@types/react": "^18.x",
     "@types/react-dom": "^18.x",
     "@types/requestidlecallback": "^0.3.5",
