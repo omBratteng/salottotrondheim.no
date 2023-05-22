@@ -48,7 +48,7 @@
     "@next/bundle-analyzer": "^13.4.2",
     "@svgr/webpack": "^7.0.0",
     "bowser": "^2.11.0",
-    "leaflet": "^1.9.3",
+    "leaflet": "^1.9.4",
     "next": "^13.4.2",
     "next-compose-plugins": "^2.2.1",
     "polished": "^4.2.2",
