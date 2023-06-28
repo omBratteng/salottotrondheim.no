@@ -5,7 +5,7 @@ import { useApp } from 'contexts/app'
 import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
 
-import { Evo, Ghd, PhilipMartin, Gold, Olaplex } from 'products'
+import { Park, Ghd, PhilipMartin, Gold, Olaplex } from 'products'
 import { H1, H2, P } from 'components/text'
 
 const Section = styled(SCSection)`
@@ -72,7 +72,7 @@ const Page = (): JSX.Element => {
 
 				<Products>
 					<PhilipMartin />
-					<Evo />
+					<Park />
 					<Ghd />
 					<Gold />
 					<Olaplex />
