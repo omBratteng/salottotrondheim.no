@@ -1,4 +1,4 @@
-import Evo from './PARK_styling_logo.webp'
+import Evo from './evo-logo.svg'
 import Ghd from './ghd-logo.svg'
 import Tigi from './tigi-logo.svg'
 import PhilipMartin from './philip-martin-s.svg'
