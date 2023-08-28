@@ -1226,10 +1226,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@next/bundle-analyzer@^13.4.15":
-  version "13.4.15"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-13.4.15.tgz#9ca8372c06d36c8076db4385f2dc946c6f903297"
-  integrity sha512-wQT/nRWOzcgys9dRWdVTqQkY97IOgLu1iPuq7eiZp+TS6TXLVMWL1kBCnHv3Mscg5pwM5gxPl1tvStWCieYpaw==
+"@next/bundle-analyzer@^13.4.19":
+  version "13.4.19"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-13.4.19.tgz#aaa423b029a4c7af04c7da9ba5980b267946a5fb"
+  integrity sha512-nXKHz63dM0Kn3XPFOKrv2wK+hP9rdBg2iR1PsxuXLHVBoZhMyS1/ldRcX80YFsm2VUws9zM4a0E/1HlLI+P92g==
   dependencies:
     webpack-bundle-analyzer "4.7.0"
 
