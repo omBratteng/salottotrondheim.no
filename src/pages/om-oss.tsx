@@ -5,7 +5,7 @@ import { useApp } from 'contexts/app'
 import { Section as SCSection } from 'components/layout/section'
 import Employees from 'components/employees/Employees'
 
-import { Evo, Ghd, PhilipMartin, Gold, Olaplex } from 'products'
+import { Evo, PhilipMartin } from 'products'
 import { H1, H2, P } from 'components/text'
 
 const Section = styled(SCSection)`
@@ -31,7 +31,7 @@ const Products = styled.div`
 	}
 
 	@media (min-width: 768px) {
-		grid-template-columns: repeat(5, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 	}
 `
 
@@ -73,9 +73,6 @@ const Page = (): JSX.Element => {
 				<Products>
 					<PhilipMartin />
 					<Evo />
-					<Ghd />
-					<Gold />
-					<Olaplex />
 				</Products>
 			</Section>
 		</>
