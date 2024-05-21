@@ -57,6 +57,19 @@ const list = [
 			</>
 		),
 	},
+	{
+		name: 'Kristina',
+		image: 'kristina.jpg',
+		description: (
+			<>
+				<P>
+					Lærlingen vår Kristina er 27 år gammel og har gått på Norsk Frisørskole. Hun er en kreativ person som liker 
+					å jobbe med frisyrer og farger som er unike og spennende. Samtidig er hun dyktig i klassiske dame og herre frisyrer. 
+					Hun er en pratsom nordlæning som er åpen for å ha samtaler om diverse temaer.
+				</P>
+			</>
+		),
+	},
 ]
 
 export default list
