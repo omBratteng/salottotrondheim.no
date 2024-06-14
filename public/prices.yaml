@@ -1,34 +1,38 @@
 - name: null
+  comment: "(inkludert vask og føn)"
   prices:
-    - name: klipp
+    - name: Klipp
       price:
-        - 864
-        - 964
-    - name: barn
+        - 890
+        - 990
+    - name: Barn
       price:
-        - 600
+        - 650
+    - name: Ungdom
+      price:
+        - 750
 
 - name: null
   comment: "(Pris varierer etter mengde farge(ml) / tykkelse av hår)"
   prices:
     - name: Ettervekst farge
       price:
-        - 1450
         - 1550
+        - 1650
     - name: Helfarge
       price:
         - 1950
         - 2050
 
 - name: null
-  comment: "(Obs: gloss, klipp og eventuelle andre behandlinger kommer i tillegg til denne prisen)"
+  comment: "(Prisene er veiledende og kan variere ut i fra produktmengde og tid)"
   prices:
     - name: Foliestriper ettervekst
       price:
-        - fra 2050
+        - fra 2550
     - name: Foliestriper hele håret
       price:
-        - fra 2550
+        - fra 3550
 
 - name: null
   prices:
@@ -37,26 +41,26 @@
         - 650
         - 950
 
-- name: hårkur
+- name: Hårkur
   prices:
     - name:
       price:
-        - 250
+        - 350
     - name: med massasje
-      price:
-        - 450
-
-- name: null
-  prices:
-    - name: vask eller styling
-      price:
-        - 250
-        - 400
-    - name: vask og føn
       price:
         - 550
 
-- name: farging
+- name: null
+  prices:
+    - name: Vask eller styling
+      price:
+        - 250
+        - 400
+    - name: Vask og føn
+      price:
+        - 550
+
+- name: Farging
   prices:
     - name: av vipper
       price:
@@ -70,9 +74,9 @@
 
 - name: null
   prices:
-    - name: strukurendring kort
+    - name: Strukturendring
       price:
-        - 1150
+        - 2050
 
 - name: null
   prices:
