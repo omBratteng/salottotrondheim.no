@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
 
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
 
 import { Section } from 'components/layout/section'
 import { ContactUs } from './footer/'
