@@ -11,10 +11,6 @@ import ScrollTo from 'components/ScrollTo'
 import { P } from 'components/text'
 import STRUCTURED_DATA from 'structuredData'
 
-const Map = dynamic(() => import('components/Map'), {
-	ssr: false,
-})
-
 const StyledFooter = styled.footer`
 	background-color: ${(props) => props.theme.colors.black};
 	color: ${(props) => props.theme.colors.white};
@@ -66,9 +62,6 @@ const Footer = (): JSX.Element => {
 	return (
 		<StyledFooter>
 			<ContactUs />
-			<Section aria-label="kart som viser vår lokasjon" type="wide" ref={ref} style={{ height: 600 }}>
-				{map}
-			</Section>
 			<Bottom aria-label="opphavsrett og lenke til personvernerklæring">
 				<P>
 					<span>&copy; {new Date().getFullYear()} Salotto | </span>
