@@ -47,7 +47,7 @@ const Bottom = styled(Section)`
 const Footer = (): JSX.Element => {
 	const { geo } = STRUCTURED_DATA
 
-	const { ref, inView } = useInView({
+	const { inView } = useInView({
 		rootMargin: '340px',
 		threshold: 0,
 		triggerOnce: true,
