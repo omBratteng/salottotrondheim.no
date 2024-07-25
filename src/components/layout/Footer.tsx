@@ -54,7 +54,7 @@ const Footer = (): JSX.Element => {
 	})
 
 	useEffect(() => {
-		inView && setMap(<Map position={[geo.latitude, geo.longitude]} />)
+		inView
 	}, [geo.latitude, geo.longitude, inView])
 
 	return (
