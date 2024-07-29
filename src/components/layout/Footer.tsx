@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import styled from '@emotion/styled'
-import { useInView } from 'react-intersection-observer'
 
 import Link from 'next/link'
 
@@ -8,7 +7,6 @@ import { Section } from 'components/layout/section'
 import { ContactUs } from './footer/'
 import ScrollTo from 'components/ScrollTo'
 import { P } from 'components/text'
-import STRUCTURED_DATA from 'structuredData'
 
 const StyledFooter = styled.footer`
 	background-color: ${(props) => props.theme.colors.black};
@@ -45,18 +43,6 @@ const Bottom = styled(Section)`
 `
 
 const Footer = (): JSX.Element => {
-	const { geo } = STRUCTURED_DATA
-
-	const { inView } = useInView({
-		rootMargin: '340px',
-		threshold: 0,
-		triggerOnce: true,
-	})
-
-	useEffect(() => {
-		inView
-	}, [geo.latitude, geo.longitude, inView])
-
 	return (
 		<StyledFooter>
 			<ContactUs />
