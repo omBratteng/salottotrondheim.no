@@ -90,7 +90,7 @@
       price:
         - 1300
 
-- name: Prisliste for Lærling
+- name: Lærling
   comment: "(barn inntil 12år)"
   prices:
     - name: Klipp
