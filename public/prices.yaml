@@ -91,13 +91,12 @@
         - 1300
 
 - name: Lærling
-  comment: "(barn inntil 12år)"
   prices:
     - name: Klipp
       price:
         - 490
         - 590
-    - name: Barn
+    - name: Barn (inntil 12år)
       price:
         - 300
     - name: Kjemiske Behandlinger
