@@ -64,13 +64,13 @@
   prices:
     - name: av vipper
       price:
-        - 330
+        - 350
     - name: av bryn
       price:
-        - 250
+        - 300
     - name: av vipper + bryn
       price:
-        - 450
+        - 500
 
 - name: null
   prices:
@@ -89,3 +89,17 @@
     - name: brudepynt pr time
       price:
         - 1300
+
+- name: Prisliste for Lærling
+  comment: "(barn inntil 12år)"
+  prices:
+    - name: Klipp
+      price:
+        - 490
+        - 590
+    - name: Barn
+      price:
+        - 300
+    - name: Kjemiske Behandlinger
+      price:
+        - 50% rabatt
