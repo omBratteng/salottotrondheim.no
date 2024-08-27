@@ -104,7 +104,6 @@ const Page = ({ priceList }: Props): JSX.Element => {
 			</ImageSection>
 			<PriceSection style={{ textAlign: 'center' }}>
 				<H1>prisliste</H1>
-				<H2>Alle behandlinger kommer med et hygienetillegg på 72kr</H2>
 
 				<PriceList priceList={priceList} />
 			</PriceSection>
