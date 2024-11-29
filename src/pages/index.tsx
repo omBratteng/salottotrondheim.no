@@ -104,6 +104,7 @@ const Page = ({ priceList }: Props): JSX.Element => {
 			</ImageSection>
 			<PriceSection style={{ textAlign: 'center' }}>
 				<H1>prisliste</H1>
+				<H2>Avbestilling må gjøres minst 24 timer før, om ikke blir timen fakturert 50% av behandlingen</H2>
 
 				<PriceList priceList={priceList} />
 			</PriceSection>
