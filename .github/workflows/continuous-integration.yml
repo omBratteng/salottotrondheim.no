@@ -22,14 +22,14 @@ jobs:
       -
         if: ${{ github.actor == 'dependabot[bot]' }}
         name: Checkout code
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.2.2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       -
         if: ${{ github.actor != 'dependabot[bot]' }}
         name: Checkout code
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.2.2
 
       - uses: pnpm/action-setup@v4.0.0
       - uses: actions/setup-node@v4.1.0
@@ -63,14 +63,14 @@ jobs:
       -
         if: ${{ github.actor == 'dependabot[bot]' }}
         name: Checkout code
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.2.2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       -
         if: ${{ github.actor != 'dependabot[bot]' }}
         name: Checkout code
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.2.2
 
       - uses: pnpm/action-setup@v4.0.0
       - uses: actions/setup-node@v4.1.0
@@ -108,14 +108,14 @@ jobs:
       -
         if: ${{ github.actor == 'dependabot[bot]' }}
         name: Checkout code
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.2.2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       -
         if: ${{ github.actor != 'dependabot[bot]' }}
         name: Checkout code
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.2.2
 
       - uses: pnpm/action-setup@v4.0.0
       - uses: actions/setup-node@v4.1.0
