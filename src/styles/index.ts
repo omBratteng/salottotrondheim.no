@@ -5,8 +5,18 @@ import { theme } from 'styles/theme'
 const appGlobalStyles = (pageTheme: typeof theme): SerializedStyles => css`
 	:root {
 		box-sizing: border-box;
-		font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans',
-			'Droid Sans', 'Helvetica Neue', sans-serif;
+		font-family:
+			'Roboto',
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			Oxygen,
+			Ubuntu,
+			Cantarell,
+			'Fira Sans',
+			'Droid Sans',
+			'Helvetica Neue',
+			sans-serif;
 		font-size: 1rem;
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-font-smoothing: antialiased;
@@ -33,10 +43,15 @@ const appGlobalStyles = (pageTheme: typeof theme): SerializedStyles => css`
 	body {
 		background: ${pageTheme.background};
 		color: ${pageTheme.font};
-		font-feature-settings: 'liga' 1, 'lnum' 1, 'tnum' 1;
+		font-feature-settings:
+			'liga' 1,
+			'lnum' 1,
+			'tnum' 1;
 		font-variant-ligatures: common-ligatures;
 		margin: 0;
-		transition: background 0.5s ease, color 0.5s ease;
+		transition:
+			background 0.5s ease,
+			color 0.5s ease;
 
 		@supports not (font-variant-ligatures: common-ligatures) {
 			font-feature-settings: 'liga';
@@ -87,21 +102,27 @@ const appGlobalStyles = (pageTheme: typeof theme): SerializedStyles => css`
 		font-family: 'Roboto';
 		font-style: normal;
 		font-weight: 300;
-		src: local('Roboto'), url('/assets/fonts/roboto-aa15f90aa29a18c813f9f34597b779f01222af95.woff2') format('woff2');
+		src:
+			local('Roboto'),
+			url('/assets/fonts/roboto-aa15f90aa29a18c813f9f34597b779f01222af95.woff2') format('woff2');
 	}
 	@font-face {
 		font-display: swap;
 		font-family: 'Roboto';
 		font-style: italic;
 		font-weight: 300;
-		src: local('Roboto'), url('/assets/fonts/roboto-8370d7348c62e9e25631cb33454da110fa57afd0.woff2') format('woff2');
+		src:
+			local('Roboto'),
+			url('/assets/fonts/roboto-8370d7348c62e9e25631cb33454da110fa57afd0.woff2') format('woff2');
 	}
 	@font-face {
 		font-display: swap;
 		font-family: 'Roboto';
 		font-style: normal;
 		font-weight: 500;
-		src: local('Roboto'), url('/assets/fonts/roboto-e55fb552fb1e9cf4a64979459c04857d19daaef6.woff2') format('woff2');
+		src:
+			local('Roboto'),
+			url('/assets/fonts/roboto-e55fb552fb1e9cf4a64979459c04857d19daaef6.woff2') format('woff2');
 	}
 `
 
