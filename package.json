@@ -36,7 +36,7 @@
     "analyze": "ANALYZE=true yarn build",
     "start": "next start",
     "staging": "APP_ENV=staging next build && next start",
-    "lint": "next lint --dir src --cache"
+    "lint": "next lint --dir src"
   },
   "dependencies": {
     "@emotion/cache": "^11.13.5",
