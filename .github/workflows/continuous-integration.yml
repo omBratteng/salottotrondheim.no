@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v3.6.0
 
       - uses: pnpm/action-setup@v4.0.0
-      - uses: actions/setup-node@v3.8.1
+      - uses: actions/setup-node@v4.1.0
         with:
           node-version: 22
 
@@ -73,7 +73,7 @@ jobs:
         uses: actions/checkout@v3.6.0
 
       - uses: pnpm/action-setup@v4.0.0
-      - uses: actions/setup-node@v3.8.1
+      - uses: actions/setup-node@v4.1.0
         with:
           node-version: 22
 
@@ -118,7 +118,7 @@ jobs:
         uses: actions/checkout@v3.6.0
 
       - uses: pnpm/action-setup@v4.0.0
-      - uses: actions/setup-node@v3.8.1
+      - uses: actions/setup-node@v4.1.0
         with:
           node-version: 22
 
