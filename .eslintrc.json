@@ -13,13 +13,13 @@
 	"plugins": [
 		"@typescript-eslint",
 		"react",
-		"react-hooks",
-		"@next/eslint-plugin-next"
+		"react-hooks"
 	],
 	"extends": [
 		"plugin:@typescript-eslint/recommended",
 		"plugin:prettier/recommended",
-		"next"
+		"next/core-web-vitals",
+		"next/typescript"
 	],
 	"globals": {
 		"global": true
