@@ -63,8 +63,8 @@ const list = [
 		description: (
 			<>
 				<P>
-					Ida har fullført 2 år på frisørlinja i Levanger og nå er hun første års lærling hos oss. Hun er trivelig, 
-					nøye og detalj fokusert, og klar til å utvikle ferdighetene sine. 
+					Ida har fullført 2 år på frisørlinja i Levanger og nå er hun første års lærling hos oss. Hun er trivelig,
+					nøye og detalj fokusert, og klar til å utvikle ferdighetene sine.
 				</P>
 			</>
 		),

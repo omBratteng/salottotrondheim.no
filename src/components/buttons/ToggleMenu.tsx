@@ -15,7 +15,9 @@ const Bars = styled.span`
 		border-radius: 2px;
 		height: 4px;
 		position: absolute;
-		transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6), background 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6),
+		transition:
+			transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6),
+			background 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6),
 			width 0.2s ease 0.2s;
 	}
 
@@ -73,7 +75,9 @@ const Button = styled.button`
 		> span:nth-of-type(1),
 		> span:nth-of-type(2),
 		> span:nth-of-type(3) {
-			transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s, width 0.2s ease;
+			transition:
+				transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s,
+				width 0.2s ease;
 			width: 19px;
 		}
 
@@ -100,10 +104,14 @@ const ToggleMenu = ({ onClick }: Props): JSX.Element => {
 	const { menuOpen, setMenuOpen } = useApp()
 	const handleClick = useCallback(
 		(event: MouseEvent<HTMLButtonElement>) => {
-			setMenuOpen && setMenuOpen((prevState) => !prevState)
+			if (setMenuOpen) {
+				setMenuOpen((prevState) => !prevState)
+			}
 
 			event.persist()
-			onClick && onClick(event)
+			if (onClick) {
+				onClick(event)
+			}
 		},
 		[onClick, setMenuOpen],
 	)

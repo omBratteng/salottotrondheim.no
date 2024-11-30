@@ -36,29 +36,28 @@
     "analyze": "ANALYZE=true yarn build",
     "start": "next start",
     "staging": "APP_ENV=staging next build && next start",
-    "lint": "yarn lint:eslint",
-    "lint:eslint": "next lint --dir src --cache"
+    "lint": "next lint --dir src"
   },
   "dependencies": {
-    "@emotion/cache": "^11.10.7",
-    "@emotion/css": "^11.13.0",
-    "@emotion/react": "^11.11.4",
+    "@emotion/cache": "^11.13.5",
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.13.5",
     "@emotion/server": "^11.11.0",
-    "@emotion/styled": "^11.13.0",
-    "@next/bundle-analyzer": "^13.5.3",
+    "@emotion/styled": "^11.13.5",
+    "@next/bundle-analyzer": "^15.0.3",
     "@svgr/webpack": "^8.1.0",
     "bowser": "^2.11.0",
     "leaflet": "^1.9.4",
-    "next": "^13.5.5",
+    "next": "^15.0.3",
     "next-compose-plugins": "^2.2.1",
     "polished": "^4.3.1",
-    "pure-react-carousel": "^1.30.1",
+    "pure-react-carousel": "^1.32.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-intersection-observer": "^9.10.3",
+    "react-intersection-observer": "^9.13.1",
     "react-is": "^18.3.1",
     "react-leaflet": "^4.2.1",
-    "yaml": "^2.5.0"
+    "yaml": "^2.6.1"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.x",
@@ -66,13 +65,14 @@
     "@types/react": "^18.x",
     "@types/react-dom": "^18.x",
     "@types/requestidlecallback": "^0.3.7",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.5",
+    "eslint-config-next": "^15.0.3",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.8",
-    "typescript": "^5.5.4"
-  }
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.4.1",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387"
 }

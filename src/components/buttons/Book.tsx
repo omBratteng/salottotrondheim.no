@@ -52,7 +52,9 @@ const Book = ({ bg = false, dark = true }: Props): JSX.Element => {
 			bg={bg}
 			dark={dark}
 			onClick={() => {
-				setModalOpen && setModalOpen((prevState) => !prevState)
+				if (setModalOpen) {
+					setModalOpen((prevState) => !prevState)
+				}
 			}}
 			className="bookButton"
 		>
