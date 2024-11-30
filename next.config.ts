@@ -1,10 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const withPlugins = require('next-compose-plugins')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-	enabled: process.env.ANALYZE === 'true',
-})
+import type { NextConfig } from 'next'
 
-const nextConfig = {
+const nextConfig: NextConfig = {
 	compiler: {
 		emotion: true,
 	},
@@ -44,11 +40,6 @@ const nextConfig = {
 			},
 		]
 	},
-	eslint: {
-		// Warning: This allows production builds to successfully complete even if
-		// your project has ESLint errors.
-		ignoreDuringBuilds: true,
-	},
 }
 
-module.exports = withPlugins([withBundleAnalyzer], nextConfig)
+export default nextConfig
