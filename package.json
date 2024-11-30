@@ -33,7 +33,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --dir src"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/cache": "^11.13.5",
