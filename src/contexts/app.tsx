@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, type ReactElement } from 'react'
+import type { Dispatch, SetStateAction, ReactElement } from 'react'
 import { createContext, useContext, useState, useEffect } from 'react'
 import { Global, ThemeProvider } from '@emotion/react'
 
