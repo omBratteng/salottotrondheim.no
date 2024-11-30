@@ -1,35 +1,9 @@
 {
-	"root": true,
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaVersion": 2021,
-		"ecmaFeatures": {
-			"jsx": true
-		},
-		"sourceType": "module",
-		"project": "./tsconfig.json",
-		"warnOnUnsupportedTypeScriptVersion": true
-	},
-	"plugins": [
-		"@typescript-eslint",
-		"react",
-		"react-hooks",
-		"@next/eslint-plugin-next"
-	],
 	"extends": [
-		"plugin:@typescript-eslint/recommended",
-		"plugin:prettier/recommended",
-		"next"
+		"next/core-web-vitals",
+		"next/typescript",
+		"plugin:prettier/recommended"
 	],
-	"globals": {
-		"global": true
-	},
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
-	},
-	"ignorePatterns": [".next/", "**/*.min.*"],
 	"rules": {
 		"prettier/prettier": [
 			"error",

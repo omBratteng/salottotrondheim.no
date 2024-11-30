@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ES2017",
     "lib": [
       "dom",
       "dom.iterable",
@@ -16,7 +16,7 @@
     "noUnusedParameters": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -38,7 +38,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js",
+    "next.config.ts",
     "babel.config.js"
   ],
   "exclude": [

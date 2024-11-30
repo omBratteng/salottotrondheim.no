@@ -30,13 +30,10 @@
     "not op_mini all"
   ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
-    "build:staging": "APP_ENV=staging next build",
-    "analyze": "ANALYZE=true yarn build",
     "start": "next start",
-    "staging": "APP_ENV=staging next build && next start",
-    "lint": "next lint --dir src"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/cache": "^11.13.5",
@@ -44,12 +41,10 @@
     "@emotion/react": "^11.13.5",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.13.5",
-    "@next/bundle-analyzer": "^15.0.3",
     "@svgr/webpack": "^8.1.0",
     "bowser": "^2.11.0",
     "leaflet": "^1.9.4",
     "next": "^15.0.3",
-    "next-compose-plugins": "^2.2.1",
     "polished": "^4.3.1",
     "pure-react-carousel": "^1.32.0",
     "react": "^18.3.1",
