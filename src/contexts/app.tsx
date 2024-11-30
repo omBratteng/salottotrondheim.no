@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, type ReactElement } from 'react'
 import { createContext, useContext, useState, useEffect } from 'react'
 import { Global, ThemeProvider } from '@emotion/react'
 
@@ -20,7 +20,6 @@ export type ContextProps = Partial<{
 export const AppContext = createContext({})
 export const useApp = (): ContextProps => {
 	const context = useContext(AppContext)
-
 	if (context === undefined) {
 		throw new Error('useContext must be used within a AppProvider')
 	}
@@ -30,7 +29,7 @@ export const useApp = (): ContextProps => {
 
 interface IAppProvider {
 	siteTitle: string
-	children: unknown
+	children: ReactElement
 }
 
 const AppProvider = ({ siteTitle = '', children }: IAppProvider): JSX.Element => {
