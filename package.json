@@ -61,7 +61,7 @@
     "@types/react-dom": "^18.x",
     "@types/requestidlecallback": "^0.3.7",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
-    "@typescript-eslint/parser": "^8.17.0",
+    "@typescript-eslint/parser": "^8.18.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "^15.0.4",
     "eslint-config-prettier": "^9.1.0",
