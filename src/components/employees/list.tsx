@@ -62,7 +62,7 @@ const list = [
 	},
 	{
 		name: 'Nina',
-		image: 'Nina.jpg',
+		image: 'Nina-1.jpg',
 		description: (
 			<>
 				<P>
