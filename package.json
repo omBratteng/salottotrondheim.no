@@ -42,7 +42,7 @@
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.14.1",
     "@svgr/webpack": "^8.1.0",
-    "bowser": "^2.11.0",
+    "bowser": "^2.12.1",
     "leaflet": "^1.9.4",
     "next": "^15.4.7",
     "polished": "^4.3.1",
