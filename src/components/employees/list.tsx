@@ -2,20 +2,6 @@ import { P } from 'components/text'
 
 const list = [
 	{
-		name: 'Pål',
-		image: 'paal.jpg',
-		description: (
-			<>
-				<P>
-					Pål er frisør, stylist, og kreativ ansvarlig hos Salotto med 30 års erfaring i faget. Som frisør er Pål en
-					uformell spøkefugl som elsker å tulle å ha det gøy på jobb med kunder og ansatte. Med sin kreative hjerne
-					og tekniske finesse, finner Pål den perfekte frisyren til deg.
-				</P>
-				<P>Ønsker du å fikse håret samtidig som du får litt sladder og en god latter, da er Pål frisøren for deg.</P>
-			</>
-		),
-	},
-	{
 		name: 'Lindis',
 		image: 'lindis.jpg',
 		description: (
